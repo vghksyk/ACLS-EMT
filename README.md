@@ -66,14 +66,32 @@
 - Mega Code / ECG Lab / ROSC / Transport 自動隱藏 Vitals bar；這三個模組內容與邏輯不變。
 
 
-## v2.4.4
+## v2.5
 - Patient Vitals bar 顯示於 Arrest / Brady / Tachy / ROSC-Transport。
 - Mega Code / ECG Lab 隱藏 Patient Vitals bar。
 - 其他主模組內容與流程不變。
 
 
-## v2.4.4 Mega Code defibrillation energy
+## v2.5 Mega Code defibrillation energy
 - VF/pVT arrest stages now require selecting biphasic defibrillation energy before SHOCK.
 - Initial generic simulator choices: 120/150/200 J or Maximum available, reflecting manufacturer-dependent AHA 2025 guidance.
 - Subsequent shock selections cannot be lower than the prior valid numeric setting; same or higher is accepted.
 - Debrief records energy selection for every shockable stage.
+
+
+## v2.5 Field Lite
+- Added three workflows: FIELD CAPTURE / TRAIN-ACLS / AUTO REPORT.
+- FIELD CAPTURE is a one-screen, one-tap event dashboard. Detailed vitals, IV/fluid, ETT and medication fields open only when needed.
+- AUTO REPORT automatically groups initial/latest vitals, shocks, medications, airway, IV/fluid, ROSC and event timeline.
+- Mega Code/training events are excluded from field Auto Report.
+- ROSC in FIELD mode records the event and stays on the dashboard instead of forcing a page transition.
+- Existing Arrest / Brady / Tachy / Mega Code / ECG Lab / ROSC modules are retained as TRAIN / detailed pathways.
+
+## v2.6 — NFA-aligned de-identified report prototype
+- FIELD / REPORT only; ACLS training modules preserved unchanged from v2.5.
+- Adds optional de-identified case profile: sex, approximate age, broad case type, chief-problem category, disposition and destination basis.
+- Does NOT collect patient name, ID/passport/resident number, DOB, phone, full address, family contact or signature.
+- Adds one-tap mission timestamps: dispatch/assigned, arrived scene, patient contact, departed scene, arrived hospital.
+- AUTO REPORT is reorganized into mission/case, de-identified patient overview, assessment/vitals, prehospital interventions, transport/handoff, and event timeline.
+- CSV adds case-profile and mission-label columns; training events remain excluded from AUTO REPORT.
+- This is an NFA-aligned prototype, not an official rescue record form or formal TEMSIS integration.
