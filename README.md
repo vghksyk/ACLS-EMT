@@ -59,3 +59,14 @@
 - Brady / Tachy / Mega Code / ECG Lab / ROSC / Arrest module HTML is unchanged from v2.3.1.
 - Added only a compact latest-vitals strip plus modal entry form for HR, BP, RR, SpO2, glucose, GCS and temperature.
 - Initial vitals and reassessments are timestamped to Timeline/CSV; field glucose updates the latest glucose display.
+
+
+## v2.4.2
+- Patient Vitals bar 只在 Arrest / Brady / Tachy 顯示。
+- Mega Code / ECG Lab / ROSC / Transport 自動隱藏 Vitals bar；這三個模組內容與邏輯不變。
+
+
+## v2.4.3
+- Patient Vitals bar 顯示於 Arrest / Brady / Tachy / ROSC-Transport。
+- Mega Code / ECG Lab 隱藏 Patient Vitals bar。
+- 其他主模組內容與流程不變。
