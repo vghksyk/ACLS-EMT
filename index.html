@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#071019" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="ACLS Leader" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icon-180.png" />
+<title>EMT Code Leader</title>
+<style>
+:root{--bg:#071019;--panel:#0d1824;--panel2:#132232;--text:#f2f7fb;--muted:#91a4b7;--line:#24384b;--red:#ff4d5f;--amber:#ffb23e;--green:#4bd28b;--blue:#59a7ff;--cyan:#5ad5dd;--purple:#b69cff;--shadow:0 10px 30px rgba(0,0,0,.25)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#061019 0%,#091420 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}button,input,select{font:inherit}.app{max-width:860px;margin:auto;padding:14px 14px 90px}.top{position:sticky;top:0;z-index:20;background:rgba(7,16,25,.94);backdrop-filter:blur(10px);padding:8px 0 10px;border-bottom:1px solid rgba(255,255,255,.06)}.brand{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand h1{font-size:18px;margin:0;letter-spacing:.4px}.credit{font-size:11px;color:#8fa6b9;margin-top:3px;letter-spacing:.02em}.datetimebar{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:7px;padding:0 2px;color:#b9c9d7;font-variant-numeric:tabular-nums}.datetimebar span{font-size:12px}.datetimebar strong{font-size:22px;letter-spacing:.04em;color:#fff}.pill{font-size:11px;padding:5px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}.hero{margin-top:10px;background:linear-gradient(135deg,#142535,#0d1925);border:1px solid #294258;border-radius:18px;padding:14px;box-shadow:var(--shadow)}.hero-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.next-label{font-size:11px;color:var(--muted);letter-spacing:.12em}.next{font-weight:800;font-size:22px;line-height:1.18;margin-top:4px}.next small{display:block;font-size:13px;font-weight:600;color:#bfd0df;margin-top:6px}.cyclebox{text-align:center;min-width:112px}.cycle{font-size:34px;font-variant-numeric:tabular-nums;font-weight:800}.cycle.subtle{color:var(--muted)}.cycle-meta{font-size:11px;color:var(--muted)}.progress{height:5px;background:#1c2c3b;border-radius:99px;overflow:hidden;margin-top:12px}.progress>div{height:100%;width:0;background:var(--green);transition:width .2s linear}.statusline{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.tag{border-radius:9px;padding:5px 8px;background:#0b151f;border:1px solid var(--line);font-size:12px;color:#c8d5e0}.tag.alert{border-color:#70434a;color:#ffabb4}.tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:12px 0}.tab{border:none;border-radius:12px;padding:10px 6px;background:#132130;color:#9bb0c1;font-size:12px;font-weight:700}.tab.active{background:#235174;color:#fff}.section{background:var(--panel);border:1px solid #203447;border-radius:17px;margin:10px 0;overflow:hidden}.section-h{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;background:rgba(255,255,255,.015)}.section-h h2{font-size:15px;margin:0}.section-b{padding:0 14px 14px}.grid2,.grid3,.grid4{display:grid;gap:8px}.grid2{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}button.action{border:1px solid #2a4055;background:var(--panel2);color:var(--text);border-radius:13px;padding:13px 9px;font-weight:750;min-height:48px;box-shadow:none}button.action:active{transform:scale(.985)}button.primary{background:#164d38;border-color:#287a5c}button.danger{background:#5b1f29;border-color:#a84353}button.warn{background:#5a4017;border-color:#9a6d25}button.info{background:#193c61;border-color:#2b659d}button.ghost{background:#0b151f}button.done{background:#20362c;border-color:#3d765c;color:#bff0d3}.big{min-height:64px!important;font-size:17px}.rhythm button{font-size:15px}.metric{background:#0a141e;border:1px solid #213446;border-radius:12px;padding:10px}.metric label{display:block;color:var(--muted);font-size:11px;margin-bottom:4px}.metric strong{font-size:18px;font-variant-numeric:tabular-nums}.hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}.divider{height:1px;background:#213446;margin:12px 0}.hsgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.hbtn{text-align:left;border:1px solid #2a4055;background:#101d2a;color:#e5edf3;border-radius:12px;padding:10px;font-size:12px}.hbtn span{display:block;color:var(--muted);font-size:10px;margin-top:2px}.hbtn.suspected{border-color:var(--amber);background:#352a18}.hbtn.treated{border-color:var(--green);background:#163225}.log{max-height:250px;overflow:auto;border:1px solid #213446;border-radius:12px;background:#08121b}.event{display:grid;grid-template-columns:118px 1fr;gap:8px;padding:9px 10px;border-bottom:1px solid #172737;font-size:12px}.event:last-child{border-bottom:none}.event time{color:#79a9c9;font-variant-numeric:tabular-nums;line-height:1.2}.event time b{display:block;color:#a9d7f4;font-size:12px}.event time span{display:block;color:#6f8ea5;font-size:10px;margin-top:3px}.event b{font-weight:700}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:11px;color:var(--muted)}.field input,.field select{width:100%;background:#09131d;border:1px solid #2a4055;color:#fff;border-radius:10px;padding:10px}.footerbar{position:fixed;bottom:0;left:0;right:0;background:rgba(6,15,23,.96);backdrop-filter:blur(12px);border-top:1px solid #22384b;padding:8px max(12px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));z-index:25}.footer-inner{max-width:860px;margin:auto;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:8px}.footer-inner button{min-height:50px}.notice{font-size:10px;color:#72899d;line-height:1.45;padding:8px 2px;text-align:center}.hidden{display:none!important}.flash{animation:flash .7s 3}@keyframes flash{50%{box-shadow:0 0 0 4px rgba(255,77,95,.28)}}
+.audio-panel{margin-top:10px;padding:10px;border:1px solid #27445b;border-radius:12px;background:#0a1722}.audio-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.audio-status{font-size:12px;color:#b7c8d6}.audio-status.ok{color:#9ce2bb}.switches{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px}.check{display:flex;align-items:center;gap:6px;font-size:12px;color:#c8d5e0}.check input{width:18px;height:18px;accent-color:#4bd28b}.sound-test{min-height:38px!important;padding:7px 11px!important}.export-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.casebar{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.toast{position:fixed;left:50%;bottom:82px;transform:translateX(-50%);background:#eef7ff;color:#071019;padding:9px 13px;border-radius:10px;font-size:12px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s;z-index:40;box-shadow:var(--shadow)}.toast.show{opacity:1}
+
+.flowcard{border:1px solid #294258;background:#0a1722;border-radius:14px;padding:12px;margin-top:9px}.flowcard h3{margin:0 0 7px;font-size:14px}.flowcard .lead{font-size:13px;line-height:1.55;color:#d8e5ef}.criteria{margin:7px 0 0;padding-left:18px;color:#b9c9d7;font-size:12px;line-height:1.55}.choicebar{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:9px}.choicebar.three{grid-template-columns:repeat(3,1fr)}.minihead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}.dosebox{border-left:3px solid #2b659d;padding:8px 10px;background:#0b151f;border-radius:8px;margin-top:8px;font-size:12px;line-height:1.55;color:#c9d7e2}.warnbox{border-left-color:#a84353;background:#211219}.active-choice{outline:2px solid #59a7ff!important;background:#173b5d!important}.mode-next{font-size:16px;font-weight:800;line-height:1.35}.mode-next small{display:block;font-size:12px;font-weight:500;color:#a9bdcd;margin-top:5px}.drugrow{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}.cardio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:8px}.refline{font-size:10px;color:#72899d;line-height:1.45;margin-top:10px}.brady-status,.tachy-status{font-size:12px;color:#9fc3db}.flowhidden{display:none!important}
+.providerbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px;padding:9px 10px;border:1px solid #294258;border-radius:13px;background:#0b1721}.provider-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.provider-label{font-size:11px;color:#8fa6b9;font-weight:800;letter-spacing:.08em}.provider-toggle{display:flex;gap:6px;flex-wrap:wrap}.provider-toggle button{border:1px solid #2a4055;background:#101d2a;color:#cbd9e3;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800}.provider-note{margin-top:6px;border-left:3px solid #2b659d;background:#0b151f;border-radius:8px;padding:8px 10px;font-size:11px;line-height:1.5;color:#b9c9d7}.provider-note.emt1{border-left-color:#4b7c9b}.provider-note.emt2{border-left-color:#4b8b66}.provider-note.emtp{border-left-color:#c68a2b;background:#211a10;color:#e8d1a3}.hospital-only{display:none!important}.emt-only{display:block!important}.emt2plus,.emtp-only,.emt12-only,.emt1-only,.emt2-only{display:none!important}body.emt1-mode .emt12-only,body.emt2-mode .emt12-only{display:block!important}body.emt2-mode .emt2plus,body.emtp-mode .emt2plus{display:block!important}body.emtp-mode .emtp-only{display:block!important}body.emt1-mode .emt1-only{display:block!important}body.emt2-mode .emt2-only{display:block!important}.scope-chip{display:inline-block;border:1px solid #705c32;border-radius:999px;padding:3px 7px;font-size:10px;color:#e1c98f;background:#211a10}.transport-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+@media(max-width:520px){.datetimebar strong{font-size:19px}.datetimebar span{font-size:11px}.event{grid-template-columns:98px 1fr}.export-grid{grid-template-columns:1fr 1fr}.export-grid button:last-child{grid-column:1/-1}.app{padding-left:10px;padding-right:10px}.next{font-size:19px}.cycle{font-size:30px}.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.tabs{gap:5px}.tab{font-size:11px;padding:9px 3px}}
+
+.mega-wrap{display:grid;gap:10px}.mega-case{border:1px solid #31526c;background:linear-gradient(135deg,#102436,#0b1824);border-radius:16px;padding:13px}.mega-case h3{margin:0 0 6px;font-size:17px}.mega-kicker{font-size:10px;letter-spacing:.12em;color:#7fb7da;text-transform:uppercase}.mega-scene{font-size:14px;line-height:1.6;color:#e3edf5;margin-top:8px}.vitals{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px}.vital{background:#08131d;border:1px solid #294258;border-radius:10px;padding:8px;text-align:center}.vital span{display:block;color:#7f9db3;font-size:10px}.vital b{display:block;font-size:15px;margin-top:2px}.mega-toolbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.mega-modebtn.active-choice{outline:2px solid #59a7ff!important}.action-bank{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.action-bank button{font-size:12px;min-height:50px}.mega-feedback{border:1px solid #294258;background:#08131d;border-radius:12px;padding:10px;font-size:12px;line-height:1.55;color:#cbd9e3}.mega-feedback.good{border-color:#3d765c;background:#102b20}.mega-feedback.bad{border-color:#8c3d49;background:#25151a}.mega-score{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mega-stagebar{height:6px;background:#132434;border-radius:99px;overflow:hidden;margin-top:10px}.mega-stagebar>div{height:100%;width:0;background:#59a7ff;transition:width .25s}.mega-debrief{border:1px solid #31526c;background:#0b1721;border-radius:14px;padding:12px}.mega-debrief h3{margin:0 0 8px}.mega-debrief ul{padding-left:18px;margin:6px 0;color:#c8d6df;font-size:12px;line-height:1.55}.cause-row{display:grid;grid-template-columns:1.4fr .8fr;gap:7px;margin-top:7px}.cause-row select{width:100%;background:#09131d;border:1px solid #2a4055;color:#fff;border-radius:10px;padding:10px}.mega-complete{border-color:#3d765c!important;box-shadow:0 0 0 2px rgba(75,210,139,.12) inset}.ecg-wrap{margin-top:10px}.ecg-strip{margin-top:8px;border:1px solid #27445b;border-radius:12px;background:linear-gradient(180deg,#020b10,#07131a);padding:8px;overflow:hidden}.ecg-strip svg{display:block;width:100%;height:120px}.ecg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:9px}.ecg-grid button{font-size:12px;min-height:44px}.ecg-note{font-size:12px;color:#cbd9e3;line-height:1.5}.ecg-choice-correct{border-color:#3d765c!important;background:#163225!important}.ecg-choice-wrong{border-color:#8c3d49!important;background:#25151a!important}.answer-box{margin-top:10px;border:1px solid #3d765c;background:#102b20;border-radius:12px;padding:11px 12px;font-size:12px;line-height:1.6;color:#dff7e8}.answer-box b{font-size:14px;color:#9ce2bb}.answer-box.bad{border-color:#8c3d49;background:#25151a}.answer-box.bad b{color:#ffb0ba}
+@media(max-width:520px){.vitals{grid-template-columns:repeat(2,1fr)}.action-bank{grid-template-columns:repeat(2,1fr)}.mega-toolbar{grid-template-columns:1fr 1fr}.tabs{grid-template-columns:repeat(3,1fr)}}
+
+.pressure-timer{font-variant-numeric:tabular-nums}.pressure-timer.hot{border-color:#a84353;color:#ffabb4;background:#30151b}.energy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:10px}.energy-grid button{min-height:58px!important;font-size:15px!important;font-weight:850}.energy-alert{border:2px solid #a96a22!important;background:linear-gradient(135deg,#2b1b0b,#17130d)!important;box-shadow:0 0 0 3px rgba(255,178,62,.08) inset}.energy-alert .minihead h3{font-size:16px!important}.energy-step{font-size:13px;line-height:1.55;color:#ffe2ad;font-weight:700}.energy-selected{margin-top:8px;border-radius:10px;padding:8px 10px;background:#0b151f;border:1px solid #7a5722;color:#ffd596;font-size:12px}.energy-choice-correct{border-color:#3d765c!important;background:#163225!important}.energy-choice-wrong{border-color:#8c3d49!important;background:#25151a!important}.ecglab-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ecglab-score{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.ttm-box{border:1px solid #41637c;background:#0c1d29;border-radius:14px;padding:12px;margin-top:10px}.ttm-box h3{margin:0 0 8px;font-size:15px}.target-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}.target{border:1px solid #294258;background:#09151f;border-radius:10px;padding:9px}.target span{display:block;color:#85a4ba;font-size:10px}.target b{display:block;font-size:14px;margin-top:2px}@media(max-width:520px){.ecglab-top{grid-template-columns:1fr 1fr}.ecglab-top button:last-child{grid-column:1/-1}.target-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand"><div><h1>EMT CODE LEADER</h1><div class="credit">奇美加護醫學部專科護理師 洪苡瑾</div></div><span class="pill">Adult · EMT v2.1</span></div>
+    <div class="datetimebar" aria-label="目前日期與時間"><span id="liveDate">----/--/--</span><strong id="liveClock">--:--:--</strong></div>
+    <div class="providerbar" aria-label="EMT level"><div class="provider-left"><span class="provider-label">EMT LEVEL</span><div class="provider-toggle"><button id="providerEmt1Btn" onclick="setProviderMode('emt1')">EMT-1</button><button id="providerEmt2Btn" onclick="setProviderMode('emt2')">EMT-2</button><button id="providerEmtpBtn" class="active-choice" onclick="setProviderMode('emtp')">EMT-P</button></div></div><span class="pill" id="providerStatus">EMT-P</span></div>
+    <div class="provider-note emtp" id="providerNote"><b>EMT-P：</b>依預立醫療流程 / medical direction 執行 advanced interventions；地方擴充項目仍依核定 protocol。</div>
+    <div class="hero" id="hero">
+      <div class="hero-row">
+        <div><div class="next-label">LEADER 下一步</div><div class="next" id="nextAction">開始 CPR，接上 monitor / defibrillator<small id="nextSub">選擇第一次 rhythm 後，系統會切換流程提示</small></div></div>
+        <div class="cyclebox"><div class="cycle subtle" id="cycleTime">00:00</div><div class="cycle-meta" id="cycleMeta">CPR 尚未開始</div></div>
+      </div>
+      <div class="progress"><div id="progress"></div></div>
+      <div class="statusline"><span class="tag" id="totalTag">Total 00:00</span><span class="tag" id="cycleTag">Cycle 0</span><span class="tag" id="epiTag">Epi --:--</span><span class="tag" id="shockTag">Shock ×0</span></div><div class="casebar"><span class="tag" id="caseTag">Case --</span><span class="tag" id="offlineTag">Offline ready: checking…</span></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-mode="arrest">Arrest</button><button class="tab" data-mode="brady">Brady</button><button class="tab" data-mode="tachy">Tachy</button><button class="tab emtp-only-tab" data-mode="mega">Mega Code</button><button class="tab" data-mode="ecg">ECG Lab</button><button class="tab" data-mode="rosc">ROSC / Transport</button>
+  </div>
+
+  <main id="arrestMode">
+    <section class="section">
+      <div class="section-h"><h2>1 · Rhythm</h2><span class="pill" id="currentRhythm">未選擇</span></div>
+      <div class="section-b rhythm grid4">
+        <button class="action danger big" onclick="setRhythm('VF')">VF</button><button class="action danger big" onclick="setRhythm('pVT')">pVT</button><button class="action warn big" onclick="setRhythm('PEA')">PEA</button><button class="action warn big" onclick="setRhythm('Asystole')">Asystole</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><h2>2 · CPR / Defibrillation</h2><span class="pill">2 min cycles</span></div>
+      <div class="section-b">
+        <div class="grid2"><button id="cprBtn" class="action primary big" onclick="toggleCPR()">▶ START CPR</button><button class="action danger big emtp-only" onclick="giveShock()">⚡ MANUAL SHOCK</button><button class="action info big emt12-only" onclick="logAEDAnalyze()">AED ANALYZE</button><button class="action danger big emt12-only" onclick="giveAEDShock()">⚡ AED SHOCK</button></div>
+        <div class="inputs" style="margin-top:8px"><div class="field emtp-only"><label>實際設定 Biphasic energy</label><select id="shockEnergy" onchange="toggleShockEnergyCustom()"><option value="" selected>選擇 energy…</option><option value="120">120 J</option><option value="150">150 J</option><option value="200">200 J</option><option value="300">300 J</option><option value="360">360 J</option><option value="maximum available">Maximum available</option><option value="other">Other / 自訂</option></select><input id="shockEnergyCustom" class="hidden" inputmode="numeric" placeholder="輸入實際 J，例如 270" style="margin-top:6px"><div class="hint" style="margin-top:5px">快速紀錄 EMT-P manual defibrillation 設定；實際能量依設備、預立醫療流程與 medical direction。</div></div><div class="field"><label>CPR metronome</label><select id="bpm"><option>100</option><option selected>110</option><option>120</option></select></div></div>
+        <div class="audio-panel">
+          <div class="audio-row"><div><b>🔊 Audio prompts</b><div class="audio-status" id="audioStatus">第一次使用請按「測試聲音」解除瀏覽器靜音限制</div></div><button class="action info sound-test" onclick="testAudio()">測試聲音</button></div>
+          <div class="switches"><label class="check"><input type="checkbox" id="metronomeOn" checked> CPR 節拍音</label><label class="check"><input type="checkbox" id="voiceOn" checked> 中文語音</label><label class="check"><input type="checkbox" id="countdownOn" checked> 30/10 秒預告</label><label class="check"><input type="checkbox" id="epiVoiceOn" checked> Epi 3 分鐘提醒</label></div>
+        </div>
+        <div class="hint emtp-only">EMT-P manual defibrillation：依設備/製造商建議與預立醫療流程；未知能量時依 local protocol / device guidance。聲音提示：90 秒「30 秒後節律檢查」、110 秒「10 秒後節律檢查」、120 秒警示音＋「兩分鐘到，請檢查心律與脈搏」。</div><div class="hint emt12-only">EMT-1 / EMT-2：使用 AED，依裝置語音/畫面提示分析與電擊；電擊後立即恢復 CPR。</div>
+      </div>
+    </section>
+
+    <section class="section emtp-only">
+      <div class="section-h"><h2>3 · EMT-P Drugs</h2><span class="pill">standing orders</span></div>
+      <div class="section-b">
+        <div class="grid2"><button class="action info big" onclick="giveEpi()">Epinephrine 1 mg</button><button class="action ghost big" onclick="logCustom('IV/IO access established')">IV / IO access ✓</button></div>
+        <div class="divider"></div>
+        <div class="grid2"><button class="action" onclick="giveDrug('Amiodarone 300 mg IV/IO')">Amiodarone 300 mg</button><button class="action" onclick="giveDrug('Amiodarone 150 mg IV/IO')">Amiodarone 150 mg</button><button class="action" onclick="giveDrug('Lidocaine 1–1.5 mg/kg IV/IO')">Lidocaine 1–1.5 mg/kg</button><button class="action" onclick="giveDrug('Lidocaine 0.5–0.75 mg/kg IV/IO')">Lidocaine 0.5–0.75 mg/kg</button></div>
+        <div class="hint">Epinephrine：1 mg IV/IO every 3–5 min；PEA/Asystole 應儘快給。Amiodarone 或 lidocaine 用於 refractory VF/pVT。</div>
+        <div class="divider"></div>
+        <h3 style="font-size:13px;margin:0 0 8px">Special circumstance / local protocol medications</h3>
+        <div class="inputs">
+          <div class="field"><label>NaHCO₃ actual dose (mEq)</label><input id="bicarbDose" inputmode="decimal" placeholder="輸入實際給藥量"></div>
+          <div class="field"><label>MgSO₄ actual dose (g)</label><input id="mgso4Dose" inputmode="decimal" placeholder="輸入實際給藥量"></div>
+        </div>
+        <div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="recordSpecialDrug('Sodium bicarbonate','bicarbDose','mEq','special circumstance / local protocol')">NaHCO₃ 記錄</button><button class="action ghost" onclick="recordSpecialDrug('Magnesium sulfate','mgso4Dose','g','TdP / long-QT polymorphic VT')">MgSO₄ · TdP 記錄</button></div>
+        <div class="hint"><b>不是 routine cardiac-arrest drug：</b>2025 AHA 不建議 cardiac arrest 常規給 sodium bicarbonate 或 magnesium。NaHCO₃ 留給特定病因／院內 / prehospital standing orders（例如 sodium-channel blocker toxicity；hyperkalemic arrest 證據仍有限）；MgSO₄ 主要用於 recurrent torsades / long-QT polymorphic VT。此區以「紀錄實際給藥」為目的，不代表每次 arrest 都應給。</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><h2>4 · Airway / CPR quality</h2><span class="pill">EtCO₂</span></div>
+      <div class="section-b">
+        <div class="grid3"><button class="action" onclick="airway('BVM + O₂')">BVM + O₂</button><button class="action emt2plus" onclick="airway('Supraglottic airway')">SGA</button><button class="action emtp-only" onclick="airway('ETT placed')">ETT</button></div>
+        <div class="grid3" style="margin-top:8px"><div class="field emtp-only"><label>ETT 管徑 · ID (mm)</label><select id="ettSize" onchange="toggleEttOther()"><option value="">選擇 ETT size</option><option value="6.0">6.0 mm</option><option value="6.5">6.5 mm</option><option value="7.0">7.0 mm</option><option value="7.5">7.5 mm</option><option value="8.0">8.0 mm</option><option value="8.5">8.5 mm</option><option value="9.0">9.0 mm</option><option value="other">Other / 自訂</option></select><input id="ettSizeOther" class="hidden" inputmode="decimal" placeholder="輸入實際 ID mm" style="margin-top:6px"></div><div class="field emtp-only"><label>ETT depth (cm)</label><input id="ettDepth" inputmode="decimal" placeholder="例如 22"></div><div class="field emt2plus"><label>EtCO₂ (mmHg)</label><input id="etco2" inputmode="decimal" placeholder="輸入後記錄"></div></div>
+        <div style="margin-top:8px"><button class="action ghost" style="width:100%" onclick="recordAirwayData()">記錄 airway / ETT / EtCO₂</button></div>
+        <div class="hint">CPR quality：維持高品質壓胸與最小化中斷；換手由 2-min cycle / team workflow 提醒，不另建立 Timeline event。</div>
+        <div class="hint">高品質 CPR：100–120/min、深度至少 5 cm、完整回彈、減少中斷。Advanced airway 後持續壓胸，1 breath / 6 sec（10/min），並以 waveform capnography 確認與監測。</div>
+      </div>
+    </section>
+
+    <section class="section hospital-only">
+      <div class="section-h"><h2>5 · Blood draw / POC Lab</h2><span class="pill">time-stamped</span></div>
+      <div class="section-b">
+        <div class="grid2"><button class="action info" onclick="recordBloodDraw()">🩸 抽血 / POC sent</button><div class="field"><label>Sample</label><select id="labType"><option>ABG</option><option>VBG</option><option>POC</option><option>Other</option></select></div></div>
+        <div class="grid3" style="margin-top:8px">
+          <div class="field"><label>pH</label><input id="labPH" inputmode="decimal" placeholder="7.20"></div>
+          <div class="field"><label>PaCO₂ (mmHg)</label><input id="labPaCO2" inputmode="decimal"></div>
+          <div class="field"><label>PaO₂ (mmHg)</label><input id="labPaO2" inputmode="decimal"></div>
+          <div class="field"><label>HCO₃⁻ (mmol/L)</label><input id="labHCO3" inputmode="decimal"></div>
+          <div class="field"><label>K⁺ (mmol/L)</label><input id="labK" inputmode="decimal"></div>
+          <div class="field"><label>iCa (mmol/L)</label><input id="labICa" inputmode="decimal"></div>
+          <div class="field"><label>Mg (mg/dL)</label><input id="labMg" inputmode="decimal"></div>
+          <div class="field"><label>Lactate (mmol/L)</label><input id="labLactate" inputmode="decimal"></div>
+          <div class="field"><label>Glucose (mg/dL)</label><input id="labGlucose" inputmode="decimal"></div>
+          <div class="field"><label>Hb (g/dL)</label><input id="labHb" inputmode="decimal"></div>
+        </div>
+        <div class="grid2" style="margin-top:8px"><button class="action primary" onclick="recordLabData()">記錄 Lab data</button><button class="action ghost" onclick="clearLabInputs()">清空 Lab 欄位</button></div>
+        <div class="hint">此區是 CPR team 的時間序列紀錄工具，不代表每次 arrest 都必須抽 ABG。2025 AHA 對 CPR 期間 arterial blood gas measurement 的臨床效益評為 uncertain；實際抽血項目依病因、POC 能力與院內流程決定。</div>
+      </div>
+    </section>
+
+    <section class="section emt-only">
+      <div class="section-h"><h2>5 · Current EMT scope</h2><span class="scope-chip">Taiwan EMT</span></div>
+      <div class="section-b"><div class="lead" id="scopeSummary">EMT-P：依預立醫療流程執行藥物、ETT、電擊與 TCP；地方擴充項目仍依核定 protocol。</div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><h2>6 · Reversible causes — Hs & Ts</h2><span class="pill">點一次 suspected · 再點 treated</span></div>
+      <div class="section-b hsgrid" id="hsgrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><h2>7 · Event timeline / Export</h2><span class="pill">local only</span></div>
+      <div class="section-b">
+        <div class="log" id="log"><div class="event"><time>--:--</time><div>尚無事件</div></div></div>
+        <div class="export-grid"><button class="action info" onclick="exportCSV()">⬇ 匯出 CSV</button><button class="action ghost" onclick="shareCSV()">↗ 分享 CSV</button><button class="action ghost" onclick="copySummary()">⧉ 複製摘要</button></div>
+        <div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="undoLast()">↶ Undo last</button><button class="action ghost" onclick="resetAll()">Reset case</button></div>
+        <div class="hint">事件資料只儲存在本機瀏覽器；CSV 包含 Case ID、實際時間、elapsed time、事件類型、當下 rhythm、shock 次數與事件內容。未輸入姓名或病歷號。</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="bradyMode" class="hidden">
+    <section class="section">
+      <div class="section-h"><h2>Adult Bradycardia With a Pulse</h2><span class="pill">2025 AHA</span></div>
+      <div class="section-b">
+        <div class="flowcard"><div class="minihead"><div class="mode-next" id="bradyNext">先完成 initial support，再判斷是否有 cardiopulmonary compromise<small>Airway / O₂、monitor / BP / SpO₂ / pulse、12-lead；EMT-2+ peripheral IV，EMT-P 依 protocol 可 IO / advanced treatment</small></div><span class="brady-status" id="bradyStatus">未分流</span></div></div>
+        <div class="flowcard"><h3>1 · Initial assessment & support</h3><div class="lead">先同步完成 airway / breathing support、O₂ as indicated、cardiorespiratory monitor、BP / SpO₂ / pulse 與 12-lead ECG。Peripheral IV 僅在 EMT-2 以上顯示；IO 與 advanced bradycardia treatment 僅在 EMT-P 依 protocol 顯示。</div><div class="grid3" style="margin-top:8px"><button class="action ghost" onclick="logBrady('Airway assessed / oxygen provided as clinically indicated')">Airway / O₂</button><button class="action ghost" onclick="logBrady('Cardiorespiratory monitor / BP / SpO₂ / pulse monitoring established')">Monitor / BP / SpO₂</button><button class="action ghost emt2plus" onclick="logBrady('Peripheral IV access established')">Peripheral IV</button><button class="action ghost emtp-only" onclick="logBrady('IO access established per protocol')">IO</button><button class="action ghost" onclick="logBrady('12-lead ECG obtained when feasible')">12-lead ECG</button><button class="action ghost" onclick="logBrady('PPV assisted as necessary')">PPV if needed</button></div><div class="hint">Oxygen 依 oxygenation / clinical context；不要把「O₂」理解成所有病人一律追求 hyperoxia。</div></div>
+        <div class="flowcard hospital-only"><div class="minihead"><h3 style="margin:0">2 · Blood draw / POC Lab</h3><span class="pill">as clinically indicated</span></div><div class="lead">用於尋找可逆病因與留下時間序列紀錄；不是每一例 bradycardia 都必須抽同一套 lab。</div><div class="grid2" style="margin-top:8px"><button class="action info" onclick="recordPathwayBloodDraw('bradycardia','bradyLab')">🩸 抽血 / POC sent</button><div class="field"><label>Sample</label><select id="bradyLabType"><option>ABG</option><option>VBG</option><option>POC</option><option>Serum</option><option>Other</option></select></div></div><div class="grid3" style="margin-top:8px"><div class="field"><label>pH</label><input id="bradyLabPH" inputmode="decimal"></div><div class="field"><label>PaCO₂ (mmHg)</label><input id="bradyLabPaCO2" inputmode="decimal"></div><div class="field"><label>PaO₂ (mmHg)</label><input id="bradyLabPaO2" inputmode="decimal"></div><div class="field"><label>HCO₃⁻ (mmol/L)</label><input id="bradyLabHCO3" inputmode="decimal"></div><div class="field"><label>K⁺ (mmol/L)</label><input id="bradyLabK" inputmode="decimal"></div><div class="field"><label>iCa (mmol/L)</label><input id="bradyLabICa" inputmode="decimal"></div><div class="field"><label>Mg (mg/dL)</label><input id="bradyLabMg" inputmode="decimal"></div><div class="field"><label>Lactate (mmol/L)</label><input id="bradyLabLactate" inputmode="decimal"></div><div class="field"><label>Glucose (mg/dL)</label><input id="bradyLabGlucose" inputmode="decimal"></div><div class="field"><label>Hb (g/dL)</label><input id="bradyLabHb" inputmode="decimal"></div></div><div class="grid2" style="margin-top:8px"><button class="action primary" onclick="recordPathwayLabData('bradycardia','bradyLab')">記錄 Lab data</button><button class="action ghost" onclick="clearPathwayLabInputs('bradyLab')">清空 Lab 欄位</button></div><div class="hint">Brady possible causes 包括 ischemia/MI、drugs/toxicologic、hypoxia、electrolyte abnormality；因此 K⁺/Mg/iCa、acid-base、glucose 等可依情境選擇性取得。</div></div>
+        <div class="flowcard"><h3>3 · Cardiopulmonary compromise?</h3><ul class="criteria"><li>Hypotension</li><li>Acutely altered mental status</li><li>Signs of shock</li><li>Ischemic chest discomfort</li><li>Acute heart failure</li></ul><div class="choicebar"><button id="bradyCompYes" class="action danger" onclick="setBradyCompromise(true)">YES · 有不穩定徵象</button><button id="bradyCompNo" class="action primary" onclick="setBradyCompromise(false)">NO · 無不穩定徵象</button></div></div>
+        <div id="bradyStable" class="flowcard flowhidden"><h3>無 cardiopulmonary compromise</h3><div class="lead">Identify and treat underlying causes；support ABCs、consider oxygen、取得 12-lead ECG、observe。</div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="logBrady('12-lead ECG rechecked / reviewed')">12-lead review</button><button class="action ghost" onclick="logBrady('Underlying cause reviewed')">Underlying cause</button></div></div>
+        <div id="bradyUnstable" class="flowcard flowhidden"><h3>4 · Persistent bradycardia with compromise?</h3><div class="lead">持續 airway / oxygenation / ventilation 與 cardiorespiratory monitoring。EMT-P 依預立醫療流程可進入 atropine / pacing / vasoactive support；EMT-1/2 則以支持、ALS intercept / medical control 與快速後送為主。</div><div class="choicebar"><button class="action danger" onclick="showBradyTreatment(true)">YES · 持續</button><button class="action primary" onclick="showBradyTreatment(false)">NO · 改找病因/觀察</button></div></div>
+        <div id="bradyTreatment" class="flowcard flowhidden emtp-only"><h3>5 · Treatment</h3><div class="dosebox"><b>Atropine IV</b>：1 mg bolus；每 3–5 min 可重複；maximum total 3 mg。</div><div class="grid2" style="margin-top:8px"><button id="atropineBtn" class="action info big" onclick="giveAtropine()">Atropine 1 mg IV</button><button class="action warn big" onclick="bradyPacing('TCP')">TCP</button></div><div class="drugrow"><button class="action ghost" onclick="bradyInfusion('Dopamine','5–20 mcg/kg/min','多巴胺輸注，依病人反應調整。')">Dopamine<br><small>5–20 mcg/kg/min</small></button><button class="action ghost" onclick="bradyInfusion('Epinephrine infusion','2–10 mcg/min','腎上腺素持續輸注，依病人反應調整。')">Epinephrine infusion<br><small>2–10 mcg/min</small></button></div><div class="dosebox warnbox">Atropine ineffective → transcutaneous pacing and/or dopamine or epinephrine infusion。之後考慮 expert consultation、transvenous pacing。</div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="bradyConsult()">Expert consult / Medical control</button><button class="action ghost hospital-only" onclick="bradyPacing('Transvenous pacing')">Transvenous pacing</button></div></div>
+        <div class="flowcard emt12-only"><div class="minihead"><h3 style="margin:0">🚑 EMT-1 / EMT-2 field pathway</h3><span class="scope-chip">scope-limited</span></div><div class="lead">若 symptomatic bradycardia 有低血壓、休克、意識改變、缺血性胸痛或急性心衰竭：持續 airway / O₂ / PPV as indicated、monitor / 12-lead、快速後送並 request ALS / medical control。<span class="emt2plus">EMT-2 可依 scope 建立 peripheral IV、使用 SGA 與 EtCO₂。</span></div></div>
+        <div class="flowcard"><div class="minihead"><h3 style="margin:0">Possible causes</h3><span class="pill">點一次 suspected · 再點 addressed</span></div><div class="grid2" id="bradyCauseGrid"><button class="hbtn brady-cause" data-key="ischemia" data-stage="0" onclick="cycleBradyCause(this,'Ischemia / MI')"><b>Ischemia / MI</b><span>myocardial ischemia / infarction</span></button><button class="hbtn brady-cause" data-key="toxins" data-stage="0" onclick="cycleBradyCause(this,'Drugs / toxicologic')"><b>Drugs / toxicologic</b><span>β-blocker, CCB, digoxin, etc.</span></button><button class="hbtn brady-cause" data-key="hypoxia" data-stage="0" onclick="cycleBradyCause(this,'Hypoxia')"><b>Hypoxia</b><span>oxygenation / ventilation problem</span></button><button class="hbtn brady-cause" data-key="electrolytes" data-stage="0" onclick="cycleBradyCause(this,'Electrolytes')"><b>Electrolytes</b><span>K⁺ / metabolic abnormality</span></button></div></div>
+        <div class="refline">Source: 2025 AHA Adult Bradycardia With a Pulse Algorithm. 本頁為 EMT cognitive aid prototype；實際處置依 EMT level、所在地 protocol / medical direction 與設備執行。</div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-h"><h2>6 · Bradycardia timeline / Export</h2><span class="pill">same Case ID · local only</span></div>
+      <div class="section-b">
+        <div class="log" id="bradyLog"><div class="event"><time><b>--:--:--</b><span>+00:00</span></time><div>尚無事件</div></div></div>
+        <div class="export-grid"><button class="action info" onclick="exportCSV()">⬇ 匯出 CSV</button><button class="action ghost" onclick="shareCSV()">↗ 分享 CSV</button><button class="action ghost" onclick="copySummary()">⧉ 複製摘要</button></div>
+        <div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="undoLast()">↶ Undo last</button><button class="action ghost" onclick="resetAll()">Reset case</button></div>
+        <div class="hint">Bradycardia assessment、Atropine、pacing、vasoactive infusion、consult 與 possible causes 都會寫入同一份事件紀錄與 CSV。</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="tachyMode" class="hidden">
+    <section class="section">
+      <div class="section-h"><h2>Adult Tachyarrhythmia With a Pulse</h2><span class="pill">2025 AHA</span></div>
+      <div class="section-b">
+        <div class="flowcard"><div class="minihead"><div class="mode-next" id="tachyNext">先完成 initial assessment & support，再判斷 instability<small>Airway、O₂ if hypoxemic、monitor/BP/SpO₂、12-lead；EMT-2+ peripheral IV，EMT-P advanced treatment</small></div><span class="tachy-status" id="tachyStatus">未分流</span></div></div>
+        <div class="flowcard"><h3>1 · Initial assessment & support</h3><div class="lead">Maintain airway、assist breathing；<b>oxygen if hypoxemic</b>；continuous cardiac monitoring、BP、SpO₂；12-lead ECG if available。Peripheral IV 僅 EMT-2+ 顯示；IO / cardioversion / advanced drugs 僅 EMT-P 依 protocol 顯示。</div><div class="grid3" style="margin-top:8px"><button class="action ghost" onclick="logTachy('Airway / breathing assessed')">Airway</button><button class="action ghost" onclick="logTachy('Oxygen provided for hypoxemia / oxygenation reassessed')">O₂ if hypoxemic</button><button class="action ghost" onclick="logTachy('Cardiac monitor / BP / SpO₂ monitoring established')">Monitor / BP / SpO₂</button><button class="action ghost emt2plus" onclick="logTachy('Peripheral IV access established')">Peripheral IV</button><button class="action ghost emtp-only" onclick="logTachy('IO access established per protocol')">IO</button><button class="action ghost" onclick="logTachy('12-lead ECG obtained')">12-lead ECG</button></div></div>
+        <div class="flowcard hospital-only"><div class="minihead"><h3 style="margin:0">2 · Blood draw / POC Lab</h3><span class="pill">as clinically indicated</span></div><div class="lead">不是 AHA tachycardia algorithm 的固定必做步驟；用於釐清 electrolyte / metabolic / ischemic / toxicologic 等可處理病因並留下 time stamp。</div><div class="grid2" style="margin-top:8px"><button class="action info" onclick="recordPathwayBloodDraw('tachycardia','tachyLab')">🩸 抽血 / POC sent</button><div class="field"><label>Sample</label><select id="tachyLabType"><option>ABG</option><option>VBG</option><option>POC</option><option>Serum</option><option>Other</option></select></div></div><div class="grid3" style="margin-top:8px"><div class="field"><label>pH</label><input id="tachyLabPH" inputmode="decimal"></div><div class="field"><label>PaCO₂ (mmHg)</label><input id="tachyLabPaCO2" inputmode="decimal"></div><div class="field"><label>PaO₂ (mmHg)</label><input id="tachyLabPaO2" inputmode="decimal"></div><div class="field"><label>HCO₃⁻ (mmol/L)</label><input id="tachyLabHCO3" inputmode="decimal"></div><div class="field"><label>K⁺ (mmol/L)</label><input id="tachyLabK" inputmode="decimal"></div><div class="field"><label>iCa (mmol/L)</label><input id="tachyLabICa" inputmode="decimal"></div><div class="field"><label>Mg (mg/dL)</label><input id="tachyLabMg" inputmode="decimal"></div><div class="field"><label>Lactate (mmol/L)</label><input id="tachyLabLactate" inputmode="decimal"></div><div class="field"><label>Glucose (mg/dL)</label><input id="tachyLabGlucose" inputmode="decimal"></div><div class="field"><label>Hb (g/dL)</label><input id="tachyLabHb" inputmode="decimal"></div></div><div class="grid2" style="margin-top:8px"><button class="action primary" onclick="recordPathwayLabData('tachycardia','tachyLab')">記錄 Lab data</button><button class="action ghost" onclick="clearPathwayLabInputs('tachyLab')">清空 Lab 欄位</button></div></div>
+        <div class="flowcard"><h3>3 · Persistent tachyarrhythmia causing instability?</h3><ul class="criteria"><li>Hypotension</li><li>Acutely altered mental status</li><li>Signs of shock</li><li>Ischemic chest discomfort</li><li>Acute heart failure</li></ul><div class="choicebar"><button id="tachyUnstableYes" class="action danger" onclick="setTachyUnstable(true)">YES · Unstable</button><button id="tachyUnstableNo" class="action primary" onclick="setTachyUnstable(false)">NO · Stable</button></div></div>
+        <div id="tachyUnstable" class="flowcard flowhidden emtp-only"><h3>4 · Synchronized cardioversion</h3><div class="lead">Sedate whenever feasible。若 regular narrow-complex，可考慮 adenosine。</div><div class="cardio-grid"><button class="action info" onclick="selectCardio('Atrial fibrillation',200,this)">AF<br><small>200 J sync</small></button><button class="action info" onclick="selectCardio('Atrial flutter',200,this)">Atrial flutter<br><small>200 J sync</small></button><button class="action info" onclick="selectCardio('Narrow-complex tachycardia',100,this)">Narrow complex<br><small>100 J sync</small></button><button class="action info" onclick="selectCardio('Monomorphic VT',100,this)">Monomorphic VT<br><small>100 J sync</small></button><button class="action danger" style="grid-column:1/-1" onclick="selectCardio('Polymorphic VT','unsynchronized high-energy shock',this)">Polymorphic VT · UNSYNCHRONIZED high-energy shock</button></div><button class="action danger big" style="width:100%;margin-top:8px" onclick="performCardioversion()">⚡ 記錄電復律 / Shock</button><div class="dosebox warnbox">每次 synchronized cardioversion 後確認/重新開啟 SYNC。若同步延遲且病況危急，AHA 建議立即進行 unsynchronized shock。</div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="giveAdenosine(6)">Adenosine 6 mg</button><button class="action ghost" onclick="giveAdenosine(12)">Adenosine 12 mg</button></div></div>
+        <div id="tachyStable" class="flowcard flowhidden emtp-only"><h3>4 · Stable → Wide QRS ≥0.12 sec?</h3><div class="choicebar"><button class="action warn" onclick="setWideQRS(true)">YES · Wide QRS</button><button class="action primary" onclick="setWideQRS(false)">NO · Narrow QRS</button></div></div>
+        <div id="tachyWide" class="flowcard flowhidden emtp-only"><h3>Stable wide-QRS tachycardia</h3><div class="lead">Adenosine only if <b>regular and monomorphic</b>；consider antiarrhythmic infusion and expert consultation。</div><div class="choicebar"><button class="action ghost" onclick="setWideRegular(true)">Regular + monomorphic</button><button class="action ghost" onclick="setWideRegular(false)">Irregular / polymorphic</button></div><div id="wideAdenosine" class="grid2 flowhidden" style="margin-top:8px"><button class="action info" onclick="giveAdenosine(6)">Adenosine 6 mg</button><button class="action info" onclick="giveAdenosine(12)">Adenosine 12 mg</button></div><div class="dosebox"><b>Procainamide IV</b>：20–50 mg/min until suppressed, hypotension, QRS &gt;50% wider, or max 17 mg/kg；maintenance 1–4 mg/min。Avoid prolonged QT or CHF。</div><div class="dosebox"><b>Amiodarone IV</b>：150 mg over 10 min；repeat as needed if VT recurs；then 1 mg/min for first 6 h。</div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="tachyDrug('Procainamide infusion per AHA stable WCT dosing')">Procainamide</button><button class="action ghost" onclick="tachyDrug('Amiodarone 150 mg IV over 10 min')">Amiodarone 150 mg/10 min</button></div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="logTachy('Expert consultation requested for wide-QRS tachycardia')">Expert consultation</button><button class="action warn" onclick="recordStableCardio('Monomorphic VT',100)">If refractory · Sync 100 J</button></div></div>
+        <div id="tachyNarrow" class="flowcard flowhidden emtp-only"><h3>Stable narrow-QRS tachycardia</h3><div class="lead">若 regular：vagal maneuvers、adenosine。亦可考慮 β-blocker 或 nondihydropyridine calcium-channel blocker，並考慮 expert consultation。</div><div class="choicebar"><button class="action ghost" onclick="setNarrowRegular(true)">Regular</button><button class="action ghost" onclick="setNarrowRegular(false)">Irregular</button></div><div id="narrowRegularActions" class="grid3 flowhidden" style="margin-top:8px"><button class="action info" onclick="logTachy('Vagal maneuvers attempted')">Vagal</button><button class="action info" onclick="giveAdenosine(6)">Adenosine 6</button><button class="action info" onclick="giveAdenosine(12)">Adenosine 12</button></div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="tachyDrug('Beta-blocker considered / administered per clinical context')">β-blocker</button><button class="action ghost" onclick="tachyDrug('Nondihydropyridine calcium-channel blocker considered / administered per clinical context')">CCB</button></div><div class="dosebox warnbox">若 pre-excited AF/flutter，AHA 指出 digoxin、nondihydropyridine CCB、β-blocker、IV amiodarone 應避免，因可能增加 ventricular response / VF risk。</div><button class="action warn" style="width:100%;margin-top:8px" onclick="recordStableCardio('Narrow-complex tachycardia',100)">若治療無效/禁忌 · Sync cardioversion 100 J</button></div>
+        <div class="flowcard emt12-only"><div class="minihead"><h3 style="margin:0">🚑 EMT-1 / EMT-2 field pathway</h3><span class="scope-chip">scope-limited</span></div><div class="lead">Tachycardia with pulse：維持 airway / breathing、O₂ if hypoxemic、monitor / BP / SpO₂、12-lead、尋找可逆因素；若不穩定，儘速後送並 request ALS / medical control。<span class="emt2plus">EMT-2 可依 scope 建立 peripheral IV、使用 SGA 與 EtCO₂。</span></div></div>
+        <div class="flowcard emtp-only"><div class="minihead"><h3 style="margin:0">If refractory</h3><span class="pill">可逐項記錄</span></div><div class="lead">重新確認 rhythm / 12-lead 與 underlying cause；下次 cardioversion 可考慮提高 energy；考慮 antiarrhythmic 與 expert consultation。</div><div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="logTachy('Refractory rhythm / 12-lead ECG rechecked',{review:'rhythm_recheck'})">Rhythm / 12-lead re-check</button><button class="action warn" onclick="logTachy('Higher-energy cardioversion considered for next attempt',{review:'higher_energy'})">下一次提高 energy</button><button class="action ghost" onclick="logTachy('Antiarrhythmic therapy reviewed / considered',{review:'antiarrhythmic'})">Antiarrhythmic review</button><button class="action ghost" onclick="logTachy('Expert consultation requested for refractory tachyarrhythmia',{review:'expert_consult'})">Expert consultation</button></div><div class="divider"></div><div class="minihead"><h3 style="margin:0">Possible contributors / underlying causes</h3><span class="pill">suspected → addressed</span></div><div class="grid2" id="tachyCauseGrid"><button class="hbtn tachy-cause" data-key="ischemia" data-stage="0" onclick="cycleTachyCause(this,'Ischemia / ACS')"><b>Ischemia / ACS</b><span>ischemia / acute coronary syndrome</span></button><button class="hbtn tachy-cause" data-key="hypoxia" data-stage="0" onclick="cycleTachyCause(this,'Hypoxia')"><b>Hypoxia</b><span>oxygenation / ventilation problem</span></button><button class="hbtn tachy-cause" data-key="electrolytes" data-stage="0" onclick="cycleTachyCause(this,'Electrolyte / metabolic disturbance')"><b>Electrolytes / metabolic</b><span>K⁺ / Mg²⁺ / acid-base disturbance</span></button><button class="hbtn tachy-cause" data-key="toxins" data-stage="0" onclick="cycleTachyCause(this,'Drugs / toxins / QT')"><b>Drugs / toxins / QT</b><span>pro-arrhythmic drug / toxicity / QT issue</span></button><button class="hbtn tachy-cause" data-key="hypovolemia" data-stage="0" onclick="cycleTachyCause(this,'Hypovolemia')"><b>Hypovolemia</b><span>volume loss / low preload</span></button><button class="hbtn tachy-cause" data-key="sepsis" data-stage="0" onclick="cycleTachyCause(this,'Sepsis / fever')"><b>Sepsis / fever</b><span>systemic stress / hyperadrenergic state</span></button><button class="hbtn tachy-cause" data-key="pain" data-stage="0" onclick="cycleTachyCause(this,'Pain / agitation')"><b>Pain / agitation</b><span>sympathetic drive / distress</span></button><button class="hbtn tachy-cause" data-key="other" data-stage="0" onclick="cycleTachyCause(this,'Other underlying cause')"><b>Other</b><span>reassess diagnosis / other trigger</span></button></div><div class="refline">此 contributors 區塊是臨床 teaching checklist，不是 AHA 固定的 Hs &amp; Ts 清單；目的為提示 refractory tachyarrhythmia 時重新找可處理病因並留下紀錄。</div></div>
+        <div class="refline">Source: 2025 AHA Adult Tachyarrhythmia With a Pulse Algorithm + Electrical Cardioversion Algorithm. 本頁為 cognitive aid prototype；實際藥物、鎮靜與電擊設定須依 EMT-P 預立醫療流程、medical direction、設備及所在地 protocol。</div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-h"><h2>5 · Tachycardia timeline / Export</h2><span class="pill">same Case ID · local only</span></div>
+      <div class="section-b">
+        <div class="log" id="tachyLog"><div class="event"><time><b>--:--:--</b><span>+00:00</span></time><div>尚無事件</div></div></div>
+        <div class="export-grid"><button class="action info" onclick="exportCSV()">⬇ 匯出 CSV</button><button class="action ghost" onclick="shareCSV()">↗ 分享 CSV</button><button class="action ghost" onclick="copySummary()">⧉ 複製摘要</button></div>
+        <div class="grid2" style="margin-top:8px"><button class="action ghost" onclick="undoLast()">↶ Undo last</button><button class="action ghost" onclick="resetAll()">Reset case</button></div>
+        <div class="hint">Tachycardia assessment、cardioversion / shock、adenosine / antiarrhythmic、refractory review 與 possible contributors 都會寫入同一份事件紀錄與 CSV。</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="megaMode" class="hidden">
+    <section class="section">
+      <div class="section-h"><h2>🎓 ACLS Mega Code Simulator</h2><span class="pill">All EMT levels · training</span></div>
+      <div class="section-b mega-wrap">
+        <div class="provider-note emtp" style="margin-top:0"><b>Training mode：</b>EMT-1、EMT-2、EMT-P 都可完整作答 ACLS Mega Code。題目會出現藥物、manual defibrillation、synchronized cardioversion、TCP、ETT 等進階處置；這些按鈕代表「ACLS 考試答案」，不代表 EMT-1/2 在現場具有該項執行權限。</div>
+        <div class="mega-toolbar">
+          <button id="megaPracticeBtn" class="action info mega-modebtn active-choice" onclick="setMegaMode('practice')">練習模式</button>
+          <button id="megaExamBtn" class="action ghost mega-modebtn" onclick="setMegaMode('exam')">考試模式</button>
+          <button id="megaPressureBtn" class="action warn mega-modebtn" onclick="setMegaMode('pressure')">⏱ 壓力考試</button>
+          <button class="action primary" onclick="newMegaCase()">🎲 隨機新病例</button>
+        </div>
+        <div id="megaCaseCard" class="mega-case">
+          <div class="mega-kicker" id="megaCaseNo">MEGA CODE · 尚未開始</div>
+          <h3 id="megaTitle">按「隨機新病例」開始</h3>
+          <div class="mega-scene" id="megaScene">系統會從更多 cardiac arrest、symptomatic bradycardia、stable/unstable tachyarrhythmia 情境中隨機抽題，並盡量避免最近 8 次重複；部分題目加入心電圖辨別。</div>
+          <div class="vitals">
+            <div class="vital"><span>HR / RHYTHM</span><b id="megaHR">--</b></div>
+            <div class="vital"><span>BP</span><b id="megaBP">--/--</b></div>
+            <div class="vital"><span>SpO₂</span><b id="megaSpO2">--%</b></div>
+            <div class="vital"><span>STATUS</span><b id="megaStatus">--</b></div>
+          </div>
+          <div class="mega-stagebar"><div id="megaStageProgress"></div></div>
+          <div class="mega-score"><span class="tag" id="megaStageTag">Stage 0/0</span><span class="tag" id="megaCorrectTag">Correct 0</span><span class="tag alert" id="megaErrorTag">Errors 0</span><span class="tag pressure-timer" id="megaTimerTag">Decision --</span></div>
+        </div>
+        <div id="megaEnergyWrap" class="flowcard energy-alert hidden">
+          <div class="minihead"><h3 style="margin:0">⚡ Step 1｜先選電擊能量</h3><span class="pill">ENERGY</span></div>
+          <div class="energy-step" id="megaEnergyPrompt">先選擇能量，再到「你的處置」按 Sync cardioversion 或 Defibrillation。</div>
+          <div class="energy-grid" id="megaEnergyChoices"></div>
+          <div class="energy-selected" id="megaEnergySelected">尚未選擇 energy</div>
+        </div>
+        <div id="megaEcgWrap" class="flowcard ecg-wrap hidden">
+          <div class="minihead"><h3 style="margin:0">心電圖辨別</h3><span class="pill" id="megaEcgStagePill">ECG</span></div>
+          <div class="ecg-note" id="megaEcgPrompt">先看節律帶，再選擇最符合的節律。</div>
+          <div class="ecg-strip" id="megaEcgStrip"></div>
+          <div class="ecg-grid" id="megaEcgChoices"></div>
+        </div>
+        <div class="flowcard">
+          <div class="minihead"><h3 style="margin:0">你的處置</h3><span class="pill">按 Mega Code 決策順序</span></div>
+          <div class="action-bank">
+            <button class="action ghost" onclick="megaAction('assess_pulse')">Pulse / Rhythm check</button>
+            <button class="action danger" onclick="megaAction('cpr')">Start / Resume CPR</button>
+            <button class="action ghost" onclick="megaAction('airway_o2')">Airway / O₂ / BVM</button>
+            <button class="action ghost" onclick="megaAction('monitor_iv')">Monitor + IV/IO (ACLS answer)</button>
+            <button class="action danger" onclick="megaAction('shock')">⚡ Step 2 · Defibrillation</button>
+            <button class="action warn" onclick="megaAction('sync_cardio')">⚡ Step 2 · Sync cardioversion</button>
+            <button class="action info" onclick="megaAction('epi')">Epinephrine 1 mg</button>
+            <button class="action ghost" onclick="megaAction('amio')">Amiodarone</button>
+            <button class="action ghost" onclick="megaAction('lidocaine')">Lidocaine</button>
+            <button class="action info" onclick="megaAction('atropine')">Atropine 1 mg</button>
+            <button class="action warn" onclick="megaAction('tcp')">TCP</button>
+            <button class="action ghost" onclick="megaAction('epi_infusion')">Epi infusion</button>
+            <button class="action ghost" onclick="megaAction('dopamine')">Dopamine infusion</button>
+            <button class="action ghost" onclick="megaAction('vagal')">Vagal maneuver</button>
+            <button class="action info" onclick="megaAction('adenosine6')">Adenosine 6 mg</button>
+            <button class="action ghost" onclick="megaAction('adenosine12')">Adenosine 12 mg</button>
+            <button class="action ghost" onclick="megaAction('antiarrhythmic')">Antiarrhythmic infusion</button>
+            <button class="action ghost" onclick="megaAction('ecg12')">12-lead ECG</button>
+            <button class="action primary" onclick="megaAction('post_rosc')">ROSC / Post-ROSC care</button>
+          </div>
+          <div class="cause-row">
+            <select id="megaCauseSelect">
+              <option value="">選擇可逆病因 / cause</option>
+              <option>Hypovolemia</option><option>Hypoxia</option><option>Acidosis</option><option>Hyperkalemia</option><option>Hypokalemia</option><option>Hypothermia</option><option>Tension pneumothorax</option><option>Cardiac tamponade</option><option>Toxins</option><option>Pulmonary thrombosis</option><option>Coronary thrombosis</option>
+            </select>
+            <button class="action ghost" onclick="megaAction('treat_cause')">Treat cause</button>
+          </div>
+        </div>
+        <div id="megaFeedback" class="mega-feedback">尚未開始病例。</div>
+        <button id="megaSubmitStageBtn" class="action info hidden" style="width:100%" onclick="submitMegaStage()">提交本 Stage → 下一階段</button>
+        <div class="grid2"><button class="action ghost" onclick="megaHint()">💡 Hint</button><button class="action ghost" onclick="finishMegaCase()">📋 結束並 Debrief</button></div>
+        <div id="megaDebrief" class="mega-debrief hidden"></div>
+        <div class="refline">Training simulator only. Case progression is synthetic and intentionally simplified for ACLS Mega Code practice. Core action logic is based on 2025 AHA adult ACLS algorithms.</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="ecgMode" class="hidden">
+    <section class="section">
+      <div class="section-h"><h2>🫀 ECG Rhythm Lab</h2><span class="pill">ACLS rhythm recognition</span></div>
+      <div class="section-b">
+        <div class="ecglab-top"><button class="action primary" onclick="newEcgLabQuestion()">🎲 隨機下一題</button><button class="action ghost" onclick="resetEcgLab()">重設分數</button><button class="action info" onclick="toggleEcgLabLabels()">切換提示</button></div>
+        <div class="ecglab-score"><span class="tag" id="ecgLabScore">Score 0/0</span><span class="tag" id="ecgLabStreak">Streak 0</span><span class="tag" id="ecgLabType">Rhythm --</span></div>
+        <div class="flowcard"><div class="ecg-note" id="ecgLabPrompt">按「隨機下一題」開始。先看 rhythm strip，不要先看文字。</div><div class="ecg-strip" id="ecgLabStrip"></div><div class="ecg-grid" id="ecgLabChoices"></div></div>
+        <div id="ecgLabFeedback" class="mega-feedback">獨立訓練 VF、torsades、asystole、SVT、AF、flutter、VT、AV block 等院前急救重要節律；93 個 strip 變體、31 種節律；最近 20 題連診斷名稱都不重複。</div><div id="ecgLabAnswer" class="answer-box hidden"></div><div class="refline">ECG strips 為教學用合成示意波形，目的是提供 EMT-1 / EMT-2 / EMT-P ACLS rhythm recognition 訓練，不作為真實病人 ECG 診斷依據；現場可執行處置仍依 EMT level / local protocol。</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="roscMode" class="hidden">
+    <section class="section">
+      <div class="section-h"><h2>ROSC / Transport</h2><span class="pill">prehospital</span></div>
+      <div class="section-b">
+        <div class="flowcard emt-only"><div class="minihead"><h3 style="margin:0">🚑 EMT · ROSC / Transport</h3><span class="scope-chip">prehospital</span></div><div class="lead">ROSC 後優先穩定 airway / oxygenation / ventilation、循環與 rhythm，持續 reassessment，依預立醫療流程處置並準備後送 / handoff。院內 TTM、EEG 與 neuroprognostication 在 EMT 版隱藏。</div><div class="transport-grid"><button class="action done" onclick="log('EMT: ROSC stabilization / transport preparation documented','transport',{pathway:'prehospital'})">ROSC stabilization</button><button class="action ghost" onclick="log('EMT: receiving hospital pre-alert sent','transport',{pathway:'prehospital'})">Receiving hospital pre-alert</button><button class="action ghost" onclick="log('EMT: medical control contacted / standing-order issue reviewed','transport',{pathway:'prehospital'})">Medical control</button><button class="action ghost" onclick="log('EMT: structured handoff completed','transport',{pathway:'prehospital'})">Handoff completed</button></div></div>
+        <div class="target-grid">
+          <div class="target"><span>OXYGENATION</span><b>SpO₂ 90–98%</b><span>可靠監測後避免 hypoxemia / hyperoxia</span></div>
+          <div class="target"><span>VENTILATION</span><b>Avoid hyperventilation</b><span class="emt2plus">EMT-2+ 可用 EtCO₂ 監測</span></div>
+          <div class="target"><span>CIRCULATION</span><b>BP / perfusion</b><span>低血壓依 EMT level / protocol 支持</span></div>
+          <div class="target"><span>GLUCOSE</span><b>Check if indicated</b><span>EMT-1 以上可監測血糖</span></div>
+        </div>
+        <div class="ttm-box hospital-only">
+          <h3>🌡️ Temperature Control / TTM</h3>
+          <div class="lead"><b>若 ROSC 後仍無法遵從口頭指令：</b>採 deliberate, protocolized temperature control；AHA 2025 建議目標 <b>32–37.5°C</b>，並維持至少 <b>36 小時</b>。不是所有病人都固定降到 33°C。</div>
+          <div class="dosebox">若使用較低溫策略後 rewarming，避免快速回溫；對自發性低體溫病人也應避免 &gt;0.5°C/hr 的快速 rewarming。院外常規快速輸注冰冷 IV fluid 不建議。</div>
+          <div class="grid2" style="margin-top:8px"><button class="action done" onclick="logCustom('Post-ROSC: patient not following verbal commands — protocolized temperature control indicated')">未遵從指令 → 啟動 TTM</button><button class="action ghost" onclick="logCustom('Post-ROSC temperature control target documented: 32–37.5 C for at least 36 h')">記錄 32–37.5°C / ≥36 h</button></div>
+        </div>
+        <div class="grid2" style="margin-top:10px"><button class="action done" onclick="logCustom('Airway / oxygenation / ventilation reassessed post-ROSC')">Airway / O₂ / Ventilation</button><button class="action done" onclick="logCustom('Circulation / BP reassessed post-ROSC; hypotension managed per EMT protocol')">Circulation / BP</button><button class="action done" onclick="logCustom('12-lead ECG obtained post-ROSC')">12-lead ECG</button><button class="action done" onclick="logCustom('Reversible cause / definitive treatment reviewed')">Cause / Definitive Tx</button><button class="action ghost hospital-only" onclick="logCustom('Post-ROSC seizure assessment / EEG considered if not following commands')">Seizure / EEG</button><button class="action ghost hospital-only" onclick="logCustom('Post-ROSC neuroprognostication planned using multimodal delayed approach')">Neuroprognostication</button></div><div class="dosebox hospital-only">神經預後評估應採 multimodal approach，避免過早單一指標下結論；2025 AHA algorithm 強調延後整合判讀。</div>
+        <div class="refline">ROSC 後院前重點：避免 hypoxemia、避免過度通氣、持續 BP / perfusion 與 rhythm reassessment、處理可逆病因、receiving hospital pre-alert 並快速後送。進階處置仍依 EMT level / local protocol。</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="notice" id="governanceNotice">EMT cognitive aid / training prototype · v2.2<br>請先選擇 EMT-1 / EMT-2 / EMT-P；實際救護項目依台灣現行法規、所在地 protocol、medical direction 與核定 scope。</div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="footerbar"><div class="footer-inner"><button id="footerCPR" class="action primary" onclick="toggleCPR()">▶ CPR</button><button class="action danger emtp-only" onclick="giveShock()">⚡ Manual Shock</button><button class="action danger emt12-only" onclick="giveAEDShock()">⚡ AED Shock</button><button class="action info" onclick="rosc()">✓ ROSC</button></div></div>
+<script>
+const STORAGE_KEY='emt-code-leader-v21-case';
+const PROVIDER_KEY='emt-code-leader-level';
+function getProviderMode(){try{const m=localStorage.getItem(PROVIDER_KEY);return ['emt1','emt2','emtp'].includes(m)?m:'emtp'}catch(e){return'emtp'}}
+function providerLabel(mode=getProviderMode()){return mode==='emt1'?'EMT-1':mode==='emt2'?'EMT-2':'EMT-P'}
+function applyProviderMode(mode){
+  if(!['emt1','emt2','emtp'].includes(mode))mode='emtp';
+  document.body.classList.remove('emt1-mode','emt2-mode','emtp-mode');
+  document.body.classList.add(mode+'-mode');
+  const b1=document.getElementById('providerEmt1Btn'),b2=document.getElementById('providerEmt2Btn'),bp=document.getElementById('providerEmtpBtn');
+  if(b1)b1.classList.toggle('active-choice',mode==='emt1');
+  if(b2)b2.classList.toggle('active-choice',mode==='emt2');
+  if(bp)bp.classList.toggle('active-choice',mode==='emtp');
+  const status=document.getElementById('providerStatus'),note=document.getElementById('providerNote'),summary=document.getElementById('scopeSummary');
+  if(status)status.textContent=providerLabel(mode);
+  const notes={
+    emt1:'<b>EMT-1：</b>BLS、O₂、OPA/NPA、suction、vital signs / SpO₂、ECG/12-lead、AED、blood glucose 等基礎救護；臨床操作頁不顯示超出 scope 的進階處置，但 ACLS Mega Code / ECG 訓練完整保留。',
+    emt2:'<b>EMT-2：</b>包含 EMT-1 scope，另顯示 peripheral IV、指定輸液、SGA 與 EtCO₂；臨床操作頁不顯示超出 scope 的進階處置，但 ACLS Mega Code / ECG 訓練完整保留。',
+    emtp:'<b>EMT-P：</b>包含 EMT-2 scope；依預立醫療流程 / medical direction 可執行注射/給藥、ETT、電擊及 TCP。地方額外核定項目仍依所在地 protocol。'
+  };
+  if(note){note.className='provider-note '+mode;note.innerHTML=notes[mode]}
+  if(summary)summary.innerHTML=notes[mode];
+  const active=document.querySelector('.tab.active');
+  if(mode!=='emtp'&&active&&active.dataset.mode==='mega')switchMode('arrest');
+  const n=document.getElementById('governanceNotice');if(n)n.innerHTML=`EMT cognitive aid / training prototype · v2.2<br>${providerLabel(mode)}：實際救護項目仍須依台灣現行法規、所在地消防/衛生主管機關 protocol、medical direction 與核定 scope；本工具不是醫療指令或全國統一預立醫療流程。`;
+  updateNext();
+}
+function setProviderMode(mode){try{localStorage.setItem(PROVIDER_KEY,mode)}catch(e){}applyProviderMode(mode);toast(`已切換 ${providerLabel(mode)}`);const active=document.querySelector('.tab.active');if(active)switchMode(active.dataset.mode)}
+const state={caseId:null,started:false,cpr:false,startAt:null,cycleAt:null,cycle:0,rhythm:null,shock:0,lastEpi:null,events:[],airway:null,metronome:null,audio:null,audioUnlocked:false,wakeLock:null,_alertedCycle:null,_warn30Cycle:null,_warn10Cycle:null,_epiAlertedAt:null,atropineTotal:0,bradyCompromise:null,bradyCauses:{},tachyCauses:{},tachyUnstable:null,tachyWide:null,tachyRegular:null,selectedCardio:null,mega:null,megaRecent:[]};
+const hs=[['Hypovolemia','低血容量'],['Hypoxia','低氧'],['Hydrogen ion','Acidosis'],['Hypo-/Hyper-K⁺','鉀異常'],['Hypothermia','低體溫'],['Tension PTX','張力性氣胸'],['Cardiac tamponade','心包填塞'],['Toxins','毒物'],['Pulmonary thrombosis','肺栓塞'],['Coronary thrombosis','冠狀動脈血栓']];
+const grid=document.getElementById('hsgrid');hs.forEach(([a,b])=>{let x=document.createElement('button');x.className='hbtn';x.dataset.stage='0';x.innerHTML=`<b>${a}</b><span>${b}</span>`;x.onclick=()=>cycleCause(x,a);grid.appendChild(x)});
+function now(){return Date.now()}
+function fmt(ms){ms=Math.max(0,ms||0);let s=Math.floor(ms/1000),m=Math.floor(s/60);return String(m).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function pad2(n){return String(n).padStart(2,'0')}
+function localDate(d=new Date()){const w=['日','一','二','三','四','五','六'];return `${d.getFullYear()}/${pad2(d.getMonth()+1)}/${pad2(d.getDate())} 週${w[d.getDay()]}`}
+function localClock(d=new Date()){return `${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())}`}
+function localDateTime(d=new Date()){return `${d.getFullYear()}/${pad2(d.getMonth()+1)}/${pad2(d.getDate())} ${localClock(d)}`}
+function updateDateTime(){const d=new Date();document.getElementById('liveDate').textContent=localDate(d);document.getElementById('liveClock').textContent=localClock(d)}
+function makeCaseId(){const d=new Date(),p=n=>String(n).padStart(2,'0');return `EMT-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`}
+function ensureCaseId(){if(!state.caseId)state.caseId=makeCaseId();document.getElementById('caseTag').textContent='Case '+state.caseId}
+function saveState(){try{const keep={...state,metronome:null,audio:null,wakeLock:null,audioUnlocked:false,lastSaved:now()};localStorage.setItem(STORAGE_KEY,JSON.stringify(keep))}catch(e){}}
+function restoreState(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return;const s=JSON.parse(raw);if(!s.started||!s.lastSaved||now()-s.lastSaved>30*60*1000)return;Object.assign(state,s,{metronome:null,audio:null,wakeLock:null,audioUnlocked:false});ensureCaseId();document.getElementById('currentRhythm').textContent=state.rhythm||'未選擇';syncButtons();renderLog();updateNext();if(state.cpr){startMetronome();requestWakeLock()}toast('已恢復 30 分鐘內的急救紀錄')}catch(e){}}
+function ensureStartedNoLog(){if(!state.started){state.started=true;state.startAt=now();ensureCaseId();saveState()}}
+function log(text,type='',meta={}){ensureStartedNoLog();state.events.push({t:now(),elapsed:now()-state.startAt,text,type,provider:providerLabel(),rhythm:state.rhythm||'',shockCount:state.shock,...meta});renderLog();updateNext();saveState()}
+function renderLog(){const els=[document.getElementById('log'),document.getElementById('bradyLog'),document.getElementById('tachyLog')].filter(Boolean);const html=!state.events.length?'<div class="event"><time><b>--:--:--</b><span>+00:00</span></time><div>尚無事件</div></div>':state.events.slice().reverse().map(e=>`<div class="event"><time><b>${localClock(new Date(e.t))}</b><span>+${fmt(e.elapsed)}</span></time><div><b>${escapeHtml(e.text)}</b></div></div>`).join('');els.forEach(el=>el.innerHTML=html)}
+function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800)}
+async function requestWakeLock(){try{if('wakeLock' in navigator&&!state.wakeLock)state.wakeLock=await navigator.wakeLock.request('screen')}catch(e){}}
+function releaseWakeLock(){try{if(state.wakeLock)state.wakeLock.release()}catch(e){}state.wakeLock=null}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&state.cpr)requestWakeLock()});
+function toggleCPR(){unlockAudio();ensureStartedNoLog();state.cpr=!state.cpr;if(state.cpr){state.cycle++;state.cycleAt=now();log(`CPR cycle ${state.cycle} started`,'cpr');startMetronome();requestWakeLock()}else{log('CPR paused','cpr');stopMetronome();releaseWakeLock()}syncButtons();updateNext();saveState()}
+function syncButtons(){let t=state.cpr?'⏸ PAUSE CPR':'▶ START CPR';document.getElementById('cprBtn').textContent=t;document.getElementById('footerCPR').textContent=state.cpr?'⏸ CPR':'▶ CPR'}
+async function unlockAudio(){
+  try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw new Error('AudioContext unsupported');state.audio=state.audio||new AC();if(state.audio.state==='suspended')await state.audio.resume();const b=state.audio.createBuffer(1,1,22050),src=state.audio.createBufferSource();src.buffer=b;src.connect(state.audio.destination);src.start(0);state.audioUnlocked=true;const el=document.getElementById('audioStatus');if(el){el.textContent='聲音已啟用';el.classList.add('ok')}return true}
+  catch(e){const el=document.getElementById('audioStatus');if(el){el.textContent='無法啟用音效，請確認瀏覽器/裝置音量';el.classList.remove('ok')}return false}
+}
+function tone(freq=880,duration=.08,gain=.07,delay=0){try{if(!state.audio||state.audio.state!=='running')return;let o=state.audio.createOscillator(),g=state.audio.createGain(),t=state.audio.currentTime+delay;o.frequency.value=freq;o.type='sine';g.gain.setValueAtTime(gain,t);g.gain.exponentialRampToValueAtTime(.001,t+duration);o.connect(g);g.connect(state.audio.destination);o.start(t);o.stop(t+duration+.02)}catch(e){}}
+function alertTone(){tone(880,.12,.11,0);tone(880,.12,.11,.18);tone(1175,.28,.12,.38)}
+function preAlertTone(){tone(720,.08,.07,0);tone(920,.10,.07,.13)}
+async function testAudio(){await unlockAudio();alertTone();speak('聲音測試。兩分鐘到，請檢查心律與脈搏。')}
+function startMetronome(){stopMetronome();unlockAudio().then(()=>{if(!state.cpr||!document.getElementById('metronomeOn').checked)return;const beat=()=>{if(state.cpr&&document.getElementById('metronomeOn').checked)tone(780,.045,.055)};beat();state.metronome=setInterval(beat,60000/Number(document.getElementById('bpm').value))})}
+function stopMetronome(){if(state.metronome){clearInterval(state.metronome);state.metronome=null}}
+document.getElementById('bpm').addEventListener('change',()=>{if(state.cpr)startMetronome()});
+document.getElementById('metronomeOn').addEventListener('change',()=>{if(state.cpr){if(document.getElementById('metronomeOn').checked)startMetronome();else stopMetronome()}});
+function setRhythm(r){unlockAudio();ensureStartedNoLog();state.rhythm=r;document.getElementById('currentRhythm').textContent=r;log(`Rhythm: ${r}`,'rhythm');if(r==='VF'||r==='pVT')speak('可電擊心律，準備電擊。');else speak('非可電擊心律，立即持續 CPR，腎上腺素儘快給予。');updateNext();saveState()}
+function toggleShockEnergyCustom(){const sel=document.getElementById('shockEnergy'),custom=document.getElementById('shockEnergyCustom');if(!sel||!custom)return;const show=sel.value==='other';custom.classList.toggle('hidden',!show);if(show)setTimeout(()=>custom.focus(),0)}
+function getShockEnergy(){const sel=document.getElementById('shockEnergy');if(!sel)return'';if(sel.value==='other'){const custom=document.getElementById('shockEnergyCustom');return custom?custom.value.trim():''}return sel.value.trim()}
+function logAEDAnalyze(){unlockAudio();ensureStartedNoLog();log('AED rhythm analysis performed','aed',{pathway:'arrest'});speak('AED 分析心律，避免接觸病人。');saveState()}
+function giveAEDShock(){unlockAudio();ensureStartedNoLog();state.shock++;log(`AED shock #${state.shock} delivered per device prompt`,'shock',{pathway:'arrest',energy:'AED'});speak('電擊完成，立即恢復 CPR。');if(state.cpr){state.cycle++;state.cycleAt=now();log(`CPR cycle ${state.cycle} restarted after AED shock`,'cpr')}else{state.cpr=true;state.cycle++;state.cycleAt=now();log(`CPR cycle ${state.cycle} started after AED shock`,'cpr');startMetronome();requestWakeLock();syncButtons()}updateNext();saveState()}
+function giveShock(){unlockAudio();ensureStartedNoLog();state.shock++;let en=getShockEnergy();const display=en?(en==='maximum available'?'maximum available':en+' J'):'';log(`Shock #${state.shock}${display?' · '+display:''}`,'shock',{energy:en});if(state.shock===1)speak('電擊完成，立即恢復 CPR。');else if(state.shock===2)speak('電擊完成，立即 CPR，準備腎上腺素。');else speak('電擊完成，立即 CPR，考慮 Amiodarone 或 Lidocaine。');if(state.cpr){state.cycle++;state.cycleAt=now();log(`CPR cycle ${state.cycle} restarted after shock`,'cpr')}else{state.cpr=true;state.cycle++;state.cycleAt=now();log(`CPR cycle ${state.cycle} started after shock`,'cpr');startMetronome();requestWakeLock();syncButtons()}updateNext();saveState()}
+function giveEpi(){unlockAudio();ensureStartedNoLog();state.lastEpi=now();log('Epinephrine 1 mg IV/IO given','drug',{drug:'Epinephrine',dose:'1 mg'});speak('Epinephrine 一毫克已給。');updateNext();saveState()}
+function giveDrug(x){log(x+' given','drug',{drug:x})}
+function recordSpecialDrug(drug,inputId,unit,indication=''){const el=document.getElementById(inputId),v=el?el.value.trim():'';if(!v){alert('請先輸入實際給藥劑量');return}const dose=`${v} ${unit}`;log(`${drug} ${dose} given${indication?' · '+indication:''}`,'drug',{pathway:'arrest',drug,dose,indication});if(el)el.value='';toast(`${drug} 已記錄`)}
+function airway(x){state.airway=x;log(x,'airway',{pathway:'arrest',airway:x});saveState()}
+function toggleEttOther(){const sel=document.getElementById('ettSize'),other=document.getElementById('ettSizeOther');if(!sel||!other)return;const show=sel.value==='other';other.classList.toggle('hidden',!show);if(!show)other.value=''}
+function recordAirwayData(){let sel=document.getElementById('ettSize'),o=document.getElementById('ettSizeOther'),s=sel?(sel.value==='other'?(o?.value||'').trim():sel.value):'',d=document.getElementById('ettDepth').value.trim(),e=document.getElementById('etco2').value.trim(),bits=[];if(s)bits.push('ETT ID '+s+' mm');if(d)bits.push('depth '+d+' cm');if(e)bits.push('EtCO₂ '+e+' mmHg');if(!bits.length)bits.push('Airway / capnography reassessed');log(bits.join(' · '),'airway',{pathway:'arrest',airway:state.airway||'ETT / airway reassessment',ettSize:s,ettDepth:d,etco2:e})}
+function recordBloodDraw(){const t=document.getElementById('labType').value;log(`Blood sample / POC sent · ${t}`,'lab_draw',{pathway:'arrest',labType:t});toast(`${t} 抽血時間已記錄`)}
+function clearLabInputs(){['labPH','labPaCO2','labPaO2','labHCO3','labK','labICa','labMg','labLactate','labGlucose','labHb'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''})}
+function recordLabData(){const ids={labPH:'pH',labPaCO2:'PaCO₂',labPaO2:'PaO₂',labHCO3:'HCO₃⁻',labK:'K⁺',labICa:'iCa',labMg:'Mg',labLactate:'Lactate',labGlucose:'Glucose',labHb:'Hb'};const vals={};Object.keys(ids).forEach(id=>vals[id]=document.getElementById(id).value.trim());const entered=Object.entries(vals).filter(([,v])=>v);if(!entered.length){alert('尚未輸入 Lab data');return}const units={labPaCO2:'mmHg',labPaO2:'mmHg',labHCO3:'mmol/L',labK:'mmol/L',labICa:'mmol/L',labMg:'mg/dL',labLactate:'mmol/L',labGlucose:'mg/dL',labHb:'g/dL'};const type=document.getElementById('labType').value;const text=entered.map(([id,v])=>`${ids[id]} ${v}${units[id]?' '+units[id]:''}`).join(' · ');log(`${type}: ${text}`,'lab',{pathway:'arrest',labType:type,labPH:vals.labPH,labPaCO2:vals.labPaCO2,labPaO2:vals.labPaO2,labHCO3:vals.labHCO3,labK:vals.labK,labICa:vals.labICa,labMg:vals.labMg,labLactate:vals.labLactate,labGlucose:vals.labGlucose,labHb:vals.labHb});toast('Lab data 已記錄')}
+function pathwayLabIds(prefix){return {PH:prefix+'PH',PaCO2:prefix+'PaCO2',PaO2:prefix+'PaO2',HCO3:prefix+'HCO3',K:prefix+'K',ICa:prefix+'ICa',Mg:prefix+'Mg',Lactate:prefix+'Lactate',Glucose:prefix+'Glucose',Hb:prefix+'Hb'}}
+function recordPathwayBloodDraw(pathway,prefix){const el=document.getElementById(prefix+'Type');const t=el?el.value:'Other';log(`${pathway==='bradycardia'?'Brady':'Tachy'} blood sample / POC sent · ${t}`,'lab_draw',{pathway,labType:t});toast(`${t} 抽血時間已記錄`)}
+function clearPathwayLabInputs(prefix){const ids=pathwayLabIds(prefix);Object.values(ids).forEach(id=>{const el=document.getElementById(id);if(el)el.value=''})}
+function recordPathwayLabData(pathway,prefix){const ids=pathwayLabIds(prefix),vals={};Object.entries(ids).forEach(([k,id])=>{const el=document.getElementById(id);vals[k]=el?el.value.trim():''});const labels={PH:'pH',PaCO2:'PaCO₂',PaO2:'PaO₂',HCO3:'HCO₃⁻',K:'K⁺',ICa:'iCa',Mg:'Mg',Lactate:'Lactate',Glucose:'Glucose',Hb:'Hb'},units={PaCO2:'mmHg',PaO2:'mmHg',HCO3:'mmol/L',K:'mmol/L',ICa:'mmol/L',Mg:'mg/dL',Lactate:'mmol/L',Glucose:'mg/dL',Hb:'g/dL'};const entered=Object.entries(vals).filter(([,v])=>v);if(!entered.length){alert('尚未輸入 Lab data');return}const typeEl=document.getElementById(prefix+'Type'),type=typeEl?typeEl.value:'Other';const text=entered.map(([k,v])=>`${labels[k]} ${v}${units[k]?' '+units[k]:''}`).join(' · ');log(`${pathway==='bradycardia'?'Brady':'Tachy'} ${type}: ${text}`,'lab',{pathway,labType:type,labPH:vals.PH,labPaCO2:vals.PaCO2,labPaO2:vals.PaO2,labHCO3:vals.HCO3,labK:vals.K,labICa:vals.ICa,labMg:vals.Mg,labLactate:vals.Lactate,labGlucose:vals.Glucose,labHb:vals.Hb});toast('Lab data 已記錄')}
+function cycleCause(btn,name){let n=(Number(btn.dataset.stage)+1)%3;btn.dataset.stage=n;btn.classList.remove('suspected','treated');if(n===1){btn.classList.add('suspected');log(`${name}: suspected`,'cause',{pathway:'arrest',cause:name,causeStatus:'suspected'})}if(n===2){btn.classList.add('treated');log(`${name}: treated`,'cause',{pathway:'arrest',cause:name,causeStatus:'treated'})}if(n===0){log(`${name}: cleared/reset`,'cause',{pathway:'arrest',cause:name,causeStatus:'cleared'})}}
+function rosc(){ensureStartedNoLog();if(state.cpr){state.cpr=false;stopMetronome();releaseWakeLock();syncButtons()}log('ROSC','rosc');speak('ROSC，穩定病人並準備後送。');switchMode('rosc');document.getElementById('nextAction').innerHTML='ROSC — stabilize & transport<small>Airway / oxygenation / ventilation、循環與 rhythm reassessment；receiving hospital pre-alert、transport / handoff</small>';saveState()}
+function updateNext(){
+  const level=getProviderMode();
+  let title='開始 CPR，接上 AED / monitor',sub=level==='emtp'?'選擇第一次 rhythm 後進入 EMT-P resuscitation pathway':'高品質 CPR、AED、airway / oxygenation、快速後送 / ALS 支援';
+  if(level!=='emtp'){
+    if(state.rhythm==='VF'||state.rhythm==='pVT'){
+      title='Shockable rhythm — AED / CPR';sub='依 AED 指示分析/電擊；電擊後立即 CPR 2 分鐘，持續 airway / oxygenation 與快速後送';
+      if(level==='emt2')sub+='；可依 scope 建立 peripheral IV、SGA / EtCO₂';
+    }else if(state.rhythm==='PEA'||state.rhythm==='Asystole'){
+      title='Non-shockable — CPR + reversible causes';sub='持續高品質 CPR、airway / oxygenation、monitor/AED reassessment；不要手動除顫，儘速後送 / request ALS';
+      if(level==='emt2')sub+='；可依 scope 建立 peripheral IV、SGA / EtCO₂';
+    }
+  }else{
+    title='開始 CPR，接上 monitor / defibrillator';sub='選擇第一次 rhythm 後，系統會切換流程提示';
+    if(state.rhythm==='VF'||state.rhythm==='pVT'){if(state.shock===0){title='VF/pVT — SHOCK NOW';sub='電擊後立即 CPR 2 分鐘；建立 IV/IO'}else if(state.shock===1){title='持續 CPR · 準備下一次 rhythm check';sub='若仍 VF/pVT → 第 2 shock；之後開始 epinephrine 3–5 min'}else if(state.shock===2){title=state.lastEpi?'持續 CPR · Epi timer running':'VF/pVT — 給 Epinephrine 1 mg';sub='下一次仍 shockable → shock #3；之後考慮 amiodarone / lidocaine'}else{title='Refractory VF/pVT — CPR + reversible causes';sub='依 rhythm shock；Epi q3–5 min；amiodarone / lidocaine'}}else if(state.rhythm==='PEA'||state.rhythm==='Asystole'){title=state.lastEpi?'Non-shockable — CPR + reversible causes':'PEA/Asystole — Epinephrine ASAP';sub='Epi 1 mg IV/IO q3–5 min；每 2 分鐘 rhythm check；不要 defibrillate'}
+  }
+  document.getElementById('nextAction').innerHTML=title+`<small>${sub}</small>`
+}
+function csvData(){ensureCaseId();let rows=[['Case_ID','EMT_Level','Event_Local_DateTime_24h','Event_ISO_UTC','Elapsed','Event_Type','Pathway','Rhythm','Shock_Count','Energy_J','Drug','Dose','Airway','ETT_Size_mm','ETT_Depth_cm','ETCO2_mmHg','Lab_Type','pH','PaCO2_mmHg','PaO2_mmHg','HCO3_mmolL','K_mmolL','iCa_mmolL','Mg_mg_dL','Lactate_mmolL','Glucose_mg_dL','Hb_g_dL','Cause','Cause_Status','Event']];for(const e of state.events){const d=new Date(e.t);rows.push([state.caseId,e.provider||providerLabel(),localDateTime(d),d.toISOString(),fmt(e.elapsed),e.type||'',e.pathway||'',e.rhythm||'',e.shockCount??'',e.energy||'',e.drug||'',e.dose||'',e.airway||'',e.ettSize||'',e.ettDepth||'',e.etco2||'',e.labType||'',e.labPH||'',e.labPaCO2||'',e.labPaO2||'',e.labHCO3||'',e.labK||'',e.labICa||'',e.labMg||'',e.labLactate||'',e.labGlucose||'',e.labHb||'',e.cause||'',e.causeStatus||'',e.text])}return '\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n')}
+function buildSummary(){ensureCaseId();let lines=[`EMT Code Leader — ${state.caseId}`,`EMT level: ${providerLabel()}`,`Started: ${state.startAt?localDateTime(new Date(state.startAt)):''}`,`Shock: ${state.shock}`,`Last rhythm: ${state.rhythm||'--'}`,''];state.events.forEach(e=>lines.push(`${localClock(new Date(e.t))}  +${fmt(e.elapsed)}  ${e.text}`));return lines.join('\n')}
+async function copySummary(){if(!state.events.length)return alert('尚無紀錄');const text=buildSummary();try{await navigator.clipboard.writeText(text);toast('事件摘要已複製')}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('事件摘要已複製')}}
+function logCustom(x){log(x,'custom')}
+function undoLast(){if(!state.events.length)return;state.events.pop();renderLog();saveState();toast('已撤銷最後一筆')}
+function resetAll(){if(!confirm('確定清除本次急救紀錄？'))return;stopMetronome();releaseWakeLock();localStorage.removeItem(STORAGE_KEY);Object.assign(state,{caseId:null,started:false,cpr:false,startAt:null,cycleAt:null,cycle:0,rhythm:null,shock:0,lastEpi:null,events:[],airway:null,_alertedCycle:null,_warn30Cycle:null,_warn10Cycle:null,_epiAlertedAt:null,mega:null,megaRecent:[],bradyCauses:{},tachyCauses:{}});document.getElementById('caseTag').textContent='Case --';document.getElementById('currentRhythm').textContent='未選擇';document.querySelectorAll('.hbtn').forEach(b=>{b.dataset.stage='0';b.classList.remove('suspected','treated')});resetPathwayUI();syncButtons();renderLog();updateNext();toast('Case 已清除')}
+function tick(){updateDateTime();let n=now();document.getElementById('totalTag').textContent='Total '+(state.started?fmt(n-state.startAt):'00:00');document.getElementById('cycleTag').textContent='Cycle '+state.cycle;document.getElementById('shockTag').textContent='Shock ×'+state.shock;if(state.lastEpi&&getProviderMode()==='emtp'){let x=n-state.lastEpi;document.getElementById('epiTag').textContent='Epi '+fmt(x);document.getElementById('epiTag').classList.toggle('alert',x>=180000);if(x>=180000&&document.getElementById('epiVoiceOn').checked&&state._epiAlertedAt!==state.lastEpi){state._epiAlertedAt=state.lastEpi;preAlertTone();speak('腎上腺素已三分鐘，請評估下一劑。')}}else{document.getElementById('epiTag').textContent=getProviderMode()==='emtp'?'Epi --:--':'AED mode';document.getElementById('epiTag').classList.remove('alert')}if(state.cpr&&state.cycleAt){let x=n-state.cycleAt;document.getElementById('cycleTime').textContent=fmt(x);document.getElementById('cycleTime').classList.remove('subtle');document.getElementById('cycleMeta').textContent=x>=120000?'RHYTHM CHECK NOW':'CPR Cycle '+state.cycle;document.getElementById('progress').style.width=Math.min(100,x/120000*100)+'%';if(document.getElementById('countdownOn').checked&&x>=90000&&x<110000&&state._warn30Cycle!==state.cycle){state._warn30Cycle=state.cycle;preAlertTone();speak('三十秒後節律檢查。')}if(document.getElementById('countdownOn').checked&&x>=110000&&x<120000&&state._warn10Cycle!==state.cycle){state._warn10Cycle=state.cycle;preAlertTone();speak('十秒後節律檢查。')}if(x>=120000){document.getElementById('hero').classList.add('flash');if(state._alertedCycle!==state.cycle){state._alertedCycle=state.cycle;alertTone();speak('兩分鐘到，請檢查心律與脈搏。')}}else document.getElementById('hero').classList.remove('flash')}else{document.getElementById('cycleTime').textContent='00:00';document.getElementById('cycleTime').classList.add('subtle');document.getElementById('cycleMeta').textContent=state.started?'CPR paused':'CPR 尚未開始';document.getElementById('progress').style.width='0%'}}
+setInterval(tick,250);
+function speak(t){try{if(!document.getElementById('voiceOn').checked||!('speechSynthesis' in window))return;speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=1.05;u.volume=1;const voices=speechSynthesis.getVoices();const zh=voices.find(v=>/^zh(-|_)?TW/i.test(v.lang))||voices.find(v=>/^zh/i.test(v.lang));if(zh)u.voice=zh;speechSynthesis.speak(u)}catch(e){}}
+function csvFile(){const csv=csvData();return new File([csv],`${state.caseId||'EMT_Code'}.csv`,{type:'text/csv;charset=utf-8'})}
+function exportCSV(){if(!state.events.length)return alert('尚無紀錄');const file=csvFile(),url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast('CSV 已產生')}
+async function shareCSV(){if(!state.events.length)return alert('尚無紀錄');try{const file=csvFile();if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({title:'EMT Code Record',text:state.caseId,files:[file]});return}if(navigator.share){await navigator.share({title:'EMT Code Record',text:buildSummary()});return}exportCSV()}catch(e){if(e.name!=='AbortError')exportCSV()}}
+function clearActive(ids){ids.forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active-choice')})}
+function logBrady(text){log('Brady: '+text,'brady',{pathway:'bradycardia'})}
+function setBradyCompromise(v){state.bradyCompromise=v;clearActive(['bradyCompYes','bradyCompNo']);document.getElementById(v?'bradyCompYes':'bradyCompNo').classList.add('active-choice');document.getElementById('bradyStable').classList.toggle('flowhidden',v);document.getElementById('bradyUnstable').classList.toggle('flowhidden',!v);document.getElementById('bradyTreatment').classList.add('flowhidden');document.getElementById('bradyStatus').textContent=v?'Compromise +':'Stable / observe';if(v){document.getElementById('bradyNext').innerHTML=getProviderMode()==='emtp'?'Assessment & support<small>若持續 compromise → atropine；無效則 TCP / dopamine / epinephrine infusion</small>':'Assessment & support<small>持續 ABCs / monitor / 12-lead，依 EMT level 支持並快速後送 / request ALS</small>'}else{document.getElementById('bradyNext').innerHTML='找可逆病因並觀察<small>Support ABCs、O₂ as indicated、12-lead ECG、transport reassessment</small>'}logBrady(v?'Cardiopulmonary compromise present':'No cardiopulmonary compromise');saveState()}
+function showBradyTreatment(v){
+  const advanced=getProviderMode()==='emtp';
+  document.getElementById('bradyTreatment').classList.toggle('flowhidden',!v||!advanced);
+  if(v){
+    if(advanced){document.getElementById('bradyNext').innerHTML='Atropine first-line<small>1 mg IV；q3–5 min；max 3 mg。若無效 → TCP and/or dopamine/epinephrine infusion</small>';speak('症狀性心搏過緩持續，準備 Atropine。')}
+    else{document.getElementById('bradyNext').innerHTML='Support ABCs + rapid transport / ALS intercept<small>持續 monitor、O₂/PPV as indicated；依 EMT level 執行允許的處置並聯絡 medical control / ALS</small>';speak('症狀性心搏過緩，持續支持並準備快速後送。')}
+    logBrady('Bradycardia persists with cardiopulmonary compromise')
+  }else{document.getElementById('bradyNext').innerHTML='改找可逆病因並持續觀察<small>取得 12-lead ECG，持續監測與後送評估</small>';logBrady('Cardiopulmonary compromise resolved / reassess causes')}
+}
+function giveAtropine(){unlockAudio();if(state.atropineTotal>=3){alert('Atropine 已達 AHA algorithm maximum total 3 mg');return}state.atropineTotal+=1;log('Atropine 1 mg IV given','drug',{drug:'Atropine',dose:'1 mg',pathway:'bradycardia'});document.getElementById('atropineBtn').innerHTML=`Atropine 1 mg IV<br><small>Total ${state.atropineTotal} / 3 mg</small>`;speak(`Atropine 一毫克已給，累積 ${state.atropineTotal} 毫克。`);saveState()}
+function bradyAction(text,voice=''){log('Brady: '+text,'brady',{pathway:'bradycardia'});if(voice){unlockAudio();speak(voice)}}
+function bradyInfusion(drug,dose,voice=''){log(`${drug} ${dose} started`,'drug',{drug,dose,pathway:'bradycardia'});if(voice){unlockAudio();speak(voice)}}
+function bradyPacing(kind){const text=kind==='TCP'?'Transcutaneous pacing initiated':'Transvenous pacing considered / prepared';log(`Brady: ${text}`,'pacing',{pathway:'bradycardia',pacing:kind});unlockAudio();speak(kind==='TCP'?'準備經皮節律器。':'準備經靜脈節律器。')}
+function bradyConsult(){log('Brady: Expert consultation requested','consult',{pathway:'bradycardia'})}
+function cycleBradyCause(btn,name){const key=btn.dataset.key||name;let n=(Number(btn.dataset.stage)+1)%3;btn.dataset.stage=n;btn.classList.remove('suspected','treated');const status=n===1?'suspected':n===2?'addressed':'cleared';state.bradyCauses=state.bradyCauses||{};if(n===0)delete state.bradyCauses[key];else state.bradyCauses[key]=status;if(n===1)btn.classList.add('suspected');if(n===2)btn.classList.add('treated');log(`Brady cause: ${name} — ${status}`,'cause',{pathway:'bradycardia',cause:name,causeStatus:status});saveState()}
+function restoreBradyCauses(){document.querySelectorAll('.brady-cause').forEach(btn=>{const status=(state.bradyCauses||{})[btn.dataset.key];btn.classList.remove('suspected','treated');btn.dataset.stage=status==='suspected'?'1':status==='addressed'?'2':'0';if(status==='suspected')btn.classList.add('suspected');if(status==='addressed')btn.classList.add('treated')})}
+function logTachy(text,meta={}){log('Tachy: '+text,'tachy',{pathway:'tachycardia',...meta})}
+function cycleTachyCause(btn,name){const key=btn.dataset.key||name;let n=(Number(btn.dataset.stage)+1)%3;btn.dataset.stage=n;btn.classList.remove('suspected','treated');const status=n===1?'suspected':n===2?'addressed':'cleared';state.tachyCauses=state.tachyCauses||{};if(n===0)delete state.tachyCauses[key];else state.tachyCauses[key]=status;if(n===1)btn.classList.add('suspected');if(n===2)btn.classList.add('treated');log(`Tachy cause: ${name} — ${status}`,'cause',{pathway:'tachycardia',cause:name,causeStatus:status});saveState()}
+function restoreTachyCauses(){document.querySelectorAll('.tachy-cause').forEach(btn=>{const status=(state.tachyCauses||{})[btn.dataset.key];btn.classList.remove('suspected','treated');btn.dataset.stage=status==='suspected'?'1':status==='addressed'?'2':'0';if(status==='suspected')btn.classList.add('suspected');if(status==='addressed')btn.classList.add('treated')})}
+function setTachyUnstable(v){state.tachyUnstable=v;clearActive(['tachyUnstableYes','tachyUnstableNo']);document.getElementById(v?'tachyUnstableYes':'tachyUnstableNo').classList.add('active-choice');const advanced=getProviderMode()==='emtp';document.getElementById('tachyUnstable').classList.toggle('flowhidden',!v||!advanced);document.getElementById('tachyStable').classList.toggle('flowhidden',v||!advanced);document.getElementById('tachyWide').classList.add('flowhidden');document.getElementById('tachyNarrow').classList.add('flowhidden');document.getElementById('tachyStatus').textContent=v?'UNSTABLE':'STABLE';if(advanced){document.getElementById('tachyNext').innerHTML=v?'Synchronized cardioversion<small>Sedate whenever feasible；若 regular narrow 可考慮 adenosine</small>':'判斷 QRS width<small>Wide QRS ≥0.12 sec?</small>';if(v){unlockAudio();speak('不穩定心搏過速，準備同步電復律。')}}else{document.getElementById('tachyNext').innerHTML=v?'Unstable tachycardia — rapid transport / ALS intercept<small>Airway、O₂ if hypoxemic、monitor/BP/SpO₂、12-lead；依 EMT level 支持並儘速後送</small>':'Stable tachycardia — monitor / 12-lead / transport<small>尋找可逆原因；持續 reassessment，必要時 request ALS / medical control</small>';if(v){unlockAudio();speak('不穩定心搏過速，持續支持並準備快速後送。')}}logTachy(v?'Hemodynamic instability present':'No hemodynamic instability');saveState()}
+function setWideQRS(v){state.tachyWide=v;document.getElementById('tachyWide').classList.toggle('flowhidden',!v);document.getElementById('tachyNarrow').classList.toggle('flowhidden',v);document.getElementById('tachyNext').innerHTML=v?'Stable wide-QRS tachycardia<small>Adenosine only if regular + monomorphic；consider antiarrhythmic infusion / expert consult</small>':'Stable narrow-QRS tachycardia<small>若 regular → vagal maneuvers / adenosine；可考慮 β-blocker 或 CCB</small>';logTachy(v?'Wide QRS ≥0.12 sec':'Narrow QRS <0.12 sec');saveState()}
+function setWideRegular(v){state.tachyRegular=v;document.getElementById('wideAdenosine').classList.toggle('flowhidden',!v);logTachy(v?'Wide QRS is regular and monomorphic':'Wide QRS is irregular or polymorphic');if(!v)speak('不規則或多形性寬 QRS，不要使用 adenosine。');saveState()}
+function setNarrowRegular(v){state.tachyRegular=v;document.getElementById('narrowRegularActions').classList.toggle('flowhidden',!v);logTachy(v?'Narrow QRS is regular':'Narrow QRS is irregular');saveState()}
+function giveAdenosine(mg){unlockAudio();log(`Adenosine ${mg} mg rapid IV push + NS flush`,'drug',{drug:'Adenosine',dose:`${mg} mg`,pathway:'tachycardia'});speak(`Adenosine ${mg} 毫克已記錄。`)}
+function tachyDrug(text){logTachy(text)}
+function recordStableCardio(rhythm,energy){unlockAudio();log(`Synchronized cardioversion considered/performed: ${rhythm} · ${energy} J`,'cardioversion',{energy,rhythm});speak(`同步電復律 ${energy} 焦耳已記錄。每次電擊後確認同步模式。`)}
+function selectCardio(rhythm,energy,btn){state.selectedCardio={rhythm,energy};document.querySelectorAll('#tachyUnstable .cardio-grid button').forEach(b=>b.classList.remove('active-choice'));btn.classList.add('active-choice');document.getElementById('tachyNext').innerHTML=`${rhythm}<small>${typeof energy==='number'?energy+' J synchronized':'unsynchronized high-energy shock'}</small>`;logTachy(`Cardioversion rhythm selected: ${rhythm}`);saveState()}
+function performCardioversion(){unlockAudio();if(!state.selectedCardio){alert('請先選擇 rhythm / cardioversion 類型');return}const c=state.selectedCardio;if(typeof c.energy==='number'){log(`Synchronized cardioversion: ${c.rhythm} · ${c.energy} J`,'cardioversion',{energy:c.energy,rhythm:c.rhythm});speak(`同步電復律 ${c.energy} 焦耳已記錄。每次電擊後確認同步模式。`)}else{log(`Unsynchronized high-energy shock: ${c.rhythm}`,'shock',{rhythm:c.rhythm});speak('多形性心室頻脈，使用非同步高能量電擊。')}saveState()}
+
+const MEGA_ACTION_LABELS={
+assess_pulse:'Pulse / rhythm check',identify_ecg:'ECG rhythm recognition',select_energy:'Correct cardioversion energy',cpr:'High-quality CPR',airway_o2:'Airway / O₂ / BVM',monitor_iv:'Monitor + IV/IO',
+shock:'Defibrillation',sync_cardio:'Synchronized cardioversion',epi:'Epinephrine 1 mg',amio:'Amiodarone',lidocaine:'Lidocaine',
+atropine:'Atropine 1 mg',tcp:'Transcutaneous pacing',epi_infusion:'Epinephrine infusion',dopamine:'Dopamine infusion',
+vagal:'Vagal maneuver',adenosine6:'Adenosine 6 mg',adenosine12:'Adenosine 12 mg',antiarrhythmic:'Antiarrhythmic infusion',
+ecg12:'12-lead ECG',post_rosc:'Post-ROSC care',treat_cause:'Treat reversible cause'};
+const MEGA_CASES=[
+{key:'vf',title:'突然倒地 — Refractory VF',family:'Cardiac Arrest',age:[48,76],intro:'在候診區突然倒地，無反應。你到場時 monitor 顯示粗顫波形，無可觸及脈搏。',stages:[
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'Initial rhythm：VF，無脈搏。',required:['identify_ecg','assess_pulse','cpr','shock'],ecg:{correct:'VF',type:'vf',choices:['VF','Pulseless VT','Asystole','SVT']},hint:'先認出 VF，確認無脈搏後立即高品質 CPR 與除顫。'},
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'模擬 2 分鐘後：仍為 VF。',required:['identify_ecg','shock','cpr','epi'],ecg:{correct:'VF',type:'vf',choices:['VF','Pulseless VT','Sinus rhythm','Atrial flutter']},hint:'仍是 shockable rhythm。第二次 shock 後立即 CPR 並給 epinephrine。'},
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'下一次 rhythm check：仍為 refractory VF。',required:['identify_ecg','shock','cpr'],oneOf:[['amio','lidocaine']],ecg:{correct:'VF',type:'vf',choices:['VF','Pulseless VT','PEA','SVT']},hint:'第三次 shock 後 CPR，考慮 amiodarone 或 lidocaine。'},
+{rhythm:'Sinus',hr:'82',bp:'104/66',spo2:'96%',status:'Pulse +',scene:'下一次 rhythm check 出現 organized rhythm，摸得到脈搏。',required:['assess_pulse','post_rosc'],hint:'確認 ROSC 後進入 post–cardiac arrest care。'}],
+debrief:['VF/pVT 優先 defibrillation 與高品質 CPR。','Shockable pathway：第二次 shock 後給 epinephrine；第三次可加 amiodarone/lidocaine。','辨認 ECG 只是第一步，仍要把 pulse / CPR / shock 順序做對。']},
+{key:'torsades',title:'長 QT 後倒地 — Polymorphic VT / Torsades',family:'Cardiac Arrest',age:[34,67],intro:'病人先前被提醒 QT 延長，突然失去意識倒地。',stages:[
+{rhythm:'Polymorphic VT',hr:'Very rapid',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 呈現振幅扭轉變化的快速寬 QRS 波形，摸不到脈搏。',required:['identify_ecg','assess_pulse','cpr','shock'],ecg:{correct:'Polymorphic VT / Torsades',type:'torsades',choices:['Polymorphic VT / Torsades','AF with RVR','Monomorphic VT','SVT']},hint:'Pulseless polymorphic VT 依 VF/pVT arrest pathway，立即 shock + CPR。'},
+{rhythm:'Polymorphic VT',hr:'Very rapid',bp:'--',spo2:'--',status:'Pulseless',scene:'仍為 polymorphic VT / torsades。',required:['shock','cpr','epi'],hint:'仍走 shockable arrest；必要時補正可能的低鎂、藥物等原因。'},
+{rhythm:'Sinus',hr:'88',bp:'108/62',spo2:'97%',status:'Pulse +',scene:'電擊與急救後恢復可灌流心律。',required:['post_rosc','ecg12'],hint:'ROSC 後處理 QT prolongation 與可逆病因。'}],
+debrief:['Pulseless polymorphic VT 以 defibrillation 處理，不做 synchronized cardioversion。','臨床上要同步回頭找 torsades 的誘因，如藥物、低鎂、QT prolongation。']},
+{key:'pea_ptx',title:'呼吸器病人突然 PEA — Tension pneumothorax',family:'Cardiac Arrest',age:[42,69],intro:'ICU 病人突然血壓消失、ETCO₂ 急降。',stages:[
+{rhythm:'PEA',hr:'58',bp:'--',spo2:'72%',status:'Pulseless',scene:'Monitor 是有組織的窄 QRS rhythm，但摸不到脈搏。',required:['identify_ecg','assess_pulse','cpr','epi','monitor_iv'],ecg:{correct:'Organized narrow rhythm',type:'organized_narrow',choices:['Organized narrow rhythm','VF','Asystole','SVT']},hint:'這是 organized rhythm；要實際檢查脈搏，辨認 PEA，不電擊。'},
+{rhythm:'PEA',hr:'54',bp:'--',spo2:'68%',status:'Pulseless',scene:'CPR 中發現右側呼吸音消失、peak airway pressure 明顯升高，頸靜脈怒張。',required:['treat_cause'],cause:'Tension pneumothorax',hint:'這組線索高度指向 tension pneumothorax。'},
+{rhythm:'Sinus',hr:'96',bp:'112/70',spo2:'93%',status:'Pulse +',scene:'解除胸腔壓力後 ETCO₂ 上升，出現可觸及脈搏。',required:['post_rosc'],hint:'ROSC 後穩定 oxygenation/ventilation 與 hemodynamics。'}],
+debrief:['PEA/Asystole 不 defibrillate。','PEA 的關鍵是 CPR、epinephrine 與快速找 Hs & Ts。']},
+{key:'pea_hyperk',title:'洗腎病人心跳停止 — Hyperkalemia',family:'Cardiac Arrest',age:[55,82],intro:'一名 ESRD 病人錯過透析後突然失去意識。',stages:[
+{rhythm:'PEA',hr:'34',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 顯示緩慢有組織節律，但無脈搏。',required:['identify_ecg','assess_pulse','cpr','epi'],ecg:{correct:'Organized wide rhythm',type:'organized_wide',choices:['Organized wide rhythm','VF','Asystole','Monomorphic VT']},hint:'先確認是 organized rhythm 而非 VF，再走 PEA pathway。'},
+{rhythm:'PEA',hr:'30',bp:'--',spo2:'--',status:'Pulseless',scene:'病史：ESRD、漏洗腎；先前 ECG 高尖 T 波、QRS widening。',required:['treat_cause'],cause:'Hyperkalemia',hint:'從病史與 ECG 線索辨識 hyperkalemia。'},
+{rhythm:'Sinus',hr:'70',bp:'96/60',spo2:'95%',status:'Pulse +',scene:'治療後恢復可灌流 organized rhythm。',required:['post_rosc','ecg12'],hint:'ROSC 後持續處理 hyperkalemia。'}],
+debrief:['PEA 病人若病史/ECG 暗示 hyperkalemia，要把 cause treatment 納入核心處置。']},
+{key:'asystole_toxin',title:'藥物過量後 Asystole',family:'Cardiac Arrest',age:[21,58],intro:'病人被發現昏迷、呼吸淺慢，之後失去脈搏。',stages:[
+{rhythm:'Asystole',hr:'0',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 幾乎成一直線，再確認接線良好後仍無脈搏。',required:['identify_ecg','assess_pulse','cpr','epi'],ecg:{correct:'Asystole',type:'asystole',choices:['Asystole','VF','Organized narrow rhythm','Pulseless VT']},hint:'Asystole 不電擊；立即 CPR + epinephrine。'},
+{rhythm:'Asystole',hr:'0',bp:'--',spo2:'--',status:'Pulseless',scene:'家屬帶來空藥袋與毒物接觸資訊。',required:['treat_cause'],cause:'Toxins',hint:'Asystole 也要回頭找 Hs & Ts；此題重點是 toxins。'},
+{rhythm:'Sinus',hr:'62',bp:'92/58',spo2:'95%',status:'Pulse +',scene:'經急救與病因處置後恢復脈搏。',required:['post_rosc'],hint:'進入 post-ROSC 與毒物後續處理。'}],
+debrief:['Asystole 不可電擊。','看到平線要先確認技術問題後再判讀 asystole。']},
+{key:'pea_tamponade',title:'創傷後 PEA — Cardiac tamponade',family:'Cardiac Arrest',age:[29,63],intro:'胸部穿刺傷後突然無脈搏。',stages:[
+{rhythm:'PEA',hr:'64',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 為 organized rhythm，但沒有可觸及脈搏。',required:['identify_ecg','assess_pulse','cpr','epi'],ecg:{correct:'Organized narrow rhythm',type:'organized_narrow',choices:['Organized narrow rhythm','VF','Monomorphic VT','Asystole']},hint:'這仍是 PEA，先照 non-shockable arrest 處理。'},
+{rhythm:'PEA',hr:'60',bp:'--',spo2:'--',status:'Pulseless',scene:'頸靜脈怒張、心音低弱、胸部創傷病史。',required:['treat_cause'],cause:'Cardiac tamponade',hint:'這題的可逆病因是 cardiac tamponade。'},
+{rhythm:'Sinus',hr:'98',bp:'100/62',spo2:'96%',status:'Pulse +',scene:'處理 tamponade 後恢復脈搏。',required:['post_rosc'],hint:'ROSC 後進入 definitive management。'}],
+debrief:['Trauma / Beck triad 線索要想到 tamponade。','PEA 不是節律名稱本身，而是 organized rhythm + no pulse。']},
+{key:'brady',title:'胸痛後嚴重 Bradycardia',family:'Bradycardia',age:[52,79],intro:'病人胸痛、冒冷汗，意識變慢。Pulse present。',stages:[
+{rhythm:'Sinus brady',hr:'34',bp:'74/42',spo2:'94%',status:'Pulse + / unstable',scene:'HR 34/min，低血壓且急性意識改變。',required:['identify_ecg','airway_o2','monitor_iv','atropine'],ecg:{correct:'Sinus bradycardia',type:'sinus_brady',choices:['Sinus bradycardia','Complete heart block','AF with slow response','SVT']},hint:'有 cardiopulmonary compromise 的 symptomatic bradycardia：support ABCs，先 atropine。'},
+{rhythm:'Sinus brady',hr:'28',bp:'68/38',spo2:'96%',status:'Pulse + / unstable',scene:'Atropine 後仍 HR 28、BP 68/38。',oneOf:[['tcp','epi_infusion','dopamine']],hint:'Atropine ineffective → TCP and/or dopamine or epinephrine infusion。'},
+{rhythm:'Paced / sinus',hr:'72',bp:'108/64',spo2:'97%',status:'Improved',scene:'介入後灌流改善、意識恢復。',required:['ecg12'],hint:'穩定後取得 12-lead ECG。'}],
+debrief:['Atropine：1 mg IV，可每 3–5 分鐘重複，最大總量 3 mg。','Atropine 無效時考慮 TCP、dopamine 或 epinephrine infusion。']},
+{key:'mobitz2',title:'Mobitz II 症狀性 Bradycardia',family:'Bradycardia',age:[58,86],intro:'病人頭暈欲倒、膚色蒼白，仍有脈搏。',stages:[
+{rhythm:'Mobitz II',hr:'38',bp:'82/48',spo2:'95%',status:'Pulse + / unstable',scene:'ECG 可見固定 PR 但間歇掉拍，灌流不良。',required:['identify_ecg','airway_o2','monitor_iv','atropine'],ecg:{correct:'Mobitz II',type:'mobitz2',choices:['Mobitz II','Sinus bradycardia','Atrial flutter','Complete heart block']},hint:'先辨認 high-grade block；症狀性 bradycardia 先 atropine，但要有 pacing 準備。'},
+{rhythm:'Mobitz II',hr:'34',bp:'78/44',spo2:'94%',status:'Pulse + / unstable',scene:'Atropine 效果差，仍反覆頭暈近昏厥。',required:['tcp'],hint:'Mobitz II 對 atropine 可能反應差，TCP 是很關鍵的下一步。'},
+{rhythm:'Paced',hr:'70',bp:'108/60',spo2:'97%',status:'Improved',scene:'TCP 後灌流改善。',required:['ecg12'],hint:'後續安排 expert consultation / transvenous pacing。'}],
+debrief:['High-grade AV block 要及早準備 pacing。','Mega Code 不只背藥名，更要記得誰需要儘快 pacing。']},
+{key:'chb',title:'Complete Heart Block with Shock',family:'Bradycardia',age:[60,89],intro:'病人胸悶、喘且血壓掉。',stages:[
+{rhythm:'Complete heart block',hr:'30',bp:'70/40',spo2:'90%',status:'Pulse + / unstable',scene:'P 波與 QRS 完全脫節，病人冒冷汗。',required:['identify_ecg','airway_o2','monitor_iv','atropine'],ecg:{correct:'Complete heart block',type:'complete_block',choices:['Complete heart block','Sinus bradycardia','Mobitz II','Monomorphic VT']},hint:'辨認 complete heart block；可以先 atropine，但通常要很早進入 pacing / infusion。'},
+{rhythm:'Complete heart block',hr:'28',bp:'68/36',spo2:'92%',status:'Pulse + / unstable',scene:'Atropine 後無明顯改善。',oneOf:[['tcp','epi_infusion','dopamine']],hint:'進入 TCP 或 vasoactive infusion。'},
+{rhythm:'Paced / junctional',hr:'68',bp:'104/62',spo2:'96%',status:'Improved',scene:'灌流恢復。',required:['ecg12'],hint:'後續 expert consultation / transvenous pacing。'}],
+debrief:['Complete heart block 的 hemodynamic compromise 常需要 early pacing。']},
+{key:'unstable_vt',title:'有脈搏 Monomorphic VT — Unstable',family:'Tachycardia',age:[45,74],intro:'病人突然胸悶、頭暈，仍有脈搏。',stages:[
+{rhythm:'Monomorphic VT',hr:'188',bp:'76/44',spo2:'91%',status:'Pulse + / unstable',scene:'Regular wide-complex tachycardia，低血壓、胸痛。',required:['identify_ecg','airway_o2','monitor_iv','select_energy','sync_cardio'],energyQuestion:{correct:'100 J synchronized',options:['50 J synchronized','100 J synchronized','200 J synchronized','Unsynchronized high-energy shock']},ecg:{correct:'Monomorphic VT',type:'vt',choices:['Monomorphic VT','SVT','AF with RVR','Atrial flutter']},hint:'不穩定有脈搏 tachyarrhythmia → synchronized cardioversion。'},
+{rhythm:'Sinus',hr:'88',bp:'112/68',spo2:'96%',status:'Improved',scene:'Cardioversion 後轉為 sinus rhythm。',required:['ecg12'],hint:'穩定後 12-lead ECG 與可逆病因評估。'}],
+debrief:['Monomorphic VT with a pulse but unstable：核心是 synchronized cardioversion。']},
+{key:'svt',title:'Regular Narrow-Complex SVT — Stable',family:'Tachycardia',age:[24,58],intro:'病人心悸但神智清楚，無胸痛、無肺水腫。',stages:[
+{rhythm:'SVT',hr:'186',bp:'118/72',spo2:'98%',status:'Stable',scene:'Regular narrow-complex tachycardia，hemodynamically stable。',required:['identify_ecg','monitor_iv','vagal'],ecg:{correct:'SVT',type:'svt',choices:['SVT','AF with RVR','Atrial flutter','Monomorphic VT']},hint:'Stable regular narrow tachycardia：先 vagal maneuver。'},
+{rhythm:'SVT',hr:'182',bp:'116/70',spo2:'98%',status:'Stable',scene:'Vagal maneuver 無效，仍 regular SVT。',required:['adenosine6'],hint:'Adenosine first dose 6 mg rapid IV push。'},
+{rhythm:'Sinus',hr:'92',bp:'120/74',spo2:'99%',status:'Converted',scene:'Adenosine 後轉為 sinus rhythm。',required:['ecg12'],hint:'轉換後取得 12-lead ECG。'}],
+debrief:['Stable regular narrow-complex tachycardia：vagal → adenosine 6 mg → 12 mg。']},
+{key:'af_unstable',title:'AF with RVR — Hemodynamic instability',family:'Tachycardia',age:[58,84],intro:'病人呼吸急促、冒冷汗，肺部濕囉音。',stages:[
+{rhythm:'AF with RVR',hr:'176',bp:'78/48',spo2:'88%',status:'Pulse + / unstable',scene:'Irregular narrow-complex tachycardia，低血壓合併急性心衰竭徵象。',required:['identify_ecg','airway_o2','monitor_iv','select_energy','sync_cardio'],energyQuestion:{correct:'200 J synchronized',options:['100 J synchronized','120 J synchronized','150 J synchronized','200 J synchronized']},ecg:{correct:'AF with RVR',type:'af',choices:['AF with RVR','SVT','Atrial flutter','Monomorphic VT']},hint:'不穩定 AF with RVR → synchronized cardioversion。'},
+{rhythm:'Sinus',hr:'98',bp:'106/64',spo2:'94%',status:'Improved',scene:'同步電復律後灌流改善。',required:['ecg12'],hint:'穩定後 12-lead ECG 與原因評估。'}],
+debrief:['Atrial fibrillation 若造成 instability，優先 synchronized cardioversion。']},
+{key:'flutter_unstable',title:'Atrial Flutter 2:1 — Unstable',family:'Tachycardia',age:[39,73],intro:'病人心悸、胸悶且血壓下降。',stages:[
+{rhythm:'Atrial flutter',hr:'150',bp:'82/50',spo2:'93%',status:'Pulse + / unstable',scene:'Regular tachycardia，考慮 flutter 2:1 conduction。',required:['identify_ecg','airway_o2','monitor_iv','select_energy','sync_cardio'],energyQuestion:{correct:'200 J synchronized',options:['50 J synchronized','100 J synchronized','150 J synchronized','200 J synchronized']},ecg:{correct:'Atrial flutter',type:'flutter',choices:['Atrial flutter','SVT','AF with RVR','Sinus tachycardia']},hint:'不穩定 flutter 走 synchronized cardioversion。'},
+{rhythm:'Sinus',hr:'84',bp:'110/66',spo2:'97%',status:'Improved',scene:'電復律後轉為 sinus rhythm。',required:['ecg12'],hint:'後續 12-lead ECG。'}],
+debrief:['Flutter 2:1 有時看起來很規則，需辨認鋸齒波。','2025 AHA：flutter initial synchronized energy 200 J。']},
+{key:'unstable_svt',title:'Regular Narrow SVT — Becomes Unstable',family:'Tachycardia',age:[22,61],intro:'病人突發心悸，regular narrow-complex tachycardia，後續灌流惡化。',stages:[
+{rhythm:'SVT',hr:'198',bp:'76/42',spo2:'92%',status:'Pulse + / unstable',scene:'Regular narrow-complex tachycardia，低血壓且頭暈近昏厥。',required:['identify_ecg','airway_o2','monitor_iv','select_energy','sync_cardio'],energyQuestion:{correct:'100 J synchronized',options:['50 J synchronized','100 J synchronized','150 J synchronized','200 J synchronized']},ecg:{correct:'SVT',type:'svt',choices:['SVT','AF with RVR','Atrial flutter','Monomorphic VT']},hint:'不穩定 narrow-complex tachycardia → synchronized cardioversion；2025 AHA initial 100 J。'},
+{rhythm:'Sinus',hr:'90',bp:'112/68',spo2:'97%',status:'Improved',scene:'同步電復律後恢復 sinus rhythm。',required:['ecg12'],hint:'穩定後取得 12-lead ECG。'}],debrief:['2025 AHA electrical cardioversion：narrow-complex tachycardia initial 100 J synchronized。']},
+{key:'stable_wct',title:'Stable Wide-Complex Tachycardia',family:'Tachycardia',age:[43,70],intro:'病人心悸、胸口不適但 BP 穩定。',stages:[
+{rhythm:'Regular monomorphic WCT',hr:'158',bp:'122/76',spo2:'97%',status:'Stable',scene:'QRS ≥0.12 sec，regular monomorphic，暫無 hemodynamic instability。',required:['identify_ecg','monitor_iv'],oneOf:[['antiarrhythmic','adenosine6']],ecg:{correct:'Regular WCT',type:'wct',choices:['Regular WCT','AF with RVR','Atrial flutter','Sinus tachycardia']},hint:'Regular + monomorphic 的 WCT，可考慮 adenosine 或 antiarrhythmic infusion。'},
+{rhythm:'Monomorphic VT',hr:'174',bp:'82/50',spo2:'93%',status:'Deteriorating',scene:'病況惡化，出現低血壓與胸痛，但仍有脈搏。',required:['sync_cardio'],hint:'現在已不穩定 → synchronized cardioversion。'},
+{rhythm:'Sinus',hr:'86',bp:'116/72',spo2:'97%',status:'Improved',scene:'Cardioversion 後轉 sinus rhythm。',required:['ecg12'],hint:'完成後續 12-lead 與原因評估。'}],
+debrief:['Adenosine 在 wide-complex tachycardia 僅限 regular + monomorphic。','一旦不穩定，處置轉為 synchronized cardioversion。']},
+{key:'preexcited_af',title:'Irregular Wide Tachycardia — Pre-excited AF',family:'Tachycardia',age:[19,52],intro:'年輕病人劇烈心悸、冒冷汗，QRS 寬窄不一且非常不規則。',stages:[
+{rhythm:'Irregular wide tachycardia',hr:'220',bp:'76/40',spo2:'90%',status:'Pulse + / unstable',scene:'懷疑 pre-excited AF，病人低血壓且胸悶。',required:['identify_ecg','airway_o2','monitor_iv','sync_cardio'],ecg:{correct:'Pre-excited AF / irregular WCT',type:'preexcited_af',choices:['Pre-excited AF / irregular WCT','SVT','Monomorphic VT','Atrial flutter']},hint:'不穩定 irregular WCT 直接 synchronized cardioversion；不要走 adenosine / AV nodal blocker。'},
+{rhythm:'Sinus',hr:'96',bp:'108/62',spo2:'96%',status:'Improved',scene:'電復律後恢復穩定。',required:['ecg12'],hint:'穩定後做 ECG 與後續評估。'}],
+debrief:['Pre-excited AF 需避免 AV nodal blocking drugs；若 unstable，直接 cardioversion。']},
+{key:'stable_flutter',title:'Atrial Flutter 3:1 — Stable',family:'Tachycardia',age:[41,78],intro:'病人主訴心悸，但目前灌流尚可。',stages:[
+{rhythm:'Atrial flutter',hr:'102',bp:'126/78',spo2:'98%',status:'Stable',scene:'規則窄 QRS tachycardia，仔細看有 sawtooth flutter waves。',required:['identify_ecg','monitor_iv','ecg12'],ecg:{correct:'Atrial flutter',type:'flutter',choices:['Atrial flutter','Sinus tachycardia','SVT','AF with RVR']},hint:'先辨認 flutter；此題強調 ECG 辨識，之後可依穩定狀況安排後續治療。'},
+{rhythm:'Atrial flutter',hr:'150',bp:'84/52',spo2:'94%',status:'Deteriorating',scene:'病況轉差、血壓下降。',required:['select_energy','sync_cardio'],energyQuestion:{correct:'200 J synchronized',options:['50 J synchronized','100 J synchronized','150 J synchronized','200 J synchronized']},hint:'現在變 unstable → synchronized cardioversion。'},
+{rhythm:'Sinus',hr:'88',bp:'114/70',spo2:'98%',status:'Improved',scene:'轉為 sinus rhythm。',required:['ecg12'],hint:'完成後續原因評估。'}],
+debrief:['同一種節律可能由 stable 轉為 unstable，Mega Code 看的是你會不會切換處置。']}
+,{key:'pea_hypovolemia',title:'大量出血後 PEA — Hypovolemia',family:'Cardiac Arrest',age:[32,79],intro:'病人有大量消化道出血或外傷出血史，突然失去意識且摸不到脈搏。',stages:[
+{rhythm:'PEA',hr:'66',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 為有組織窄 QRS rhythm，但無脈搏。',required:['identify_ecg','assess_pulse','cpr','epi','monitor_iv'],ecg:{correct:'Organized narrow rhythm',type:'organized_narrow',choices:['Organized narrow rhythm','VF','Asystole','Monomorphic VT']},hint:'先走 PEA pathway：CPR、epinephrine ASAP，同時找可逆病因。'},
+{rhythm:'PEA',hr:'62',bp:'--',spo2:'--',status:'Pulseless',scene:'可見大量出血、頸靜脈扁平、末梢冰冷，病史支持嚴重 volume loss。',required:['treat_cause'],cause:'Hypovolemia',hint:'這題的 H 是 hypovolemia；病因處置必須和 CPR 同步。'},
+{rhythm:'Sinus',hr:'108',bp:'92/54',spo2:'95%',status:'Pulse +',scene:'補充循環容量並控制出血後恢復脈搏。',required:['post_rosc'],hint:'ROSC 後持續 definitive hemorrhage control 與灌流支持。'}],
+debrief:['PEA + 明顯出血線索要快速想到 hypovolemia。','Non-shockable arrest 的核心是 CPR、epinephrine 與同步處理可逆病因。']}
+,{key:'pea_hypoxia',title:'嚴重缺氧後 PEA — Hypoxia',family:'Cardiac Arrest',age:[40,82],intro:'病人先出現嚴重呼吸窘迫與 SpO₂ 急降，之後失去脈搏。',stages:[
+{rhythm:'PEA',hr:'48',bp:'--',spo2:'55%',status:'Pulseless',scene:'Monitor 為 organized rhythm，但無脈搏。',required:['identify_ecg','assess_pulse','cpr','epi','airway_o2'],ecg:{correct:'Organized narrow rhythm',type:'organized_narrow',choices:['Organized narrow rhythm','VF','Asystole','SVT']},hint:'PEA 仍需 CPR + epinephrine；此題同時要優先修正 airway/oxygenation。'},
+{rhythm:'PEA',hr:'44',bp:'--',spo2:'58%',status:'Pulseless',scene:'插管病人發現呼吸器管路脫落／嚴重 airway obstruction 的線索。',required:['treat_cause'],cause:'Hypoxia',hint:'可逆病因是 hypoxia。'},
+{rhythm:'Sinus',hr:'94',bp:'104/62',spo2:'96%',status:'Pulse +',scene:'恢復有效氧合後 ROSC。',required:['post_rosc'],hint:'ROSC 後持續最佳化 oxygenation/ventilation。'}],
+debrief:['Hypoxia 是 PEA/Asystole 重要可逆原因。','看到 arrest 前明顯 desaturation，要把 airway/oxygenation 放在原因搜尋前列。']}
+,{key:'pea_pe',title:'突然 PEA — Suspected Pulmonary Embolism',family:'Cardiac Arrest',age:[35,76],intro:'病人近期臥床並有單側下肢腫脹，突然胸痛、呼吸困難後倒下。',stages:[
+{rhythm:'PEA',hr:'78',bp:'--',spo2:'70%',status:'Pulseless',scene:'Monitor 有 organized rhythm，但沒有脈搏。',required:['identify_ecg','assess_pulse','cpr','epi','monitor_iv'],ecg:{correct:'Organized narrow rhythm',type:'organized_narrow',choices:['Organized narrow rhythm','VF','Asystole','Monomorphic VT']},hint:'PEA：CPR + epinephrine ASAP，同時快速搜尋 Hs & Ts。'},
+{rhythm:'PEA',hr:'76',bp:'--',spo2:'68%',status:'Pulseless',scene:'病史有 DVT risk、突發低氧與胸痛，床邊資訊高度懷疑 massive PE。',required:['treat_cause'],cause:'Pulmonary thrombosis',hint:'這題的 T 是 pulmonary thrombosis。'},
+{rhythm:'Sinus',hr:'112',bp:'90/56',spo2:'92%',status:'Pulse +',scene:'針對可逆病因處置後恢復脈搏。',required:['post_rosc'],hint:'ROSC 後安排 definitive PE management。'}],
+debrief:['Pulmonary thrombosis 是 PEA 的經典可逆原因之一。','情境線索常比單看 rhythm 更能幫你抓到 Hs & Ts。']}
+,{key:'pea_acidosis',title:'重度代謝性酸中毒後 PEA — Acidosis',family:'Cardiac Arrest',age:[28,71],intro:'病人有嚴重休克／代謝性酸中毒，pH 極低後突然失去脈搏。',stages:[
+{rhythm:'PEA',hr:'42',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 為緩慢 organized rhythm，無脈搏。',required:['identify_ecg','assess_pulse','cpr','epi'],ecg:{correct:'Organized wide rhythm',type:'organized_wide',choices:['Organized wide rhythm','VF','Asystole','Monomorphic VT']},hint:'先完成 PEA 核心處置，再追可逆病因。'},
+{rhythm:'PEA',hr:'38',bp:'--',spo2:'--',status:'Pulseless',scene:'先前 ABG 顯示嚴重 acidemia，臨床持續低灌流。',required:['treat_cause'],cause:'Acidosis',hint:'Hydrogen ion / acidosis 是 Hs & Ts 之一。'},
+{rhythm:'Sinus',hr:'88',bp:'94/58',spo2:'95%',status:'Pulse +',scene:'改善灌流並針對酸中毒病因處置後恢復脈搏。',required:['post_rosc'],hint:'ROSC 後持續矯正造成 acidemia 的上游原因。'}],
+debrief:['Hydrogen ion / acidosis 是 Hs & Ts 的核心項目。','重點是治療造成酸中毒的病因與低灌流，而不是只盯著單一 ABG 數字。']}
+,{key:'pea_coronary',title:'急性冠心症後 PEA — Coronary Thrombosis',family:'Cardiac Arrest',age:[46,81],intro:'病人先有持續性胸痛與 ST elevation，隨後突然失去脈搏。',stages:[
+{rhythm:'PEA',hr:'52',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 有 organized rhythm，但觸不到脈搏。',required:['identify_ecg','assess_pulse','cpr','epi','monitor_iv'],ecg:{correct:'Organized wide rhythm',type:'organized_wide',choices:['Organized wide rhythm','VF','Asystole','SVT']},hint:'先照 PEA pathway；STEMI 病史同時提示可能的冠狀動脈血栓。'},
+{rhythm:'PEA',hr:'50',bp:'--',spo2:'--',status:'Pulseless',scene:'倒下前 12-lead ECG 明顯 STEMI，無其他更強的 H/T 線索。',required:['treat_cause'],cause:'Coronary thrombosis',hint:'這題的 T 是 coronary thrombosis。'},
+{rhythm:'Sinus',hr:'96',bp:'98/60',spo2:'96%',status:'Pulse +',scene:'ROSC 後仍有明顯 ischemic ECG changes。',required:['post_rosc','ecg12'],hint:'ROSC 後要快速進入 coronary reperfusion 評估。'}],
+debrief:['Coronary thrombosis 是 cardiac arrest 可逆病因之一。','ROSC 後若持續有 STEMI/ischemia，要快速銜接 definitive coronary care。']}
+,{key:'brady_beta_blocker',title:'β-blocker 過量 — Symptomatic Bradycardia',family:'Bradycardia',age:[24,68],intro:'病人疑似大量服用 β-blocker，出現嗜睡、低血壓與明顯心搏過慢。',stages:[
+{rhythm:'Sinus brady',hr:'32',bp:'72/40',spo2:'95%',status:'Pulse + / unstable',scene:'Sinus bradycardia 合併 hypotension 與 altered mental status。',required:['identify_ecg','airway_o2','monitor_iv','atropine'],ecg:{correct:'Sinus bradycardia',type:'sinus_brady',choices:['Sinus bradycardia','Mobitz II','Complete heart block','SVT']},hint:'先走 symptomatic bradycardia algorithm：ABCs、monitor、atropine。'},
+{rhythm:'Sinus brady',hr:'30',bp:'68/38',spo2:'96%',status:'Pulse + / unstable',scene:'Atropine 反應不足；家屬確認大量 β-blocker ingestion。',required:['treat_cause'],cause:'Toxins',oneOf:[['tcp','epi_infusion','dopamine']],hint:'Atropine ineffective 時進入 pacing/vasoactive support，同時處理毒物病因。'},
+{rhythm:'Sinus / paced',hr:'68',bp:'102/60',spo2:'97%',status:'Improved',scene:'灌流改善。',required:['ecg12'],hint:'持續毒物處置與專家會診。'}],
+debrief:['藥物/毒物是 symptomatic bradycardia 的重要原因。','Atropine 無效時可考慮 TCP、dopamine 或 epinephrine infusion。']}
+,{key:'svt_second_adenosine',title:'Stable SVT — Adenosine 6 mg 無效',family:'Tachycardia',age:[18,55],intro:'病人心悸，regular narrow-complex tachycardia，BP 穩定。',stages:[
+{rhythm:'SVT',hr:'190',bp:'122/76',spo2:'99%',status:'Stable',scene:'Regular narrow SVT，無 hemodynamic instability。',required:['identify_ecg','monitor_iv','vagal'],ecg:{correct:'SVT',type:'svt',choices:['SVT','AF with RVR','Atrial flutter','Monomorphic VT']},hint:'Stable regular narrow tachycardia：先 vagal maneuver。'},
+{rhythm:'SVT',hr:'188',bp:'120/74',spo2:'99%',status:'Stable',scene:'Vagal maneuver 無效。',required:['adenosine6'],hint:'第一劑 adenosine 6 mg rapid IV push。'},
+{rhythm:'SVT',hr:'184',bp:'118/72',spo2:'99%',status:'Stable',scene:'6 mg adenosine 後仍為 regular SVT。',required:['adenosine12'],hint:'若第一劑無效，第二劑可用 12 mg。'},
+{rhythm:'Sinus',hr:'94',bp:'122/76',spo2:'99%',status:'Converted',scene:'第二劑後轉為 sinus rhythm。',required:['ecg12'],hint:'轉換後取得 12-lead ECG。'}],
+debrief:['Stable regular narrow SVT：vagal → adenosine 6 mg；若無效可給 12 mg。','這題刻意避免每個 SVT 都在第一劑就轉回 sinus。']}
+,{key:'polymorphic_vt_pulse',title:'Polymorphic VT with Pulse — Unstable',family:'Tachycardia',age:[38,74],intro:'病人仍有脈搏，但 monitor 出現快速 polymorphic wide-complex tachycardia，血壓迅速下降。',stages:[
+{rhythm:'Polymorphic VT',hr:'Very rapid',bp:'68/38',spo2:'88%',status:'Pulse + / unstable',scene:'波形不規則、QRS 形態與軸持續改變，病人接近失去意識。',required:['identify_ecg','airway_o2','monitor_iv','select_energy','shock'],energyQuestion:{correct:'Unsynchronized high-energy shock',options:['100 J synchronized','200 J synchronized','Unsynchronized high-energy shock','Adenosine 6 mg']},ecg:{correct:'Polymorphic VT / Torsades',type:'torsades',choices:['Polymorphic VT / Torsades','Monomorphic VT','AF with RVR','SVT']},hint:'Polymorphic VT 無法可靠同步，AHA electrical cardioversion algorithm 指向 unsynchronized high-energy shock。'},
+{rhythm:'Sinus',hr:'92',bp:'106/62',spo2:'96%',status:'Improved',scene:'非同步高能量 shock 後恢復可灌流 rhythm。',required:['ecg12'],hint:'穩定後找 QT prolongation、electrolyte / drug causes。'}],
+debrief:['Polymorphic VT 與 monomorphic VT 的電擊方式不同：前者使用 unsynchronized high-energy shock。','有脈搏不代表所有 tachyarrhythmia 都能做 synchronized cardioversion。']}
+,{key:'advanced_vf_pvt',title:'Refractory Shockable Arrest — VF → pVT → VF',family:'Advanced Mega Code',age:[45,78],intro:'病人突然倒地無脈搏；每次 2 分鐘 rhythm check 都可能改變，不能只記第一次 rhythm。',stages:[
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'Initial rhythm 為 coarse VF。',required:['identify_ecg','assess_pulse','cpr','shock'],ecg:{correct:'VF',type:'vf',variant:1,choices:['VF','Pulseless VT','Asystole','Organized rhythm — check pulse']},hint:'VF：立即除顫並高品質 CPR。'},
+{rhythm:'pVT',hr:'220',bp:'--',spo2:'--',status:'Pulseless',scene:'2 分鐘後 rhythm 變成 regular wide-complex tachycardia，仍無脈搏。',required:['identify_ecg','shock','cpr','epi'],ecg:{correct:'Pulseless VT',type:'vt',variant:1,choices:['Pulseless VT','VF','Monomorphic VT with pulse','SVT']},hint:'無脈搏 VT 仍是 shockable cardiac arrest。'},
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'下一輪又退回 VF。',required:['identify_ecg','shock','cpr'],oneOf:[['amio','lidocaine']],ecg:{correct:'VF',type:'vf',variant:2,choices:['VF','Torsades','Asystole','PEA']},hint:'Refractory VF/pVT：持續 shock/CPR，加入 antiarrhythmic。'},
+{rhythm:'Sinus',hr:'84',bp:'106/64',spo2:'96%',status:'Pulse +',scene:'出現 organized narrow rhythm，確認有脈搏。',required:['identify_ecg','assess_pulse','post_rosc'],ecg:{correct:'Sinus rhythm / organized rhythm',type:'sinus',variant:1,choices:['Sinus rhythm / organized rhythm','PEA','VF','Complete heart block']},hint:'看到 organized rhythm 仍要實際確認 pulse。'}],
+debrief:['Mega Code 會在每次 rhythm check 改變節律；VF 與 pVT 都屬 shockable arrest。','不要因前一輪是 VF 就預設下一輪仍是 VF。']}
+,{key:'advanced_pea_vf',title:'Nonshockable → Shockable — PEA → VF → pVT',family:'Advanced Mega Code',age:[38,75],intro:'病人低氧後 cardiac arrest；起始為 PEA，但急救途中節律可能轉成 shockable rhythm。',stages:[
+{rhythm:'PEA',hr:'48',bp:'--',spo2:'--',status:'Pulseless',scene:'Monitor 為 organized narrow rhythm，但摸不到 pulse。',required:['identify_ecg','assess_pulse','cpr','epi','monitor_iv'],ecg:{correct:'Organized rhythm — check pulse',type:'organized_narrow',variant:2,choices:['Organized rhythm — check pulse','VF','Pulseless VT','Asystole']},hint:'ECG 有 organized activity 不能直接叫 PEA；先確認 pulse。'},
+{rhythm:'PEA',hr:'50',bp:'--',spo2:'70%',status:'Pulseless',scene:'Bagging 困難、SpO₂ 極低；優先處理 reversible hypoxia。',required:['airway_o2','treat_cause'],cause:'Hypoxia',hint:'PEA + severe hypoxia 線索：持續 CPR/Epi，同步改善 oxygenation/ventilation。'},
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'下一次 rhythm check 突然出現 VF。',required:['identify_ecg','shock','cpr'],ecg:{correct:'VF',type:'vf',variant:0,choices:['VF','Asystole','Organized rhythm — check pulse','SVT']},hint:'節律已轉 shockable：立即除顫。'},
+{rhythm:'pVT',hr:'210',bp:'--',spo2:'--',status:'Pulseless',scene:'再下一輪為 pulseless monomorphic VT。',required:['identify_ecg','shock','cpr','epi'],ecg:{correct:'Pulseless VT',type:'vt',variant:2,choices:['Pulseless VT','VF','SVT','Atrial flutter']},hint:'pVT 仍是 shockable arrest。'},
+{rhythm:'Sinus',hr:'90',bp:'100/62',spo2:'95%',status:'Pulse +',scene:'恢復 organized rhythm 且有 pulse。',required:['assess_pulse','post_rosc'],hint:'確認 ROSC 後進入 post-arrest care。'}],
+debrief:['PEA 可能在 CPR 中轉成 VF/pVT；每 2 分鐘都要重新判讀。','Nonshockable 與 shockable pathway 需要即時切換。']}
+,{key:'advanced_asystole_pea_vf',title:'Asystole → PEA → VF',family:'Advanced Mega Code',age:[49,82],intro:'院內 cardiac arrest，第一輪呈現幾乎平線；後續 rhythm 逐步改變。',stages:[
+{rhythm:'Asystole',hr:'0',bp:'--',spo2:'--',status:'Pulseless',scene:'確認 lead 與 gain 後仍為 asystole。',required:['identify_ecg','assess_pulse','cpr','epi'],ecg:{correct:'Asystole',type:'asystole',variant:1,choices:['Asystole','Fine VF','Complete heart block','Pulseless VT']},hint:'Asystole：CPR + epinephrine，不能 shock。'},
+{rhythm:'PEA',hr:'36',bp:'--',spo2:'--',status:'Pulseless',scene:'下一輪出現 slow organized wide rhythm，但仍無 pulse。',required:['identify_ecg','cpr','epi'],ecg:{correct:'Organized rhythm — check pulse',type:'organized_wide',variant:1,choices:['Organized rhythm — check pulse','VF','Pulseless VT','Asystole']},hint:'有電氣活動但無 pulse → PEA pathway。'},
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Pulseless',scene:'再下一次檢查轉成 fine-to-coarse VF。',required:['identify_ecg','shock','cpr'],ecg:{correct:'VF',type:'vf',variant:2,choices:['VF','Asystole','PEA','SVT']},hint:'現在已轉成 shockable rhythm。'},
+{rhythm:'Sinus',hr:'76',bp:'94/58',spo2:'94%',status:'Pulse +',scene:'電擊後出現 organized rhythm 且恢復脈搏。',required:['assess_pulse','post_rosc'],hint:'確認 pulse，再進入 post-ROSC。'}],
+debrief:['Asystole、PEA、VF 可以在同一場 resuscitation 依序出現。','節律分類決定當下是否除顫。']}
+,{key:'advanced_block_arrest',title:'Mobitz II → Complete Heart Block → PEA',family:'Advanced Mega Code',age:[58,86],intro:'病人從 symptomatic bradycardia 持續惡化，需連續辨識 conduction block 與 cardiac arrest。',stages:[
+{rhythm:'Mobitz II',hr:'42',bp:'84/50',spo2:'95%',status:'Pulse + / unstable',scene:'固定 PR、間歇 dropped QRS，病人頭暈低血壓。',required:['identify_ecg','airway_o2','monitor_iv','atropine'],ecg:{correct:'Mobitz II',type:'mobitz2',variant:1,choices:['Mobitz II','Complete heart block','Sinus bradycardia','Atrial flutter']},hint:'先辨認 Mobitz II；症狀性 bradycardia 需準備 pacing。'},
+{rhythm:'Complete heart block',hr:'30',bp:'68/38',spo2:'93%',status:'Pulse + / unstable',scene:'P 與 QRS 完全 dissociated，灌流更差。',required:['identify_ecg','tcp'],ecg:{correct:'Complete heart block',type:'complete_block',variant:2,choices:['Complete heart block','Mobitz II','Sinus bradycardia','Monomorphic VT']},hint:'病況進展成 complete heart block：early pacing 很重要。'},
+{rhythm:'PEA',hr:'28',bp:'--',spo2:'--',status:'Pulseless',scene:'突然失去 pulse；monitor 仍有 slow organized complexes。',required:['identify_ecg','assess_pulse','cpr','epi'],ecg:{correct:'Organized rhythm — check pulse',type:'organized_wide',variant:2,choices:['Organized rhythm — check pulse','Asystole','VF','Pulseless VT']},hint:'現在已不是單純 bradycardia，是 PEA arrest。'},
+{rhythm:'Paced / sinus',hr:'68',bp:'104/62',spo2:'96%',status:'Pulse +',scene:'急救後恢復 pulse。',required:['post_rosc','ecg12'],hint:'ROSC 後處理原始 conduction disease / ischemia。'}],
+debrief:['Mega Code 要能從 bradycardia algorithm 切換到 cardiac arrest algorithm。','High-grade block 可惡化成 PEA。']}
+,{key:'advanced_svt_flutter',title:'Regular Narrow Tachy → Flutter Revealed → Unstable',family:'Advanced Mega Code',age:[30,72],intro:'一開始看起來像 regular SVT；治療後 rhythm 的真正機轉才被揭露。',stages:[
+{rhythm:'Regular narrow tachy',hr:'184',bp:'118/70',spo2:'98%',status:'Stable',scene:'規則窄 QRS tachycardia，P wave 不清楚。',required:['identify_ecg','monitor_iv','vagal'],ecg:{correct:'SVT',type:'svt',variant:2,choices:['SVT','Atrial flutter','AF with RVR','Monomorphic VT']},hint:'穩定 regular narrow tachy：先 vagal。'},
+{rhythm:'Regular narrow tachy',hr:'180',bp:'116/68',spo2:'98%',status:'Stable',scene:'Vagal 無效，仍 regular narrow tachy。',required:['adenosine6'],hint:'Adenosine 6 mg 可治療 AV-node dependent SVT，也可能暫時揭露 flutter waves。'},
+{rhythm:'Atrial flutter',hr:'150',bp:'88/54',spo2:'94%',status:'Deteriorating',scene:'Adenosine 後短暫 AV block，清楚看到 sawtooth flutter waves；現在血壓下降。',required:['identify_ecg','select_energy','sync_cardio'],energyQuestion:{correct:'200 J synchronized',options:['50 J synchronized','100 J synchronized','200 J synchronized','Unsynchronized high-energy shock']},ecg:{correct:'Atrial flutter',type:'flutter',variant:1,choices:['Atrial flutter','SVT','AF with RVR','Sinus tachycardia']},hint:'現在診斷是 flutter 且 unstable → synchronized cardioversion，2025 AHA initial 200 J。'},
+{rhythm:'Sinus',hr:'88',bp:'112/68',spo2:'97%',status:'Improved',scene:'電復律後 sinus rhythm。',required:['identify_ecg','ecg12'],ecg:{correct:'Sinus rhythm',type:'sinus',variant:0,choices:['Sinus rhythm','SVT','Atrial flutter','AF with RVR']},hint:'轉復後再取得 12-lead ECG。'}],
+debrief:['Adenosine 可能揭露 underlying atrial flutter，而不是每次都「把 SVT 治好」。','病人由 stable 轉 unstable 時，處置策略也要改變。']}
+,{key:'advanced_wct_poly',title:'Stable WCT → Unstable Monomorphic VT → Polymorphic VT',family:'Advanced Mega Code',age:[41,75],intro:'病人從穩定 wide-complex tachycardia 逐步惡化，需兩次切換電擊策略。',stages:[
+{rhythm:'Regular WCT',hr:'156',bp:'124/76',spo2:'97%',status:'Stable',scene:'Regular monomorphic wide-complex tachycardia，暫時穩定。',required:['identify_ecg','monitor_iv'],oneOf:[['antiarrhythmic','adenosine6']],ecg:{correct:'Regular wide-complex tachycardia',type:'wct',variant:1,choices:['Regular wide-complex tachycardia','AF with RVR','SVT','Atrial flutter']},hint:'Stable regular monomorphic WCT：可考慮 antiarrhythmic infusion；adenosine 僅限 regular monomorphic。'},
+{rhythm:'Monomorphic VT',hr:'182',bp:'78/44',spo2:'92%',status:'Pulse + / unstable',scene:'轉為明顯 monomorphic VT，出現 hypotension/chest pain。',required:['identify_ecg','select_energy','sync_cardio'],energyQuestion:{correct:'100 J synchronized',options:['50 J synchronized','100 J synchronized','200 J synchronized','Unsynchronized high-energy shock']},ecg:{correct:'Monomorphic VT',type:'vt',variant:0,choices:['Monomorphic VT','SVT','AF with RVR','Polymorphic VT / Torsades']},hint:'Unstable monomorphic VT with pulse → synchronized cardioversion 100 J initial。'},
+{rhythm:'Polymorphic VT',hr:'Very rapid',bp:'62/34',spo2:'86%',status:'Pulse + / near arrest',scene:'節律變成 polymorphic VT，QRS morphology/axis 不斷改變。',required:['identify_ecg','select_energy','shock'],energyQuestion:{correct:'Unsynchronized high-energy shock',options:['100 J synchronized','200 J synchronized','Unsynchronized high-energy shock','Adenosine 12 mg']},ecg:{correct:'Polymorphic VT / Torsades',type:'torsades',variant:2,choices:['Polymorphic VT / Torsades','Monomorphic VT','VF','AF with RVR']},hint:'Polymorphic VT 無法可靠同步 → unsynchronized high-energy shock。'},
+{rhythm:'Sinus',hr:'94',bp:'104/60',spo2:'96%',status:'Improved',scene:'Shock 後恢復可灌流 sinus rhythm。',required:['ecg12'],hint:'後續找 QT / electrolytes / ischemia 等原因。'}],
+debrief:['Monomorphic VT 與 polymorphic VT 的電擊方式不同。','同一個 case 可能先 sync cardioversion，後來又需要 unsynchronized shock。']}
+,{key:'advanced_af_flutter',title:'AF with RVR → Flutter → Sinus',family:'Advanced Mega Code',age:[55,84],intro:'不穩定 atrial tachyarrhythmia，電復律後 rhythm 仍可能轉成另一種 atrial arrhythmia。',stages:[
+{rhythm:'AF with RVR',hr:'178',bp:'76/46',spo2:'89%',status:'Pulse + / unstable',scene:'Irregularly irregular narrow tachycardia，低血壓且肺水腫。',required:['identify_ecg','airway_o2','monitor_iv','select_energy','sync_cardio'],energyQuestion:{correct:'200 J synchronized',options:['50 J synchronized','100 J synchronized','200 J synchronized','Unsynchronized high-energy shock']},ecg:{correct:'AF with RVR',type:'af',variant:2,choices:['AF with RVR','Atrial flutter','SVT','Monomorphic VT']},hint:'Unstable AF → synchronized cardioversion 200 J initial。'},
+{rhythm:'Atrial flutter',hr:'150',bp:'88/56',spo2:'94%',status:'Still unstable',scene:'第一次 cardioversion 後 rhythm 變成 regular flutter 2:1，血壓仍低。',required:['identify_ecg','select_energy','sync_cardio'],energyQuestion:{correct:'200 J synchronized',options:['50 J synchronized','100 J synchronized','200 J synchronized','Unsynchronized high-energy shock']},ecg:{correct:'Atrial flutter',type:'flutter',variant:2,choices:['Atrial flutter','AF with RVR','SVT','Sinus tachycardia']},hint:'仍不穩定 flutter → synchronized cardioversion；2025 AHA initial 200 J。'},
+{rhythm:'Sinus',hr:'92',bp:'108/66',spo2:'97%',status:'Improved',scene:'第二次 cardioversion 後轉 sinus rhythm。',required:['identify_ecg','ecg12'],ecg:{correct:'Sinus rhythm',type:'sinus',variant:2,choices:['Sinus rhythm','Atrial flutter','AF with RVR','SVT']},hint:'確認穩定後取得 12-lead ECG。'}],
+debrief:['不穩定 atrial arrhythmia 可需要 repeated cardioversion。','每次 cardioversion 後都要重新看 rhythm，而不是假設已恢復 sinus。']}
+,{key:'advanced_rosc_rearrest',title:'ROSC 後 Re-arrest — Sinus → VF → pVT → ROSC',family:'Advanced Mega Code',age:[44,79],intro:'病人剛 ROSC，看似穩定但很快再度 arrest；考驗 post-ROSC 與 re-arrest 切換。',stages:[
+{rhythm:'Sinus',hr:'104',bp:'92/58',spo2:'93%',status:'ROSC',scene:'已恢復 pulse，仍昏迷且 hemodynamically fragile。',required:['identify_ecg','post_rosc','ecg12'],ecg:{correct:'Sinus rhythm',type:'sinus',variant:1,choices:['Sinus rhythm','SVT','Atrial flutter','PEA']},hint:'先進行 post-ROSC care；但持續監測 rhythm。'},
+{rhythm:'VF',hr:'VF',bp:'--',spo2:'--',status:'Re-arrest / pulseless',scene:'突然失去 pulse，monitor 變成 VF。',required:['identify_ecg','assess_pulse','cpr','shock'],ecg:{correct:'VF',type:'vf',variant:1,choices:['VF','Pulseless VT','Asystole','Sinus rhythm']},hint:'Re-arrest 後立刻回 cardiac arrest algorithm。'},
+{rhythm:'pVT',hr:'218',bp:'--',spo2:'--',status:'Pulseless',scene:'下一輪轉 pulseless VT。',required:['identify_ecg','shock','cpr','epi'],ecg:{correct:'Pulseless VT',type:'vt',variant:2,choices:['Pulseless VT','Monomorphic VT with pulse','VF','SVT']},hint:'pVT 仍 shockable。'},
+{rhythm:'Sinus',hr:'86',bp:'102/64',spo2:'96%',status:'ROSC again',scene:'再次恢復 pulse。',required:['assess_pulse','post_rosc'],hint:'再次回 post-ROSC，積極找 re-arrest cause。'}],
+debrief:['ROSC 不是流程終點；早期 re-arrest 必須快速切回 ACLS arrest pathway。','每次 pulse/rhythm check 都應重新判讀。']}
+
+
+];
+function randInt(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function megaPerson(c){return {sex:pick(['男性','女性']),age:randInt(c.age[0],c.age[1]),setting:pick(['急診','ICU','病房','門診區','院內走廊'])}}
+function setMegaMode(mode){
+  if(!state.mega)state.mega={mode:'practice'};
+  state.mega.mode=mode;
+  document.getElementById('megaPracticeBtn').classList.toggle('active-choice',mode==='practice');
+  document.getElementById('megaExamBtn').classList.toggle('active-choice',mode==='exam');
+  document.getElementById('megaPressureBtn').classList.toggle('active-choice',mode==='pressure');
+  const submit=document.getElementById('megaSubmitStageBtn');if(submit)submit.classList.toggle('hidden',mode!=='exam'||!state.mega.case||state.mega.completed);
+  const fb=document.getElementById('megaFeedback');fb.className='mega-feedback';
+  fb.textContent=mode==='practice'?'練習模式：答題後立即判定目前處置。':mode==='exam'?'考試模式：不即時揭露正誤；完成你認為必要的處置後按「提交本 Stage」。':'壓力考試：每個 stage 20 秒；逾時自動記錄缺漏並推進下一 Stage。';
+  if(state.mega.case&&mode==='pressure')startMegaPressureTimer(true);else stopMegaPressureTimer();
+  updateMegaScore();saveState()
+}
+function newMegaCase(){
+  unlockAudio();
+  const recent=(state.megaRecent||[]);
+  const pool=MEGA_CASES.filter(c=>!recent.includes(c.key));
+  const available=pool.length?pool:MEGA_CASES;
+  const advanced=available.filter(c=>c.family==='Advanced Mega Code');
+  const standard=available.filter(c=>c.family!=='Advanced Mega Code');
+  const preferAdvanced=Math.random()<0.85;
+  const source=(preferAdvanced&&advanced.length)?advanced:((!preferAdvanced&&standard.length)?standard:available);
+  const base=pick(source);
+  const c=(typeof structuredClone==='function')?structuredClone(base):JSON.parse(JSON.stringify(base));
+  state.megaRecent=[c.key,...recent.filter(k=>k!==c.key)].slice(0,12);
+  const person=megaPerson(c),mode=(state.mega&&state.mega.mode)||'practice';
+  state.mega={mode,case:c,person,stage:0,stageDone:{},correct:0,errors:[],hints:0,history:[],completed:false,startedAt:now()};
+  document.getElementById('megaDebrief').classList.add('hidden');
+  document.getElementById('megaCaseCard').classList.remove('mega-complete');
+  document.getElementById('megaCauseSelect').value='';
+  renderMega();
+  if(mode==='pressure')startMegaPressureTimer(true); else stopMegaPressureTimer();
+  log(`Mega Code started: ${c.title}`,'mega',{pathway:c.family});
+  speak(`Mega Code 開始。${c.family} 情境。`);
+  saveState();
+}
+function megaStage(){return state.mega&&state.mega.case?state.mega.case.stages[state.mega.stage]:null}
+function megaRequiredDone(stage){const d=state.mega.stageDone[state.mega.stage]||{};const req=(stage.required||[]).every(a=>d[a]);const one=(stage.oneOf||[]).every(group=>group.some(a=>d[a]));const cause=!stage.cause||d.treat_cause;return req&&one&&cause}
+function megaMissingForStage(stage,index=state.mega.stage){
+  const d=(state.mega.stageDone&&state.mega.stageDone[index])||{},miss=[];
+  (stage.required||[]).forEach(a=>{if(!d[a])miss.push(MEGA_ACTION_LABELS[a]||a)});
+  (stage.oneOf||[]).forEach(g=>{if(!g.some(a=>d[a]))miss.push('擇一：'+g.map(a=>MEGA_ACTION_LABELS[a]||a).join(' / '))});
+  if(stage.cause&&!d.treat_cause)miss.push(`Treat cause: ${stage.cause}`);
+  return miss;
+}
+function megaHiddenModeFeedback(){
+  if(!state.mega||state.mega.mode==='practice')return;
+  const fb=document.getElementById('megaFeedback'),missing=megaMissingForStage(megaStage());
+  fb.className='mega-feedback';
+  if(state.mega.mode==='exam') fb.textContent=missing.length?'處置已記錄｜本 Stage 尚有關鍵步驟未完成。考試模式不顯示正解；完成後請按「提交本 Stage」。':'本 Stage 已完成所有必要步驟，病況更新中…';
+  else fb.textContent=missing.length?'處置已記錄｜尚有關鍵步驟未完成；倒數持續。':'本 Stage 關鍵步驟完成，病況更新中…';
+}
+function submitMegaStage(){
+  if(!state.mega||!state.mega.case||state.mega.completed||state.mega.mode!=='exam')return;
+  const idx=state.mega.stage,stage=megaStage(),missing=megaMissingForStage(stage,idx);
+  state.mega.submittedStages=state.mega.submittedStages||{};
+  state.mega.submittedStages[idx]={missing:[...missing],t:now()};
+  if(missing.length){state.mega.errors.push({stage:idx,detail:`Stage submitted incomplete (${missing.length} critical step${missing.length>1?'s':''})`});log(`Mega exam: Stage ${idx+1} submitted incomplete`,'mega_action',{pathway:state.mega.case.family})}
+  else log(`Mega exam: Stage ${idx+1} submitted complete`,'mega_action',{pathway:state.mega.case.family});
+  const fb=document.getElementById('megaFeedback');fb.className='mega-feedback';fb.textContent=missing.length?'Stage 已提交；缺漏已記入 Debrief，進入下一階段。':'Stage 已提交，進入下一階段。';
+  updateMegaScore();saveState();setTimeout(()=>advanceMegaStage(true),350)
+}
+function megaIdentifyECG(choice){
+  if(!state.mega||!state.mega.case||state.mega.completed){toast('請先開始新的 Mega Code 病例');return}
+  const stage=megaStage();
+  if(!stage.ecg){toast('本 stage 沒有 ECG 辨識題');return}
+  const d=state.mega.stageDone[state.mega.stage]||(state.mega.stageDone[state.mega.stage]={});
+  const valid=choice===stage.ecg.correct;
+  state.mega.history.push({t:now(),stage:state.mega.stage,action:'identify_ecg',detail:`ECG: ${choice}`,valid});
+  log(`Mega ECG: ${choice}${valid?' ✓':' ✕'}`,'mega_action',{pathway:state.mega.case.family});
+  if(valid){
+    if(!d.identify_ecg){d.identify_ecg=true;state.mega.correct++}
+    if(state.mega.mode==='practice'){
+      const fb=document.getElementById('megaFeedback');fb.className='mega-feedback good';fb.innerHTML=`✓ ECG 辨識正確<br><b>正解：${escapeHtml(stage.ecg.correct)}</b>`;
+    }else{document.getElementById('megaFeedback').className='mega-feedback';document.getElementById('megaFeedback').textContent='ECG 辨識已記錄。'}
+  }else{
+    state.mega.errors.push({stage:state.mega.stage,detail:`ECG辨識錯誤：${choice}`});
+    if(state.mega.mode==='practice'){
+      const fb=document.getElementById('megaFeedback');fb.className='mega-feedback bad';fb.innerHTML=`✕ 你選：${escapeHtml(choice)}<br><b>正解：${escapeHtml(stage.ecg.correct)}</b><br>${escapeHtml(stage.hint||'重新看 rhythm strip、規則性、QRS 寬度與基線型態。')}`;
+    }
+  }
+  renderMegaEcgChoices(state.mega.mode==='practice'?choice:null,state.mega.mode==='practice'?valid:null,state.mega.mode==='practice');
+  if(state.mega.mode!=='practice')megaHiddenModeFeedback();
+  if(valid&&megaRequiredDone(stage))setTimeout(()=>advanceMegaStage(),350);
+  updateMegaScore();saveState();
+}
+function megaChooseEnergy(choice){
+  if(!state.mega||!state.mega.case||state.mega.completed)return;
+  const st=megaStage();if(!st.energyQuestion)return;
+  const d=state.mega.stageDone[state.mega.stage]||(state.mega.stageDone[state.mega.stage]={});
+  const valid=choice===st.energyQuestion.correct;const sel=document.getElementById('megaEnergySelected');if(sel)sel.textContent=`已選擇：${choice}`;
+  state.mega.history.push({t:now(),stage:state.mega.stage,action:'select_energy',detail:`Energy: ${choice}`,valid});
+  log(`Mega energy: ${choice}${valid?' ✓':' ✕'}`,'mega_action',{pathway:state.mega.case.family,energy:(choice.match(/\d+/)||[''])[0]});
+  if(valid){if(!d.select_energy){d.select_energy=true;state.mega.correct++};if(state.mega.mode==='practice'){const fb=document.getElementById('megaFeedback');fb.className='mega-feedback good';fb.textContent=`✓ 能量正確：${choice}`}}
+  else{state.mega.errors.push({stage:state.mega.stage,detail:`電復律能量錯誤：${choice}`});if(state.mega.mode==='practice'){const fb=document.getElementById('megaFeedback');fb.className='mega-feedback bad';fb.textContent=`✕ 能量選擇：${choice}。重新依 rhythm 判斷 2025 AHA 初始能量。`}}
+  renderMegaEnergyChoices(state.mega.mode==='practice'?choice:null,state.mega.mode==='practice'?valid:null);if(state.mega.mode!=='practice')megaHiddenModeFeedback();if(valid&&megaRequiredDone(st))setTimeout(()=>advanceMegaStage(),350);updateMegaScore();saveState();
+}
+function megaAction(action){
+  if(!state.mega||!state.mega.case||state.mega.completed){toast('請先開始新的 Mega Code 病例');return}
+  const stage=megaStage(),d=state.mega.stageDone[state.mega.stage]||(state.mega.stageDone[state.mega.stage]={});
+  let valid=false,detail=MEGA_ACTION_LABELS[action]||action;
+  if(action==='treat_cause'){
+    const cause=document.getElementById('megaCauseSelect').value;detail=cause?`Treat cause: ${cause}`:'Treat cause: 未選 cause';valid=!!cause&&cause===stage.cause;
+  }else valid=(stage.required||[]).includes(action)||(stage.oneOf||[]).some(g=>g.includes(action));
+  state.mega.history.push({t:now(),stage:state.mega.stage,action,detail,valid});
+  log(`Mega: ${detail}${valid?' ✓':' ✕'}`,'mega_action',{pathway:state.mega.case.family});
+  if(valid){
+    if(!d[action]){d[action]=true;state.mega.correct++}
+    if(state.mega.mode==='practice'){const fb=document.getElementById('megaFeedback');fb.className='mega-feedback good';fb.textContent=`✓ ${detail}：符合目前情境。`}else megaHiddenModeFeedback();
+    if(megaRequiredDone(stage))setTimeout(()=>advanceMegaStage(),450)
+  }else{
+    state.mega.errors.push({stage:state.mega.stage,detail});
+    if(state.mega.mode==='practice'){
+      const fb=document.getElementById('megaFeedback');fb.className='mega-feedback bad';fb.textContent=`✕ ${detail}：不是目前情境的優先處置，重新判斷 rhythm、pulse 與 hemodynamic stability。`
+    }else megaHiddenModeFeedback();
+  }
+  updateMegaScore();saveState()
+}
+let megaPressureInterval=null,megaPressureDeadline=null,megaPressureWarned=false;
+function stopMegaPressureTimer(){if(megaPressureInterval){clearInterval(megaPressureInterval);megaPressureInterval=null}megaPressureDeadline=null;megaPressureWarned=false;const el=document.getElementById('megaTimerTag');if(el){el.textContent='Decision --';el.classList.remove('hot')}}
+function startMegaPressureTimer(reset=false){
+  if(!state.mega||state.mega.mode!=='pressure'||state.mega.completed)return;
+  stopMegaPressureTimer();megaPressureDeadline=Date.now()+20000;
+  const el=document.getElementById('megaTimerTag');
+  const tick=()=>{const ms=megaPressureDeadline-Date.now(),sec=Math.max(0,Math.ceil(ms/1000));el.textContent=`Decision ${sec}s`;el.classList.toggle('hot',sec<=5);if(sec<=5&&!megaPressureWarned){megaPressureWarned=true;preAlertTone();speak('五秒。')}if(ms<=0){clearInterval(megaPressureInterval);megaPressureInterval=null;el.textContent='TIME OUT';el.classList.add('hot');const stg=state.mega.stage;if(state.mega._timedOutStage!==stg){state.mega._timedOutStage=stg;const missing=megaMissingForStage(megaStage(),stg);state.mega.submittedStages=state.mega.submittedStages||{};state.mega.submittedStages[stg]={missing:[...missing],timeout:true,t:now()};state.mega.errors.push({stage:stg,detail:'Decision timeout >20 sec'});log('Mega pressure: decision timeout','mega_action',{pathway:state.mega.case.family});const fb=document.getElementById('megaFeedback');fb.className='mega-feedback bad';fb.textContent=`⏱ 20 秒到；${missing.length?`尚有 ${missing.length} 個關鍵步驟未完成，已記錄。`:'關鍵步驟已完成。'} 自動進入下一 Stage。`;updateMegaScore();saveState();setTimeout(()=>advanceMegaStage(true),650)}}};
+  tick();megaPressureInterval=setInterval(tick,250)
+}
+function advanceMegaStage(){if(!state.mega||state.mega.completed)return;if(state.mega.stage<state.mega.case.stages.length-1){state.mega.stage++;state.mega._timedOutStage=null;document.getElementById('megaCauseSelect').value='';renderMega();if(state.mega.mode==='pressure')startMegaPressureTimer(true);const fb=document.getElementById('megaFeedback');fb.className='mega-feedback';fb.textContent=state.mega.mode==='practice'?'Stage 完成。病況已推進，請重新評估。':'病況更新，請重新評估。';speak('病況更新，請重新評估。')}else{state.mega.completed=true;stopMegaPressureTimer();document.getElementById('megaCaseCard').classList.add('mega-complete');document.getElementById('megaFeedback').className='mega-feedback good';document.getElementById('megaFeedback').textContent='病例流程完成。可按「結束並 Debrief」查看成績。';speak('病例流程完成。');renderMega()}saveState()}
+function rhythmPoints(type,w=760,h=104,variant=0){
+  const mid=h/2, step=2;
+  const xs=[]; for(let x=0;x<=w;x+=step) xs.push(x);
+  const y=xs.map(x=>mid + Math.sin(x/31)*0.22 + Math.sin(x/9)*0.08);
+  const gauss=(x,c,a,s)=>a*Math.exp(-Math.pow(x-c,2)/(2*s*s));
+  const addP=(c,a=2.6,s=5)=>{for(let i=0;i<xs.length;i++) y[i]-=gauss(xs[i],c,a,s)};
+  const addT=(c,a=4.8,s=11)=>{for(let i=0;i<xs.length;i++) y[i]-=gauss(xs[i],c,a,s)};
+  const addNarrowQRS=(c,a=16)=>{
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i];
+      y[i]+=gauss(x,c-2.2,1.6,1.1);   // q
+      y[i]-=gauss(x,c,a,1.25);        // R
+      y[i]+=gauss(x,c+3.6,3.6,1.5);   // s
+    }
+  };
+  const addWideQRS=(c,a=18,width=2.8)=>{
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i];
+      y[i]+=gauss(x,c-4,2.2,1.8);
+      y[i]-=gauss(x,c-0.5,a*0.92,width);
+      y[i]-=gauss(x,c+4,a*0.45,width*1.1);
+      y[i]+=gauss(x,c+10,5.5,width*1.2);
+    }
+  };
+  const clamp=()=>{for(let i=0;i<y.length;i++){ if(y[i]<8)y[i]=8; if(y[i]>h-8)y[i]=h-8; }};
+  const build=()=>{clamp(); return xs.map((x,i)=>`${x.toFixed(1)},${y[i].toFixed(1)}`).join(' ')};
+
+  if(type==='asystole'){
+    for(let i=0;i<xs.length;i++) y[i]=mid + Math.sin(xs[i]/22)*0.35 + Math.sin(xs[i]/7)*0.08;
+    return build();
+  }
+  if(type==='vf'){
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i];
+      y[i]=mid + Math.sin((x+variant*11)/7.5)*7 + Math.sin((x+variant*7)/17)*10 + Math.sin((x+variant*5)/3.6)*2.2;
+    }
+    return build();
+  }
+  if(type==='torsades'){
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i], amp=8 + 14*(0.5+0.5*Math.sin((x+variant*15)/(82+(variant%3)*8)));
+      y[i]=mid + Math.sin((x+variant*9)/(8.0+(variant%3)*.6))*amp + Math.sin(x/3.9)*1.2;
+    }
+    return build();
+  }
+  if(type==='sinus' || type==='sinus_brady'){
+    const interval=type==='sinus_brady'?(118+(variant%4)*12):(76+(variant%4)*6);
+    for(let c=58;c<w-20;c+=interval){ addP(c-20,2.4,4.8); addNarrowQRS(c,17); addT(c+26,4.2,10); }
+    return build();
+  }
+  if(type==='sinus_tach'){
+    const interval=50+(variant%3)*5;
+    for(let c=48;c<w-18;c+=interval){ addP(c-17,2.1,4.2); addNarrowQRS(c,15.5); addT(c+20,3.2,8.5); }
+    return build();
+  }
+  if(type==='first_degree'){
+    const interval=92+(variant%3)*9, pr=30+(variant%3)*5;
+    for(let c=62;c<w-20;c+=interval){ addP(c-pr,2.5,4.6); addNarrowQRS(c,16); addT(c+26,4,9.5); }
+    return build();
+  }
+  if(type==='wenckebach'){
+    const atrial=68+(variant%3)*6, start=30+(variant%3)*4;
+    let cycle=0;
+    for(let p=start;p<w-20;p+=atrial){
+      addP(p,2.5,4.3);
+      const pos=cycle%4;
+      if(pos!==3){const pr=16+pos*7; addNarrowQRS(p+pr,15.5); addT(p+pr+24,3.1,8.5);}
+      cycle++;
+    }
+    return build();
+  }
+  if(type==='junctional'){
+    const interval=96+(variant%3)*10;
+    for(let c=58;c<w-20;c+=interval){ addNarrowQRS(c,15.5); addT(c+24,3.6,9); if(variant%2===1)addP(c+16,1.5,3.6); }
+    return build();
+  }
+  if(type==='af_slow'){
+    for(let i=0;i<xs.length;i++){const x=xs[i];y[i]+=Math.sin(x/6.8)*0.65+Math.sin(x/15)*0.4;}
+    let c=62;
+    while(c<w-18){addNarrowQRS(c,15);addT(c+23,2.8,8.5);c+=76+Math.floor(Math.random()*55);}
+    return build();
+  }
+  if(type==='organized_narrow'){
+    for(let c=56+(variant%3)*6;c<w-20;c+=(78+(variant%4)*10)){ addP(c-18,1.9,4.2); addNarrowQRS(c,15.5+(variant%3)); addT(c+24,3.8,10); }
+    return build();
+  }
+  if(type==='organized_wide'){
+    for(let c=64+(variant%3)*8;c<w-24;c+=(98+(variant%4)*12)){ addP(c-24,1.8,4.5); addWideQRS(c,17+(variant%3),2.5+(variant%3)*.25); addT(c+34,4.2,12); }
+    return build();
+  }
+  if(type==='svt'){
+    for(let c=38+(variant%3)*4;c<w-16;c+=(40+(variant%4)*4)){ addNarrowQRS(c,14.2+(variant%3)); addT(c+16,2.2,7.5); }
+    return build();
+  }
+  if(type==='vt' || type==='wct'){
+    for(let c=46+(variant%3)*5;c<w-20;c+=(52+(variant%4)*6)){ addWideQRS(c,18+(variant%3),2.8+(variant%3)*.25); addT(c+22,1.8,7.5); }
+    return build();
+  }
+  if(type==='af'){
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i];
+      y[i]+=Math.sin(x/6.5)*0.9 + Math.sin(x/13.5)*0.6;
+    }
+    let c=48;
+    while(c<w-18){ addNarrowQRS(c,15.2); addT(c+20,2.3,7.5); c += 38 + Math.floor(Math.random()*38); }
+    return build();
+  }
+  if(type==='flutter'){
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i];
+      const period=18; const phase=((x%period)/period);
+      const saw=(phase<0.82)?(phase/0.82):(1-(phase-0.82)/0.18);
+      y[i]-=(saw*5.2 - 2.1);
+    }
+    for(let c=58+(variant%3)*6;c<w-18;c+=(64+(variant%4)*8)){ addNarrowQRS(c,15.2); addT(c+20,2.6,8); }
+    return build();
+  }
+  if(type==='mobitz2'){
+    const atrial=58+(variant%4)*8, start=34+(variant%3)*5;
+    for(let n=0,c=start;c<w-16;c+=atrial,n++){
+      addP(c,2.6,4.2);
+      if(n%(variant%2?4:3)!==(variant%2?3:2)){ addNarrowQRS(c+18,15.8); addT(c+42,3.2,8.5); }
+    }
+    return build();
+  }
+  if(type==='complete_block'){
+    for(let c=24+(variant%3)*4;c<w-10;c+=(46+(variant%4)*5)) addP(c,2.4,4.0);
+    for(let c=68+(variant%3)*8;c<w-22;c+=(110+(variant%4)*10)){ addWideQRS(c,17.5,2.9); addT(c+32,3.6,11); }
+    return build();
+  }
+  if(type==='preexcited_af'){
+    for(let i=0;i<xs.length;i++){
+      const x=xs[i];
+      y[i]+=Math.sin(x/6.2)*0.75 + Math.cos(x/14)*0.45;
+    }
+    let c=42;
+    while(c<w-18){ addWideQRS(c,16 + Math.random()*3,2.4 + Math.random()*0.9); addT(c+22,2.0,7.2); c += 34 + Math.floor(Math.random()*34); }
+    return build();
+  }
+  if(type==='junctional_fast'){
+    const interval=[66,60,56][variant]||60;
+    for(let c=48;c<w-20;c+=interval){ addNarrowQRS(c,15.5); addP(c+9,-1.7,3.4); addT(c+23,3.0,8); }
+    return build();
+  }
+  if(type==='atrial_tach'){
+    const interval=[58,54,50][variant]||54;
+    for(let c=48;c<w-18;c+=interval){ addP(c-15,3.4,3.5); addNarrowQRS(c,14.8); addT(c+19,2.7,7); }
+    return build();
+  }
+  if(type==='mat'){
+    let c=48,n=0;const ints=[[62,48,70,54],[56,74,50,66],[68,52,60,46]][variant]||[62,48,70,54];
+    while(c<w-20){const pa=[2.2,3.6,1.5][n%3];addP(c-16,pa,3.5+(n%3));addNarrowQRS(c,14.5);addT(c+19,2.3,7);c+=ints[n%ints.length];n++;}
+    return build();
+  }
+  if(type==='flutter_variable'){
+    for(let i=0;i<xs.length;i++){const x=xs[i],period=18,phase=((x%period)/period),saw=(phase<0.82)?(phase/0.82):(1-(phase-0.82)/0.18);y[i]-=(saw*5.2-2.1);}
+    let c=54,n=0;const ints=[[70,92,68,110],[74,104,70,88],[66,98,78,116]][variant]||[70,92,68,110];
+    while(c<w-18){addNarrowQRS(c,15.0);addT(c+19,2.2,7);c+=ints[n%ints.length];n++;}
+    return build();
+  }
+  if(type==='af_aberrant'){
+    for(let i=0;i<xs.length;i++){const x=xs[i];y[i]+=Math.sin(x/6.2)*0.75+Math.cos(x/14)*0.45;}
+    let c=42,n=0;const ints=[[48,72,56,86],[44,68,82,52],[62,46,78,58]][variant]||[48,72,56,86];
+    while(c<w-18){addWideQRS(c,16.5,2.5);addT(c+23,2.0,7);c+=ints[n%ints.length];n++;}
+    return build();
+  }
+  if(type==='paced'){
+    const interval=[96,86,78][variant]||86;
+    for(let c=62;c<w-20;c+=interval){for(let i=0;i<xs.length;i++){if(Math.abs(xs[i]-(c-5))<1)y[i]-=16;}addWideQRS(c,17.5,2.9);addT(c+30,3.3,10);}
+    return build();
+  }
+  if(type==='idioventricular'){
+    const interval=[170,150,135][variant]||150;
+    for(let c=74;c<w-20;c+=interval){addWideQRS(c,16.5,3.3);addT(c+34,3.0,11);}
+    return build();
+  }
+  if(type==='aivr'){
+    const interval=[105,92,82][variant]||92;
+    for(let c=62;c<w-20;c+=interval){addWideQRS(c,16.5,3.0);addT(c+30,3.0,10);}
+    return build();
+  }
+  if(type==='pvc_bigeminy'){
+    const cycle=[150,136,124][variant]||136;
+    for(let base=38;base<w-80;base+=cycle){addP(base-18,2.3,4);addNarrowQRS(base,15.5);addT(base+24,3.2,9);addWideQRS(base+62,17.8,3.0);addT(base+92,-2.5,10);}
+    return build();
+  }
+  if(type==='ventricular_escape'){
+    const positions=[[150,410,690],[120,390,660],[180,460,720]][variant]||[150,410,690];
+    positions.forEach(c=>{if(c<w-10){addWideQRS(c,16.0,3.4);addT(c+34,3.0,11)}});
+    return build();
+  }
+  if(type==='av_2to1'){
+    const atrial=[50,46,54][variant]||50;let n=0;
+    for(let p=30;p<w-20;p+=atrial,n++){addP(p,2.5,4);if(n%2===0){addNarrowQRS(p+20,15.5);addT(p+43,3.0,8)}}
+    return build();
+  }
+  if(type==='sinus_pause'){
+    const interval=74;let beat=0;
+    for(let c=48;c<w-20;c+=interval,beat++){if(beat===3||beat===4)continue;addP(c-18,2.4,4);addNarrowQRS(c,15.5);addT(c+24,3.1,8);}
+    return build();
+  }
+  return build();
+}
+function renderEcgStrip(type,variant=0){const pts=rhythmPoints(type,760,104,variant);return `<svg viewBox="0 0 760 120" preserveAspectRatio="none" aria-label="ECG strip"><defs><pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(80,120,130,.18)" stroke-width="1"/></pattern><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><rect width="50" height="50" fill="url(#smallGrid)"/><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(110,150,160,.24)" stroke-width="1.2"/></pattern></defs><rect width="760" height="120" fill="url(#grid)"/><polyline fill="none" stroke="#63f58d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg>`}
+function renderMegaEcgChoices(selected=null,wasCorrect=null,revealCorrect=false){const st=megaStage();const wrap=document.getElementById('megaEcgChoices');if(!st||!st.ecg){wrap.innerHTML='';return}wrap.innerHTML=st.ecg.choices.map(choice=>{let cls='';if(revealCorrect&&choice===st.ecg.correct)cls='ecg-choice-correct';else if(selected===choice&&wasCorrect===false)cls='ecg-choice-wrong';return `<button class="action ghost ${cls}" onclick="megaIdentifyECG(decodeURIComponent('${encodeURIComponent(choice)}'))" ${revealCorrect?'disabled':''}>${escapeHtml(choice)}</button>`}).join('')}
+function renderMegaEnergyChoices(selected=null,wasCorrect=null){const st=megaStage();const wrap=document.getElementById('megaEnergyChoices');if(!st||!st.energyQuestion){wrap.innerHTML='';return}wrap.innerHTML=st.energyQuestion.options.map(choice=>`<button class="action warn ${selected===choice?(wasCorrect?'energy-choice-correct':'energy-choice-wrong'):''}" onclick="megaChooseEnergy(decodeURIComponent('${encodeURIComponent(choice)}'))">${escapeHtml(choice)}</button>`).join('')}
+function renderMega(){if(!state.mega||!state.mega.case)return;const m=state.mega,c=m.case,st=c.stages[m.stage],p=m.person;document.getElementById('megaCaseNo').textContent=`MEGA CODE · ${c.family.toUpperCase()} · ${m.stage+1}/${c.stages.length}`;document.getElementById('megaTitle').textContent=`${p.age}歲${p.sex}｜${c.title}`;document.getElementById('megaScene').textContent=`${p.setting}：${m.stage===0?c.intro+' ':''}${st.scene}`;document.getElementById('megaHR').textContent=st.hr||st.rhythm||'--';document.getElementById('megaBP').textContent=st.bp||'--';document.getElementById('megaSpO2').textContent=st.spo2||'--';document.getElementById('megaStatus').textContent=st.status||'--';document.getElementById('megaStageTag').textContent=`Stage ${m.stage+1}/${c.stages.length}`;document.getElementById('megaStageProgress').style.width=`${Math.round(((m.stage)+(m.completed?1:0))/c.stages.length*100)}%`;document.getElementById('megaPracticeBtn').classList.toggle('active-choice',m.mode==='practice');document.getElementById('megaExamBtn').classList.toggle('active-choice',m.mode==='exam');document.getElementById('megaPressureBtn').classList.toggle('active-choice',m.mode==='pressure');const submit=document.getElementById('megaSubmitStageBtn');if(submit)submit.classList.toggle('hidden',m.mode!=='exam'||m.completed);const ecgWrap=document.getElementById('megaEcgWrap');if(st.ecg){ecgWrap.classList.remove('hidden');document.getElementById('megaEcgStagePill').textContent='ECG';document.getElementById('megaEcgPrompt').textContent='先看節律帶，再選擇最符合的節律。';document.getElementById('megaEcgStrip').innerHTML=renderEcgStrip(st.ecg.type||'organized_narrow',st.ecg.variant||0);renderMegaEcgChoices();}else{ecgWrap.classList.add('hidden');document.getElementById('megaEcgStrip').innerHTML='';document.getElementById('megaEcgChoices').innerHTML='';}const energyWrap=document.getElementById('megaEnergyWrap');if(st.energyQuestion){energyWrap.classList.remove('hidden');document.getElementById('megaEnergyPrompt').textContent='Step 1：依目前 rhythm 選擇初始能量；Step 2：再按下方 Sync cardioversion / Defibrillation。';const es=document.getElementById('megaEnergySelected');if(es)es.textContent='尚未選擇 energy';renderMegaEnergyChoices();}else{energyWrap.classList.add('hidden');document.getElementById('megaEnergyChoices').innerHTML='';const es=document.getElementById('megaEnergySelected');if(es)es.textContent='尚未選擇 energy';}if(m.mode!=='pressure'){const t=document.getElementById('megaTimerTag');t.textContent='Decision --';t.classList.remove('hot')}updateMegaScore()}
+function updateMegaScore(){const m=state.mega;if(!m||!m.case)return;const hidden=m.mode==='exam'||m.mode==='pressure';document.getElementById('megaCorrectTag').textContent=hidden?'Correct --':`Correct ${m.correct}`;document.getElementById('megaErrorTag').textContent=hidden?'Errors --':`Errors ${m.errors.length}`}
+const ECG_BANK=[{"id":"vf_1","label":"VF","type":"vf","choices":["VF","Pulseless VT","Asystole","SVT"],"why":"Chaotic waveform without organized QRS; if pulseless, shockable rhythm.","variant":0},{"id":"vf_2","label":"VF","type":"vf","choices":["VF","Pulseless VT","Asystole","SVT"],"why":"Chaotic waveform without organized QRS; if pulseless, shockable rhythm.","variant":1},{"id":"vf_3","label":"VF","type":"vf","choices":["VF","Pulseless VT","Asystole","SVT"],"why":"Chaotic waveform without organized QRS; if pulseless, shockable rhythm.","variant":2},{"id":"torsades_1","label":"Polymorphic VT / Torsades","type":"torsades","choices":["Polymorphic VT / Torsades","VF","Monomorphic VT","AF with RVR"],"why":"Polymorphic wide-complex rhythm with changing QRS amplitude/axis; assess pulse and stability immediately.","variant":0},{"id":"torsades_2","label":"Polymorphic VT / Torsades","type":"torsades","choices":["Polymorphic VT / Torsades","VF","Monomorphic VT","AF with RVR"],"why":"Polymorphic wide-complex rhythm with changing QRS amplitude/axis; assess pulse and stability immediately.","variant":1},{"id":"torsades_3","label":"Polymorphic VT / Torsades","type":"torsades","choices":["Polymorphic VT / Torsades","VF","Monomorphic VT","AF with RVR"],"why":"Polymorphic wide-complex rhythm with changing QRS amplitude/axis; assess pulse and stability immediately.","variant":2},{"id":"asystole_1","label":"Asystole","type":"asystole","choices":["Asystole","VF","Organized rhythm — check pulse","Pulseless VT"],"why":"Near-flat electrical activity after confirming leads/gain; non-shockable arrest rhythm.","variant":0},{"id":"asystole_2","label":"Asystole","type":"asystole","choices":["Asystole","VF","Organized rhythm — check pulse","Pulseless VT"],"why":"Near-flat electrical activity after confirming leads/gain; non-shockable arrest rhythm.","variant":1},{"id":"asystole_3","label":"Asystole","type":"asystole","choices":["Asystole","VF","Organized rhythm — check pulse","Pulseless VT"],"why":"Near-flat electrical activity after confirming leads/gain; non-shockable arrest rhythm.","variant":2},{"id":"sinus_1","label":"Sinus rhythm","type":"sinus","choices":["Sinus rhythm","Sinus bradycardia","SVT","Atrial flutter"],"why":"Regular P before every narrow QRS with a consistent PR interval.","variant":0},{"id":"sinus_2","label":"Sinus rhythm","type":"sinus","choices":["Sinus rhythm","Sinus bradycardia","SVT","Atrial flutter"],"why":"Regular P before every narrow QRS with a consistent PR interval.","variant":1},{"id":"sinus_3","label":"Sinus rhythm","type":"sinus","choices":["Sinus rhythm","Sinus bradycardia","SVT","Atrial flutter"],"why":"Regular P before every narrow QRS with a consistent PR interval.","variant":2},{"id":"sinustach_1","label":"Sinus tachycardia","type":"sinus_tach","choices":["Sinus tachycardia","SVT","Atrial flutter","AF with RVR"],"why":"Fast organized sinus rhythm with consistent P waves before each QRS.","variant":0},{"id":"sinustach_2","label":"Sinus tachycardia","type":"sinus_tach","choices":["Sinus tachycardia","SVT","Atrial flutter","AF with RVR"],"why":"Fast organized sinus rhythm with consistent P waves before each QRS.","variant":1},{"id":"sinustach_3","label":"Sinus tachycardia","type":"sinus_tach","choices":["Sinus tachycardia","SVT","Atrial flutter","AF with RVR"],"why":"Fast organized sinus rhythm with consistent P waves before each QRS.","variant":2},{"id":"sinusbrady_1","label":"Sinus bradycardia","type":"sinus_brady","choices":["Sinus bradycardia","Junctional rhythm","Complete heart block","AF with slow ventricular response"],"why":"Slow regular sinus rhythm with a P wave before every QRS.","variant":0},{"id":"sinusbrady_2","label":"Sinus bradycardia","type":"sinus_brady","choices":["Sinus bradycardia","Junctional rhythm","Complete heart block","AF with slow ventricular response"],"why":"Slow regular sinus rhythm with a P wave before every QRS.","variant":1},{"id":"sinusbrady_3","label":"Sinus bradycardia","type":"sinus_brady","choices":["Sinus bradycardia","Junctional rhythm","Complete heart block","AF with slow ventricular response"],"why":"Slow regular sinus rhythm with a P wave before every QRS.","variant":2},{"id":"firstdeg_1","label":"1st-degree AV block","type":"first_degree","choices":["1st-degree AV block","Mobitz I / Wenckebach","Mobitz II","Sinus bradycardia"],"why":"Every P conducts, but PR is prolonged and constant.","variant":0},{"id":"firstdeg_2","label":"1st-degree AV block","type":"first_degree","choices":["1st-degree AV block","Mobitz I / Wenckebach","Mobitz II","Sinus bradycardia"],"why":"Every P conducts, but PR is prolonged and constant.","variant":1},{"id":"firstdeg_3","label":"1st-degree AV block","type":"first_degree","choices":["1st-degree AV block","Mobitz I / Wenckebach","Mobitz II","Sinus bradycardia"],"why":"Every P conducts, but PR is prolonged and constant.","variant":2},{"id":"wenckebach_1","label":"Mobitz I / Wenckebach","type":"wenckebach","choices":["Mobitz I / Wenckebach","Mobitz II","Complete heart block","Sinus bradycardia"],"why":"Progressive PR prolongation culminates in a dropped QRS.","variant":0},{"id":"wenckebach_2","label":"Mobitz I / Wenckebach","type":"wenckebach","choices":["Mobitz I / Wenckebach","Mobitz II","Complete heart block","Sinus bradycardia"],"why":"Progressive PR prolongation culminates in a dropped QRS.","variant":1},{"id":"wenckebach_3","label":"Mobitz I / Wenckebach","type":"wenckebach","choices":["Mobitz I / Wenckebach","Mobitz II","Complete heart block","Sinus bradycardia"],"why":"Progressive PR prolongation culminates in a dropped QRS.","variant":2},{"id":"mobitz2_1","label":"Mobitz II","type":"mobitz2","choices":["Mobitz II","Mobitz I / Wenckebach","Complete heart block","Sinus bradycardia"],"why":"Constant PR intervals with intermittent nonconducted P waves.","variant":0},{"id":"mobitz2_2","label":"Mobitz II","type":"mobitz2","choices":["Mobitz II","Mobitz I / Wenckebach","Complete heart block","Sinus bradycardia"],"why":"Constant PR intervals with intermittent nonconducted P waves.","variant":1},{"id":"mobitz2_3","label":"Mobitz II","type":"mobitz2","choices":["Mobitz II","Mobitz I / Wenckebach","Complete heart block","Sinus bradycardia"],"why":"Constant PR intervals with intermittent nonconducted P waves.","variant":2},{"id":"chb_1","label":"Complete heart block","type":"complete_block","choices":["Complete heart block","Mobitz II","Junctional rhythm","Sinus bradycardia"],"why":"Atrial and ventricular activity are dissociated with no fixed PR relationship.","variant":0},{"id":"chb_2","label":"Complete heart block","type":"complete_block","choices":["Complete heart block","Mobitz II","Junctional rhythm","Sinus bradycardia"],"why":"Atrial and ventricular activity are dissociated with no fixed PR relationship.","variant":1},{"id":"chb_3","label":"Complete heart block","type":"complete_block","choices":["Complete heart block","Mobitz II","Junctional rhythm","Sinus bradycardia"],"why":"Atrial and ventricular activity are dissociated with no fixed PR relationship.","variant":2},{"id":"junctional_1","label":"Junctional rhythm","type":"junctional","choices":["Junctional rhythm","Sinus bradycardia","Complete heart block","Atrial fibrillation"],"why":"Regular narrow escape rhythm with absent or retrograde P waves.","variant":0},{"id":"junctional_2","label":"Junctional rhythm","type":"junctional","choices":["Junctional rhythm","Sinus bradycardia","Complete heart block","Atrial fibrillation"],"why":"Regular narrow escape rhythm with absent or retrograde P waves.","variant":1},{"id":"junctional_3","label":"Junctional rhythm","type":"junctional","choices":["Junctional rhythm","Sinus bradycardia","Complete heart block","Atrial fibrillation"],"why":"Regular narrow escape rhythm with absent or retrograde P waves.","variant":2},{"id":"accjunctional_1","label":"Accelerated junctional rhythm","type":"junctional_fast","choices":["Accelerated junctional rhythm","Junctional rhythm","SVT","Sinus tachycardia"],"why":"Junctional morphology at a faster escape rate, generally 60–100/min.","variant":0},{"id":"accjunctional_2","label":"Accelerated junctional rhythm","type":"junctional_fast","choices":["Accelerated junctional rhythm","Junctional rhythm","SVT","Sinus tachycardia"],"why":"Junctional morphology at a faster escape rate, generally 60–100/min.","variant":1},{"id":"accjunctional_3","label":"Accelerated junctional rhythm","type":"junctional_fast","choices":["Accelerated junctional rhythm","Junctional rhythm","SVT","Sinus tachycardia"],"why":"Junctional morphology at a faster escape rate, generally 60–100/min.","variant":2},{"id":"svt_1","label":"SVT","type":"svt","choices":["SVT","Sinus tachycardia","Atrial flutter","AF with RVR"],"why":"Regular narrow-complex tachycardia with abrupt fast rate and poorly visible P waves.","variant":0},{"id":"svt_2","label":"SVT","type":"svt","choices":["SVT","Sinus tachycardia","Atrial flutter","AF with RVR"],"why":"Regular narrow-complex tachycardia with abrupt fast rate and poorly visible P waves.","variant":1},{"id":"svt_3","label":"SVT","type":"svt","choices":["SVT","Sinus tachycardia","Atrial flutter","AF with RVR"],"why":"Regular narrow-complex tachycardia with abrupt fast rate and poorly visible P waves.","variant":2},{"id":"atrialtach_1","label":"Atrial tachycardia","type":"atrial_tach","choices":["Atrial tachycardia","SVT","Sinus tachycardia","Atrial flutter"],"why":"Organized atrial tachycardia with abnormal P-wave morphology before narrow QRS complexes.","variant":0},{"id":"atrialtach_2","label":"Atrial tachycardia","type":"atrial_tach","choices":["Atrial tachycardia","SVT","Sinus tachycardia","Atrial flutter"],"why":"Organized atrial tachycardia with abnormal P-wave morphology before narrow QRS complexes.","variant":1},{"id":"atrialtach_3","label":"Atrial tachycardia","type":"atrial_tach","choices":["Atrial tachycardia","SVT","Sinus tachycardia","Atrial flutter"],"why":"Organized atrial tachycardia with abnormal P-wave morphology before narrow QRS complexes.","variant":2},{"id":"mat_1","label":"Multifocal atrial tachycardia","type":"mat","choices":["Multifocal atrial tachycardia","AF with RVR","Atrial flutter","Sinus tachycardia"],"why":"Irregular narrow tachycardia with at least three different P-wave morphologies and variable PR intervals.","variant":0},{"id":"mat_2","label":"Multifocal atrial tachycardia","type":"mat","choices":["Multifocal atrial tachycardia","AF with RVR","Atrial flutter","Sinus tachycardia"],"why":"Irregular narrow tachycardia with at least three different P-wave morphologies and variable PR intervals.","variant":1},{"id":"mat_3","label":"Multifocal atrial tachycardia","type":"mat","choices":["Multifocal atrial tachycardia","AF with RVR","Atrial flutter","Sinus tachycardia"],"why":"Irregular narrow tachycardia with at least three different P-wave morphologies and variable PR intervals.","variant":2},{"id":"af_1","label":"AF with RVR","type":"af","choices":["AF with RVR","SVT","Atrial flutter","Multifocal atrial tachycardia"],"why":"Irregularly irregular RR intervals without consistent P waves.","variant":0},{"id":"af_2","label":"AF with RVR","type":"af","choices":["AF with RVR","SVT","Atrial flutter","Multifocal atrial tachycardia"],"why":"Irregularly irregular RR intervals without consistent P waves.","variant":1},{"id":"af_3","label":"AF with RVR","type":"af","choices":["AF with RVR","SVT","Atrial flutter","Multifocal atrial tachycardia"],"why":"Irregularly irregular RR intervals without consistent P waves.","variant":2},{"id":"afslow_1","label":"AF with slow ventricular response","type":"af_slow","choices":["AF with slow ventricular response","Sinus bradycardia","Junctional rhythm","Complete heart block"],"why":"Irregularly irregular ventricular response without consistent P waves, but slow.","variant":0},{"id":"afslow_2","label":"AF with slow ventricular response","type":"af_slow","choices":["AF with slow ventricular response","Sinus bradycardia","Junctional rhythm","Complete heart block"],"why":"Irregularly irregular ventricular response without consistent P waves, but slow.","variant":1},{"id":"afslow_3","label":"AF with slow ventricular response","type":"af_slow","choices":["AF with slow ventricular response","Sinus bradycardia","Junctional rhythm","Complete heart block"],"why":"Irregularly irregular ventricular response without consistent P waves, but slow.","variant":2},{"id":"flutter_1","label":"Atrial flutter","type":"flutter","choices":["Atrial flutter","SVT","AF with RVR","Sinus tachycardia"],"why":"Sawtooth flutter activity with a regular or patterned ventricular response.","variant":0},{"id":"flutter_2","label":"Atrial flutter","type":"flutter","choices":["Atrial flutter","SVT","AF with RVR","Sinus tachycardia"],"why":"Sawtooth flutter activity with a regular or patterned ventricular response.","variant":1},{"id":"flutter_3","label":"Atrial flutter","type":"flutter","choices":["Atrial flutter","SVT","AF with RVR","Sinus tachycardia"],"why":"Sawtooth flutter activity with a regular or patterned ventricular response.","variant":2},{"id":"fluttervar_1","label":"Atrial flutter with variable block","type":"flutter_variable","choices":["Atrial flutter with variable block","AF with RVR","Multifocal atrial tachycardia","SVT"],"why":"Flutter waves are present but AV conduction varies, making the ventricular response irregular.","variant":0},{"id":"fluttervar_2","label":"Atrial flutter with variable block","type":"flutter_variable","choices":["Atrial flutter with variable block","AF with RVR","Multifocal atrial tachycardia","SVT"],"why":"Flutter waves are present but AV conduction varies, making the ventricular response irregular.","variant":1},{"id":"fluttervar_3","label":"Atrial flutter with variable block","type":"flutter_variable","choices":["Atrial flutter with variable block","AF with RVR","Multifocal atrial tachycardia","SVT"],"why":"Flutter waves are present but AV conduction varies, making the ventricular response irregular.","variant":2},{"id":"vt_1","label":"Monomorphic VT","type":"vt","choices":["Monomorphic VT","Regular WCT","SVT with aberrancy","Polymorphic VT / Torsades"],"why":"Regular wide-complex tachycardia with a consistent QRS morphology.","variant":0},{"id":"vt_2","label":"Monomorphic VT","type":"vt","choices":["Monomorphic VT","Regular WCT","SVT with aberrancy","Polymorphic VT / Torsades"],"why":"Regular wide-complex tachycardia with a consistent QRS morphology.","variant":1},{"id":"vt_3","label":"Monomorphic VT","type":"vt","choices":["Monomorphic VT","Regular WCT","SVT with aberrancy","Polymorphic VT / Torsades"],"why":"Regular wide-complex tachycardia with a consistent QRS morphology.","variant":2},{"id":"wct_1","label":"Regular WCT","type":"wct","choices":["Regular WCT","Monomorphic VT","SVT","AF with RVR"],"why":"Regular wide-QRS tachycardia; treat as VT when uncertain in the acute setting.","variant":0},{"id":"wct_2","label":"Regular WCT","type":"wct","choices":["Regular WCT","Monomorphic VT","SVT","AF with RVR"],"why":"Regular wide-QRS tachycardia; treat as VT when uncertain in the acute setting.","variant":1},{"id":"wct_3","label":"Regular WCT","type":"wct","choices":["Regular WCT","Monomorphic VT","SVT","AF with RVR"],"why":"Regular wide-QRS tachycardia; treat as VT when uncertain in the acute setting.","variant":2},{"id":"afaberrant_1","label":"AF with aberrancy / irregular WCT","type":"af_aberrant","choices":["AF with aberrancy / irregular WCT","Monomorphic VT","SVT","Atrial flutter"],"why":"Irregularly irregular wide-complex tachycardia; distinguish aberrancy/pre-excitation from monomorphic VT.","variant":0},{"id":"afaberrant_2","label":"AF with aberrancy / irregular WCT","type":"af_aberrant","choices":["AF with aberrancy / irregular WCT","Monomorphic VT","SVT","Atrial flutter"],"why":"Irregularly irregular wide-complex tachycardia; distinguish aberrancy/pre-excitation from monomorphic VT.","variant":1},{"id":"afaberrant_3","label":"AF with aberrancy / irregular WCT","type":"af_aberrant","choices":["AF with aberrancy / irregular WCT","Monomorphic VT","SVT","Atrial flutter"],"why":"Irregularly irregular wide-complex tachycardia; distinguish aberrancy/pre-excitation from monomorphic VT.","variant":2},{"id":"paced_1","label":"Ventricular paced rhythm","type":"paced","choices":["Ventricular paced rhythm","Monomorphic VT","Complete heart block","LBBB-like sinus rhythm"],"why":"Pacing spikes precede wide ventricular complexes with paced morphology.","variant":0},{"id":"paced_2","label":"Ventricular paced rhythm","type":"paced","choices":["Ventricular paced rhythm","Monomorphic VT","Complete heart block","LBBB-like sinus rhythm"],"why":"Pacing spikes precede wide ventricular complexes with paced morphology.","variant":1},{"id":"paced_3","label":"Ventricular paced rhythm","type":"paced","choices":["Ventricular paced rhythm","Monomorphic VT","Complete heart block","LBBB-like sinus rhythm"],"why":"Pacing spikes precede wide ventricular complexes with paced morphology.","variant":2},{"id":"idiovent_1","label":"Idioventricular rhythm","type":"idioventricular","choices":["Idioventricular rhythm","Complete heart block","Monomorphic VT","Junctional rhythm"],"why":"Slow wide ventricular escape rhythm, usually about 20–40/min.","variant":0},{"id":"idiovent_2","label":"Idioventricular rhythm","type":"idioventricular","choices":["Idioventricular rhythm","Complete heart block","Monomorphic VT","Junctional rhythm"],"why":"Slow wide ventricular escape rhythm, usually about 20–40/min.","variant":1},{"id":"idiovent_3","label":"Idioventricular rhythm","type":"idioventricular","choices":["Idioventricular rhythm","Complete heart block","Monomorphic VT","Junctional rhythm"],"why":"Slow wide ventricular escape rhythm, usually about 20–40/min.","variant":2},{"id":"aivr_1","label":"Accelerated idioventricular rhythm","type":"aivr","choices":["Accelerated idioventricular rhythm","Monomorphic VT","Idioventricular rhythm","Junctional rhythm"],"why":"Wide ventricular rhythm faster than an idioventricular escape but usually slower than VT.","variant":0},{"id":"aivr_2","label":"Accelerated idioventricular rhythm","type":"aivr","choices":["Accelerated idioventricular rhythm","Monomorphic VT","Idioventricular rhythm","Junctional rhythm"],"why":"Wide ventricular rhythm faster than an idioventricular escape but usually slower than VT.","variant":1},{"id":"aivr_3","label":"Accelerated idioventricular rhythm","type":"aivr","choices":["Accelerated idioventricular rhythm","Monomorphic VT","Idioventricular rhythm","Junctional rhythm"],"why":"Wide ventricular rhythm faster than an idioventricular escape but usually slower than VT.","variant":2},{"id":"pvcbig_1","label":"PVC bigeminy","type":"pvc_bigeminy","choices":["PVC bigeminy","Monomorphic VT","Sinus rhythm","Ventricular paced rhythm"],"why":"Alternating normal beats and premature wide ventricular complexes in a bigeminal pattern.","variant":0},{"id":"pvcbig_2","label":"PVC bigeminy","type":"pvc_bigeminy","choices":["PVC bigeminy","Monomorphic VT","Sinus rhythm","Ventricular paced rhythm"],"why":"Alternating normal beats and premature wide ventricular complexes in a bigeminal pattern.","variant":1},{"id":"pvcbig_3","label":"PVC bigeminy","type":"pvc_bigeminy","choices":["PVC bigeminy","Monomorphic VT","Sinus rhythm","Ventricular paced rhythm"],"why":"Alternating normal beats and premature wide ventricular complexes in a bigeminal pattern.","variant":2},{"id":"ventescape_1","label":"Ventricular escape rhythm","type":"ventricular_escape","choices":["Ventricular escape rhythm","Idioventricular rhythm","Complete heart block","Asystole"],"why":"Very slow broad ventricular escape complexes occurring after pauses.","variant":0},{"id":"ventescape_2","label":"Ventricular escape rhythm","type":"ventricular_escape","choices":["Ventricular escape rhythm","Idioventricular rhythm","Complete heart block","Asystole"],"why":"Very slow broad ventricular escape complexes occurring after pauses.","variant":1},{"id":"ventescape_3","label":"Ventricular escape rhythm","type":"ventricular_escape","choices":["Ventricular escape rhythm","Idioventricular rhythm","Complete heart block","Asystole"],"why":"Very slow broad ventricular escape complexes occurring after pauses.","variant":2},{"id":"av2to1_1","label":"2:1 AV block","type":"av_2to1","choices":["2:1 AV block","Mobitz II","Mobitz I / Wenckebach","Complete heart block"],"why":"Every other P wave is nonconducted; surface ECG alone may not reliably classify Mobitz I vs II.","variant":0},{"id":"av2to1_2","label":"2:1 AV block","type":"av_2to1","choices":["2:1 AV block","Mobitz II","Mobitz I / Wenckebach","Complete heart block"],"why":"Every other P wave is nonconducted; surface ECG alone may not reliably classify Mobitz I vs II.","variant":1},{"id":"av2to1_3","label":"2:1 AV block","type":"av_2to1","choices":["2:1 AV block","Mobitz II","Mobitz I / Wenckebach","Complete heart block"],"why":"Every other P wave is nonconducted; surface ECG alone may not reliably classify Mobitz I vs II.","variant":2},{"id":"sinuspause_1","label":"Sinus pause / arrest","type":"sinus_pause","choices":["Sinus pause / arrest","2:1 AV block","Asystole","Sinus bradycardia"],"why":"A pause occurs because expected sinus P waves are absent, followed by resumption or an escape beat.","variant":0},{"id":"sinuspause_2","label":"Sinus pause / arrest","type":"sinus_pause","choices":["Sinus pause / arrest","2:1 AV block","Asystole","Sinus bradycardia"],"why":"A pause occurs because expected sinus P waves are absent, followed by resumption or an escape beat.","variant":1},{"id":"sinuspause_3","label":"Sinus pause / arrest","type":"sinus_pause","choices":["Sinus pause / arrest","2:1 AV block","Asystole","Sinus bradycardia"],"why":"A pause occurs because expected sinus P waves are absent, followed by resumption or an escape beat.","variant":2},{"id":"preexcited_1","label":"Pre-excited AF / irregular WCT","type":"preexcited_af","choices":["Pre-excited AF / irregular WCT","AF with aberrancy / irregular WCT","Monomorphic VT","SVT"],"why":"Very rapid irregular wide-complex rhythm with variable QRS morphology; avoid routine AV nodal blockers if pre-excitation is suspected.","variant":0},{"id":"preexcited_2","label":"Pre-excited AF / irregular WCT","type":"preexcited_af","choices":["Pre-excited AF / irregular WCT","AF with aberrancy / irregular WCT","Monomorphic VT","SVT"],"why":"Very rapid irregular wide-complex rhythm with variable QRS morphology; avoid routine AV nodal blockers if pre-excitation is suspected.","variant":1},{"id":"preexcited_3","label":"Pre-excited AF / irregular WCT","type":"preexcited_af","choices":["Pre-excited AF / irregular WCT","AF with aberrancy / irregular WCT","Monomorphic VT","SVT"],"why":"Very rapid irregular wide-complex rhythm with variable QRS morphology; avoid routine AV nodal blockers if pre-excitation is suspected.","variant":2},{"id":"organized_1","label":"Organized rhythm — check pulse","type":"organized_narrow","choices":["Organized rhythm — check pulse","VF","Asystole","Torsades"],"why":"ECG alone cannot diagnose PEA; if no pulse despite organized electrical activity, then it is PEA.","variant":0},{"id":"organized_2","label":"Organized rhythm — check pulse","type":"organized_narrow","choices":["Organized rhythm — check pulse","VF","Asystole","Torsades"],"why":"ECG alone cannot diagnose PEA; if no pulse despite organized electrical activity, then it is PEA.","variant":1},{"id":"organized_3","label":"Organized rhythm — check pulse","type":"organized_narrow","choices":["Organized rhythm — check pulse","VF","Asystole","Torsades"],"why":"ECG alone cannot diagnose PEA; if no pulse despite organized electrical activity, then it is PEA.","variant":2}];
+const ecgLab={q:null,correct:0,total:0,streak:0,recent:[],showHint:false};
+function newEcgLabQuestion(){const pool=ECG_BANK.filter(q=>!ecgLab.recent.includes(q.label));const q=pick(pool.length?pool:ECG_BANK);ecgLab.q=q;ecgLab.recent=[q.label,...ecgLab.recent.filter(x=>x!==q.label)].slice(0,20);document.getElementById('ecgLabStrip').innerHTML=renderEcgStrip(q.type,q.variant||0);document.getElementById('ecgLabChoices').innerHTML=q.choices.map(c=>`<button class="action ghost" onclick="answerEcgLab(decodeURIComponent('${encodeURIComponent(c)}'))">${escapeHtml(c)}</button>`).join('');document.getElementById('ecgLabPrompt').textContent=ecgLab.showHint?`提示：${q.why}`:'判讀這段 rhythm strip。';document.getElementById('ecgLabType').textContent='Rhythm ?';document.getElementById('ecgLabFeedback').className='mega-feedback';document.getElementById('ecgLabFeedback').textContent='選擇最符合的節律。';const ans=document.getElementById('ecgLabAnswer');ans.className='answer-box hidden';ans.innerHTML=''}
+function answerEcgLab(choice){if(!ecgLab.q)return;ecgLab.total++;const ok=choice===ecgLab.q.label;const fb=document.getElementById('ecgLabFeedback');if(ok){ecgLab.correct++;ecgLab.streak++;fb.className='mega-feedback good';fb.innerHTML=`✓ 判讀正確<br><b>正解：${escapeHtml(ecgLab.q.label)}</b><br>${escapeHtml(ecgLab.q.why)}`}else{ecgLab.streak=0;fb.className='mega-feedback bad';fb.innerHTML=`✕ 你選的是 ${escapeHtml(choice)}<br><b>正解：${escapeHtml(ecgLab.q.label)}</b><br>${escapeHtml(ecgLab.q.why)}`}const ans=document.getElementById('ecgLabAnswer');ans.className='answer-box'+(ok?'':' bad');ans.classList.remove('hidden');ans.style.display='block';ans.innerHTML=`<b>正解：${escapeHtml(ecgLab.q.label)}</b><br>判讀重點：${escapeHtml(ecgLab.q.why)}`;document.getElementById('ecgLabScore').textContent=`Score ${ecgLab.correct}/${ecgLab.total}`;document.getElementById('ecgLabStreak').textContent=`Streak ${ecgLab.streak}`;document.getElementById('ecgLabType').textContent=ecgLab.q.label;document.getElementById('ecgLabChoices').innerHTML=ecgLab.q.choices.map(c=>`<button class="action ghost ${c===ecgLab.q.label?'ecg-choice-correct':c===choice&&!ok?'ecg-choice-wrong':''}" disabled>${escapeHtml(c)}</button>`).join('')}
+function resetEcgLab(){Object.assign(ecgLab,{q:null,correct:0,total:0,streak:0,recent:[],showHint:false});document.getElementById('ecgLabScore').textContent='Score 0/0';document.getElementById('ecgLabStreak').textContent='Streak 0';document.getElementById('ecgLabType').textContent='Rhythm --';document.getElementById('ecgLabStrip').innerHTML='';document.getElementById('ecgLabChoices').innerHTML='';document.getElementById('ecgLabFeedback').className='mega-feedback';document.getElementById('ecgLabFeedback').textContent='分數已重設。';const ans=document.getElementById('ecgLabAnswer');ans.className='answer-box hidden';ans.innerHTML='';document.getElementById('ecgLabPrompt').textContent='按「隨機下一題」開始。'}
+function toggleEcgLabLabels(){ecgLab.showHint=!ecgLab.showHint;if(ecgLab.q)document.getElementById('ecgLabPrompt').textContent=ecgLab.showHint?`提示：${ecgLab.q.why}`:'判讀這段 rhythm strip。';toast(ecgLab.showHint?'ECG 提示開啟':'ECG 提示關閉')}
+function megaHint(){if(!state.mega||!state.mega.case){toast('請先開始病例');return}const st=megaStage();state.mega.hints++;const fb=document.getElementById('megaFeedback');fb.className='mega-feedback';fb.textContent=`💡 ${st.hint}`;if(state.mega.mode==='exam')toast('Exam mode：使用 Hint 會記錄於 debrief');saveState()}
+function megaTotalRequired(c){let n=0;c.stages.forEach(st=>{n+=(st.required||[]).length;n+=(st.oneOf||[]).length;if(st.cause&&!(st.required||[]).includes('treat_cause'))n++});return n}
+function finishMegaCase(){if(!state.mega||!state.mega.case){toast('尚未開始病例');return}const m=state.mega,c=m.case,total=megaTotalRequired(c);let uniqueCorrect=0;Object.values(m.stageDone).forEach(d=>uniqueCorrect+=Object.keys(d).length);let missed=[];c.stages.forEach((sg,i)=>megaMissingForStage(sg,i).forEach(x=>missed.push(`Stage ${i+1}: ${x}`)));const raw=Math.round(100*(Math.min(uniqueCorrect,total)/Math.max(total,1))-m.errors.length*4-m.hints*2),score=Math.max(0,Math.min(100,raw)),pass=score>=80&&m.errors.length<=2;const errorItems=m.errors.length?m.errors.map(e=>`Stage ${e.stage+1}: ${e.detail}`):['無明顯錯誤處置'],missedItems=missed.length?missed:['所有 Stage 必要關鍵步驟均已完成'];const answerReview=[];c.stages.forEach((sg,i)=>{if(sg.ecg){const attempts=m.history.filter(h=>h.stage===i&&h.action==='identify_ecg');const user=attempts.length?attempts[attempts.length-1].detail.replace(/^ECG: /,''):'未作答';answerReview.push(`Stage ${i+1} ECG｜你的答案：${user}｜正解：${sg.ecg.correct}`)}if(sg.energyQuestion){const attempts=m.history.filter(h=>h.stage===i&&h.action==='select_energy');const user=attempts.length?attempts[attempts.length-1].detail.replace(/^Energy: /,''):'未作答';answerReview.push(`Stage ${i+1} Energy｜你的答案：${user}｜正解：${sg.energyQuestion.correct}`)}});const el=document.getElementById('megaDebrief');el.classList.remove('hidden');el.innerHTML=`<h3>${pass?'✅':'⚠️'} Mega Code Debrief · ${score}/100</h3><div class="mega-score"><span class="tag">${escapeHtml(c.family)}</span><span class="tag">Correct ${uniqueCorrect}/${total}</span><span class="tag alert">Errors ${m.errors.length}</span><span class="tag">Hints ${m.hints}</span><span class="tag">Mode ${escapeHtml(m.mode)}</span></div><p class="hint">本分數是教學用 sequence score，不代表正式 ACLS competency certification。</p><b style="font-size:12px">錯誤 / 非優先處置</b><ul>${errorItems.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul><b style="font-size:12px">尚未完成</b><ul>${missedItems.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul><b style="font-size:12px">標準答案回顧</b><ul>${(answerReview.length?answerReview:['本題無 ECG / energy 題']).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul><b style="font-size:12px">本題重點</b><ul>${c.debrief.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>`;el.scrollIntoView({behavior:'smooth',block:'start'});log(`Mega Code debrief: ${score}/100`,'mega_debrief',{pathway:c.family})}
+
+function resetPathwayUI(){state.atropineTotal=0;state.bradyCompromise=null;state.bradyCauses={};state.tachyCauses={};state.tachyUnstable=null;state.tachyWide=null;state.tachyRegular=null;state.selectedCardio=null;['bradyStable','bradyUnstable','bradyTreatment','tachyUnstable','tachyStable','tachyWide','tachyNarrow','wideAdenosine','narrowRegularActions'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('flowhidden')});clearActive(['bradyCompYes','bradyCompNo','tachyUnstableYes','tachyUnstableNo']);document.querySelectorAll('#tachyUnstable .cardio-grid button').forEach(b=>b.classList.remove('active-choice'));document.querySelectorAll('.brady-cause,.tachy-cause').forEach(b=>{b.dataset.stage='0';b.classList.remove('suspected','treated')});const ab=document.getElementById('atropineBtn');if(ab)ab.textContent='Atropine 1 mg IV';const bs=document.getElementById('bradyStatus');if(bs)bs.textContent='未分流';const ts=document.getElementById('tachyStatus');if(ts)ts.textContent='未分流'}
+function switchMode(mode){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));['arrest','brady','tachy','mega','ecg','rosc'].forEach(m=>document.getElementById(m+'Mode').classList.toggle('hidden',m!==mode));const arrestOnly=mode==='arrest';document.querySelector('.footerbar').classList.toggle('hidden',!arrestOnly);document.querySelector('.cyclebox').classList.toggle('hidden',!arrestOnly);document.querySelector('.progress').classList.toggle('hidden',!arrestOnly);document.querySelector('.statusline').classList.toggle('hidden',!arrestOnly);if(mode!=='mega')stopMegaPressureTimer();if(mode==='brady'){document.getElementById('nextAction').innerHTML='Bradycardia with a Pulse<small>先 ABCs / O₂ as indicated / monitor；依 '+providerLabel()+' scope 處置與後送</small>'}else if(mode==='tachy'){document.getElementById('nextAction').innerHTML='Tachyarrhythmia with a Pulse<small>先 airway / O₂ if hypoxemic / monitor / 12-lead；依 '+providerLabel()+' scope 處置與後送</small>'}else if(mode==='mega'){document.getElementById('nextAction').innerHTML='ACLS Mega Code Simulator<small>所有 EMT level 均可完整練習；題目中的進階處置為 ACLS 知識測驗，不等同現場執行 scope</small>';if(state.mega&&state.mega.case){renderMega();if(state.mega.mode==='pressure')startMegaPressureTimer(true)}}else if(mode==='ecg'){document.getElementById('nextAction').innerHTML='ECG Rhythm Lab<small>節律辨識訓練；是否可據此執行處置仍依 EMT level / local protocol</small>';if(!ecgLab.q)newEcgLabQuestion()}else if(mode==='rosc'){document.getElementById('nextAction').innerHTML='ROSC / Transport<small>Stabilize airway / breathing / circulation、monitor rhythm、pre-alert、transport / handoff</small>'}else updateNext()}
+updateDateTime();applyProviderMode(getProviderMode());restoreState();restoreBradyCauses();restoreTachyCauses();if(state.atropineTotal){document.getElementById('atropineBtn').innerHTML=`Atropine 1 mg IV<br><small>Total ${state.atropineTotal} / 3 mg</small>`}updateNext();syncButtons();
+</script>
+</body>
+</html>
