@@ -1,4 +1,4 @@
-# EMT Code Leader v2.4
+# EMT Code Leader v2.3.1
 
 純 EMT 版成人急救 cognitive aid / training prototype，提供三種層級切換：**EMT-1 / EMT-2 / EMT-P**。
 
@@ -54,10 +54,8 @@
 - PWA navigation changed to network-first with stale EMT cache cleanup.
 - `index-v231.html` is included as a one-time cache-bypass entry point for old GitHub/PWA installations.
 
-
-## v2.4 — Patient Vitals
-- Added universal Initial / Latest Vitals panel visible across Arrest, Brady, Tachy, Mega Code, ECG Lab and ROSC/Transport.
-- HR, BP, RR, SpO2, blood glucose, GCS and temperature can be time-stamped as Initial vitals and serial Reassessment.
-- Latest values remain visible; first observed values are retained as Initial values.
-- Blood glucose recorded from EMT scope panels also updates the Latest Vitals display.
-- CSV now includes structured vital-sign columns and Initial/Latest vitals are included in copied summaries.
+## v2.4.1 — Safe Vitals Restore
+- Rebuilt from the verified v2.3.1 base after discarding the broken v2.4 layout.
+- Brady / Tachy / Mega Code / ECG Lab / ROSC / Arrest module HTML is unchanged from v2.3.1.
+- Added only a compact latest-vitals strip plus modal entry form for HR, BP, RR, SpO2, glucose, GCS and temperature.
+- Initial vitals and reassessments are timestamped to Timeline/CSV; field glucose updates the latest glucose display.
