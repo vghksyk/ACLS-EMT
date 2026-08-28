@@ -66,7 +66,14 @@
 - Mega Code / ECG Lab / ROSC / Transport 自動隱藏 Vitals bar；這三個模組內容與邏輯不變。
 
 
-## v2.4.3
+## v2.4.4
 - Patient Vitals bar 顯示於 Arrest / Brady / Tachy / ROSC-Transport。
 - Mega Code / ECG Lab 隱藏 Patient Vitals bar。
 - 其他主模組內容與流程不變。
+
+
+## v2.4.4 Mega Code defibrillation energy
+- VF/pVT arrest stages now require selecting biphasic defibrillation energy before SHOCK.
+- Initial generic simulator choices: 120/150/200 J or Maximum available, reflecting manufacturer-dependent AHA 2025 guidance.
+- Subsequent shock selections cannot be lower than the prior valid numeric setting; same or higher is accepted.
+- Debrief records energy selection for every shockable stage.
