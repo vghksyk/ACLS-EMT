@@ -1,97 +1,21 @@
-# EMT Code Leader v2.3.1
+# EMT Code Leader v2.7 — Learner Hub + Quiz 260
 
-純 EMT 版成人急救 cognitive aid / training prototype，提供三種層級切換：**EMT-1 / EMT-2 / EMT-P**。
+開發者：奇美加護醫學部專科護理師 洪苡瑾
 
-## Scope design
+## v2.7 主要更新
+- learner-first 首頁：EMT 題庫 / ECG 判讀 / Mega Code 三個主要入口。
+- EMT 題庫 260 題：65 個核心概念 × 4 種情境問法。
+- 題庫依 EMT level 過濾：
+  - EMT-1：common / EMT-1 核心
+  - EMT-2：另加入 peripheral IV、N/S、LR、injectable glucose、SGA、EtCO₂ 等訓練
+  - EMT-P：再加入需 local protocol / medical direction 的 advanced procedure / medication concepts
+- Practice / Exam（20/50/100 題）/ 錯題重練。
+- ECG Lab 93 → 155 strips，保留 31 diagnoses，新增 AV Block Focus。
+- AV block synthetic strips 強化 1° / Mobitz I / Mobitz II 差異。
+- 原本 33 個 Mega Code、FIELD CAPTURE、AUTO REPORT、EMT-1/2/P scope 分層均保留。
+- 補齊 PWA manifest / service worker / icons。
 
-依台灣現行《救護技術員管理辦法》（2025-01-01 起施行）做預設視圖：
+## Governance
+本系統為教育／prototype。EMT-P advanced drugs、ETT、manual defibrillation、TCP 等實際執行須依所在地預立醫療流程 / medical direction；EMT-P 藥物並非全台單一 formulary。
 
-- **EMT-1**：BLS、生命徵象 / SpO₂、O₂、OPA/NPA、suction、ECG / 12-lead、AED、blood glucose 等基礎項目。
-- **EMT-2**：包含 EMT-1，另顯示 peripheral IV、指定輸液相關 scope、SGA、EtCO₂。
-- **EMT-P**：包含 EMT-2；依預立醫療流程 / medical direction 顯示 advanced medication、ETT、manual defibrillation / cardioversion、TCP 等進階功能。
-
-地方主管機關核定的擴充救護項目仍以所在地 protocol / medical direction 為準；本工具不是全國統一預立醫療流程，也不是醫療指令。
-
-## Main modules
-
-- Cardiac Arrest / CPR / AED or manual defibrillation by EMT level
-- Bradycardia with pulse
-- Tachyarrhythmia with pulse
-- ACLS Mega Code simulator（EMT-1 / EMT-2 / EMT-P 全部可使用）
-- ECG Rhythm Lab
-- ROSC / Transport / pre-alert / handoff
-- Local timeline, CSV export, share and summary
-- PWA / offline support
-
-公開署名：**奇美加護醫學部專科護理師 洪苡瑾**
-
-
-## v2.3.1 Training access
-
-- EMT-1、EMT-2、EMT-P 都保留完整 **ACLS Mega Code** 與 **ECG Rhythm Lab**。
-- Mega Code 內的 advanced drugs、manual defibrillation、synchronized cardioversion、TCP、ETT 等按鈕是 **ACLS knowledge / exam answers**。
-- 臨床操作頁仍依 EMT level 隱藏超出 scope 的處置，因此「會考」與「現場可執行」分開呈現。
-
-
-## v2.3.1 navigation fix
-- Restored main tab click handlers for Arrest / Brady / Tachy / Mega Code / ECG Lab / ROSC.
-- Verified every inline onclick handler resolves to an existing JavaScript function.
-
-
-## v2.3.1 Scope-aware field update
-- EMT-1: blood glucose + oral glucose; no peripheral IV / SGA / ETT / manual defib / advanced IV drugs in field UI.
-- EMT-2: peripheral IV + injectable glucose solution / Lactated Ringer’s / 0.9% N/S; SGA + EtCO2; no ETT.
-- EMT-P: advanced drugs / ETT / manual shock / TCP only when authorized by local preplanned medical protocol / medical direction.
-- Added clickable human IV-site map (L/R AC, forearm, hand), IV gauge, fluid/dose logging, and CSV fields.
-- Reversible causes use `suspected -> scope action / escalation`, not `treated`.
-- EMT-P medication panel explicitly labels amiodarone/lidocaine/NaHCO3/MgSO4 as protocol-dependent; NaHCO3 is special-circumstance only, MgSO4 is tagged for TdP/long-QT contexts.
-
-
-## v2.3.1 tab/cache fix
-- Restored robust navigation for Brady / Tachy / Mega Code / ECG Lab / ROSC across EMT-1, EMT-2, EMT-P.
-- Tabs use direct onclick plus delegated fallback handler.
-- Removed legacy logic that redirected EMT-1/2 away from Mega Code.
-- PWA navigation changed to network-first with stale EMT cache cleanup.
-- `index-v231.html` is included as a one-time cache-bypass entry point for old GitHub/PWA installations.
-
-## v2.4.1 — Safe Vitals Restore
-- Rebuilt from the verified v2.3.1 base after discarding the broken v2.4 layout.
-- Brady / Tachy / Mega Code / ECG Lab / ROSC / Arrest module HTML is unchanged from v2.3.1.
-- Added only a compact latest-vitals strip plus modal entry form for HR, BP, RR, SpO2, glucose, GCS and temperature.
-- Initial vitals and reassessments are timestamped to Timeline/CSV; field glucose updates the latest glucose display.
-
-
-## v2.4.2
-- Patient Vitals bar 只在 Arrest / Brady / Tachy 顯示。
-- Mega Code / ECG Lab / ROSC / Transport 自動隱藏 Vitals bar；這三個模組內容與邏輯不變。
-
-
-## v2.5
-- Patient Vitals bar 顯示於 Arrest / Brady / Tachy / ROSC-Transport。
-- Mega Code / ECG Lab 隱藏 Patient Vitals bar。
-- 其他主模組內容與流程不變。
-
-
-## v2.5 Mega Code defibrillation energy
-- VF/pVT arrest stages now require selecting biphasic defibrillation energy before SHOCK.
-- Initial generic simulator choices: 120/150/200 J or Maximum available, reflecting manufacturer-dependent AHA 2025 guidance.
-- Subsequent shock selections cannot be lower than the prior valid numeric setting; same or higher is accepted.
-- Debrief records energy selection for every shockable stage.
-
-
-## v2.5 Field Lite
-- Added three workflows: FIELD CAPTURE / TRAIN-ACLS / AUTO REPORT.
-- FIELD CAPTURE is a one-screen, one-tap event dashboard. Detailed vitals, IV/fluid, ETT and medication fields open only when needed.
-- AUTO REPORT automatically groups initial/latest vitals, shocks, medications, airway, IV/fluid, ROSC and event timeline.
-- Mega Code/training events are excluded from field Auto Report.
-- ROSC in FIELD mode records the event and stays on the dashboard instead of forcing a page transition.
-- Existing Arrest / Brady / Tachy / Mega Code / ECG Lab / ROSC modules are retained as TRAIN / detailed pathways.
-
-## v2.6 — NFA-aligned de-identified report prototype
-- FIELD / REPORT only; ACLS training modules preserved unchanged from v2.5.
-- Adds optional de-identified case profile: sex, approximate age, broad case type, chief-problem category, disposition and destination basis.
-- Does NOT collect patient name, ID/passport/resident number, DOB, phone, full address, family contact or signature.
-- Adds one-tap mission timestamps: dispatch/assigned, arrived scene, patient contact, departed scene, arrived hospital.
-- AUTO REPORT is reorganized into mission/case, de-identified patient overview, assessment/vitals, prehospital interventions, transport/handoff, and event timeline.
-- CSV adds case-profile and mission-label columns; training events remain excluded from AUTO REPORT.
-- This is an NFA-aligned prototype, not an official rescue record form or formal TEMSIS integration.
+© 2026 洪苡瑾 版權所有｜請勿二改。
